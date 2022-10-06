@@ -1,5 +1,16 @@
 import os
+import pytest
 import navocab
+
+
+@pytest.fixture()
+def test_01():
+    source = "data/test_01.ttl"
+    dest = "data/test.db"
+    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
+    v.load(source)
+    yield v
+    os.unlink(dest)
 
 
 def test_load():
@@ -17,83 +28,56 @@ def test_load():
     v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
     v.load(source, bindings=NS)
     assert len(v) == 33
+    # Loading the same content again should not add any statements
+    v.load(source, bindings=NS)
+    assert len(v) == 33
     os.unlink(dest)
 
 
-def test_vocabularies():
-    source = "data/test_01.ttl"
-    dest = "data/test.db"
-    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
-    v.load(source)
-    vocabs = v.vocabularies()
+def test_vocabularies(test_01):
+    vocabs = test_01.vocabularies()
     assert len(vocabs) == 1
     assert str(vocabs[0]) == "https://w3id.org/isample/vocabulary/test/1/testvocabulary"
-    os.unlink(dest)
 
 
-def test_root():
+def test_root(test_01):
     vocab = "https://w3id.org/isample/vocabulary/test/1/testvocabulary"
-    source = "data/test_01.ttl"
-    dest = "data/test.db"
-    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
-    v.load(source)
-    roots = v.getVocabRoot(vocab)
+    roots = test_01.getVocabRoot(vocab)
     assert len(roots) == 1
     assert str(roots[0]) == "https://w3id.org/isample/vocabulary/test/1/rootterm"
-    os.unlink(dest)
 
 
-def test_concepts():
+def test_concepts(test_01):
     vocab = "https://w3id.org/isample/vocabulary/test/1/testvocabulary"
-    source = "data/test_01.ttl"
-    dest = "data/test.db"
-    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
-    v.load(source)
-    concepts = v.concepts(vocab)
+    concepts = test_01.concepts(vocab)
     assert len(concepts) == 5
-    concepts = v.concepts()
+    concepts = test_01.concepts()
     assert len(concepts) == 6
-    os.unlink(dest)
 
 
-def test_narrower():
-    vocab = "https://w3id.org/isample/vocabulary/test/1/testvocabulary"
+def test_narrower(test_01):
     root = "https://w3id.org/isample/vocabulary/test/1/rootterm"
-    source = "data/test_01.ttl"
-    dest = "data/test.db"
-    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
-    v.load(source)
-    ns = v.narrower(root)
+    vocab = "https://w3id.org/isample/vocabulary/test/1/testvocabulary"
+    ns = test_01.narrower(root)
     assert len(ns) == 3
-    ns = v.narrower(root, vocab)
+    ns = test_01.narrower(root, vocab)
     assert len(ns) == 2
-    os.unlink(dest)
 
 
-def test_broader():
+def test_broader(test_01):
     root = "https://w3id.org/isample/vocabulary/test/1/rootterm"
     term = "https://w3id.org/isample/vocabulary/test/1/level1b"
-    source = "data/test_01.ttl"
-    dest = "data/test.db"
-    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
-    v.load(source)
-    ns = v.broader(term)
+    ns = test_01.broader(term)
     assert len(ns) == 1
     assert str(ns[0]) == root
-    ns = v.broader(root)
+    ns = test_01.broader(root)
     assert len(ns) == 0
-    os.unlink(dest)
 
 
-def test_match():
-    source = "data/test_01.ttl"
-    dest = "data/test.db"
-    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
-    v.load(source)
-    res = v.match("foobar")
+def test_match(test_01):
+    res = test_01.match("foobar")
     assert len(res) == 0
-    res = v.match("once removed")
+    res = test_01.match("once removed")
     assert len(res) == 2
-    res = v.match("once OR twice")
+    res = test_01.match("once OR twice")
     assert len(res) == 4
-    os.unlink(dest)

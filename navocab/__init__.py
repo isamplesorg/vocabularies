@@ -1,4 +1,6 @@
 """
+Provides a convenience wrapper for vocabularies expressed in SKOS rdf.
+
 Part of the iSamples project.
 """
 import dataclasses
@@ -69,6 +71,9 @@ PREFIX rdfs: <{NS['rdfs']}>
         return len(self._g)
 
     def _initialize_store(self, purge=False):
+        """Sets up the rdf store using an Sqlite cache.
+        
+        """
         graph = rdflib.ConjunctiveGraph("SQLAlchemy", identifier=self.store_identifier)
         if purge:
             graph.destroy(self.storage_uri)
