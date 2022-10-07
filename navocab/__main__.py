@@ -101,6 +101,7 @@ def load(ctx, uri):
     help="Bind new prefix to namespace, like: 'eg=https://example.com/'",
 )
 def namespaces(ctx, bind):
+    """List available namespaces and their prefixes."""
     L = getLogger()
     _s = ctx.obj["store"]
     if bind is not None:
