@@ -39,3 +39,21 @@ Commands:
   roots       Retrieve the vocabulary root term(s).
   vocabs      List the vocabulary URIs in the store.
 ```
+
+### `load` 
+
+`navocab` keeps loaded vocabularies in an sqlite cache. To load a vocabulary, provide the local or remote address of the vocabulary turtle file. The default database name is `vocabularies.db` in the current directory.
+
+```
+navocab load https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/sampledFeature.ttl
+...
+2022-10-07 10:58:30,435 navocab:INFO: Graph now has 180 statements.
+```
+
+Note: load currently issues a bunch of `SQLAlchemy.bind()` warnings. This is due to a pending update in one of the rdflib libraries.
+
+To load all the current (2022-10-07) vocabularies and extensions:
+
+```
+
+```

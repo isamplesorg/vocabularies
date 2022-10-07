@@ -48,6 +48,16 @@ LOG_LEVELS = {
     "CRITICAL": logging.CRITICAL,
 }
 
+CURRENT_ISAMPLES_VOCABULARIES = [
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/sampledFeature.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/materialType.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/materialSampleType.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/mineralGroup.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/iSamplesGeoMaterials.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/rockSedimentExtension.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/OpenContextMaterial.ttl",
+]
+
 
 def getLogger():
     return logging.getLogger("navocab")
@@ -87,9 +97,13 @@ def load(ctx, uri):
     """Load RDF from the provided local or remote URI."""
     L = getLogger()
     _s = ctx.obj["store"]
-    L.info("Loading URI: %s", uri)
-    _s.load(uri)
-    L.info("Graph now has %s statements.", len(_s._g))
+    uris = [uri, ]
+    if uri =="known":
+        uris = CURRENT_ISAMPLES_VOCABULARIES
+    for uri in uris:
+        L.info("Loading URI: %s", uri)
+        _s.load(uri)
+        L.info("Graph now has %s statements.", len(_s._g))
 
 
 @main.command("namespaces")
