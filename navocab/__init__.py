@@ -71,9 +71,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         return len(self._g)
 
     def _initialize_store(self, purge=False):
-        """Sets up the rdf store using an Sqlite cache.
-        
-        """
+        """Sets up the rdf store using an Sqlite cache."""
         graph = rdflib.ConjunctiveGraph("SQLAlchemy", identifier=self.store_identifier)
         if purge:
             graph.destroy(self.storage_uri)
@@ -119,7 +117,31 @@ PREFIX rdfs: <{NS['rdfs']}>
             for k, v in bindings.items():
                 self._g.bind(k, v)
 
-    def vocabularies(self) -> list[rdflib.term.URIRef]:
+    def expand_name(self, n: typing.Optional[str]) -> typing.Optional[str]:
+        if n is None:
+            return n
+        try:
+            return self._g.namespace_manager.expand_curie(n)
+        except (ValueError, TypeError):
+            pass
+        return n
+
+    def _one_res(self, rows, abbreviate=False) -> list[str]:
+        res = []
+        for r in rows:
+            if abbreviate:
+                res.append(rdflib.URIRef(r[0]).n3(self._g.namespace_manager))
+            else:
+                res.append(r[0])
+        return res
+
+    def namespaces(self) -> list[str, rdflib.URIRef]:
+        return [n for n in self._g.namespace_manager.namespaces()]
+
+    def bind(self, prefix: str, uri: str, override: bool = True):
+        self._g.namespace_manager.bind(prefix, uri, override=override)
+
+    def vocabularies(self, abbreviate: bool = True) -> list[str]:
         """List the vocabularies in the provided graph"""
         q = (
             Vocabulary._PFX
@@ -129,16 +151,17 @@ PREFIX rdfs: <{NS['rdfs']}>
         }"""
         )
         qres = self._g.query(q)
-        res = []
-        for r in qres:
-            res.append(r[0])
-        return res
+        return self._one_res(qres, abbreviate=abbreviate)
 
-    def getVocabRoot(self, v: str) -> list[str]:
+    def getVocabRoot(self, v: str, abbreviate: bool = False) -> list[str]:
         """Get top concept of the specific vocabulary.
 
         v is the URI of the vocabulary
         """
+        try:
+            v = self._g.namespace_manager.expand_curie(v)
+        except (ValueError, TypeError):
+            pass
         q = rdflib.plugins.sparql.prepareQuery(
             Vocabulary._PFX
             + """SELECT ?s
@@ -147,17 +170,20 @@ PREFIX rdfs: <{NS['rdfs']}>
         }"""
         )
         qres = self._g.query(q, initBindings={"vocabulary": v})
-        res = []
-        for row in qres:
-            res.append(row[0])
-        return res
+        return self._one_res(qres, abbreviate=abbreviate)
 
-    def concepts(self, v: typing.Optional[str] = None) -> list[rdflib.term.URIRef]:
+    def concepts(
+        self, v: typing.Optional[str] = None, abbreviate: bool = False
+    ) -> list[str]:
         """List the concept URIs in the specific vocabulary.
 
         Returns a list of the skos:Concept instances in the specified vocabulary
         as it exists in the current graph store.
         """
+        try:
+            v = self._g.namespace_manager.expand_curie(v)
+        except (ValueError, TypeError):
+            pass
         if v is None:
             q = (
                 Vocabulary._PFX
@@ -168,6 +194,10 @@ PREFIX rdfs: <{NS['rdfs']}>
             )
             qres = self._g.query(q)
         else:
+            try:
+                v = self._g.namespace_manager.expand_curie(v)
+            except ValueError:
+                pass
             q = (
                 Vocabulary._PFX
                 + """SELECT ?s
@@ -177,10 +207,7 @@ PREFIX rdfs: <{NS['rdfs']}>
                 }"""
             )
             qres = self._g.query(q, initBindings={"vocabulary": v})
-        res = []
-        for row in qres:
-            res.append(row[0])
-        return res
+        return self._one_res(qres, abbreviate=abbreviate)
 
     def objects(self, subject: str, predicate: str) -> list[str]:
         q = rdflib.plugins.sparql.prepareQuery(
@@ -201,7 +228,8 @@ PREFIX rdfs: <{NS['rdfs']}>
                 res.append(v)
         return res
 
-    def broader(self, concept: str, v: typing.Optional[str] = None) -> list[str]:
+    def broader(self, concept: str, v: typing.Optional[str] = None, abbreviate: bool = False) -> list[str]:
+        concept = self.expand_name(concept)
         if v is None:
             q = rdflib.plugins.sparql.prepareQuery(
                 Vocabulary._PFX
@@ -212,6 +240,7 @@ PREFIX rdfs: <{NS['rdfs']}>
             )
             qres = self._g.query(q, initBindings={"child": concept})
         else:
+            v = self.expand_name(v)
             q = rdflib.plugins.sparql.prepareQuery(
                 Vocabulary._PFX
                 + """SELECT ?s
@@ -224,11 +253,12 @@ PREFIX rdfs: <{NS['rdfs']}>
         res = []
         # Should only ever be a single broader term in a well constructed taxonomy,
         # but who knows how well these things are constructed?
-        for row in qres:
-            res.append(row[0])
-        return res
+        return self._one_res(qres, abbreviate=abbreviate)
 
-    def narrower(self, concept: str, v: typing.Optional[str] = None) -> list[str]:
+    def narrower(
+        self, concept: str, v: typing.Optional[str] = None, abbreviate: bool = False
+    ) -> list[str]:
+        concept = self.expand_name(concept)
         if v is None:
             q = rdflib.plugins.sparql.prepareQuery(
                 Vocabulary._PFX
@@ -239,6 +269,7 @@ PREFIX rdfs: <{NS['rdfs']}>
             )
             qres = self._g.query(q, initBindings={"parent": concept})
         else:
+            v = self.expand_name(v)
             q = rdflib.plugins.sparql.prepareQuery(
                 Vocabulary._PFX
                 + """SELECT ?s
@@ -248,12 +279,10 @@ PREFIX rdfs: <{NS['rdfs']}>
             }"""
             )
             qres = self._g.query(q, initBindings={"vocabulary": v, "parent": concept})
-        res = []
-        for row in qres:
-            res.append(row[0])
-        return res
+        return self._one_res(qres, abbreviate=abbreviate)
 
     def concept(self, term: str):
+        term = self.expand_name(term)
         if "#" in term:
             ab = term.split("#")
         else:
@@ -276,7 +305,9 @@ PREFIX rdfs: <{NS['rdfs']}>
             narrower=narrower,
         )
 
-    def match(self, q) -> list[tuple[rdflib.URIRef, rdflib.URIRef, str, float]]:
+    def match(
+        self, q, predicate=None
+    ) -> list[tuple[rdflib.URIRef, rdflib.URIRef, str, float]]:
         """
         Return a list of subject,predicate,object,rank that match the provided FTS query.
 
@@ -284,12 +315,16 @@ PREFIX rdfs: <{NS['rdfs']}>
         and indicates the relevance of the result to the query. Lower values (i.e. more negative)
         indicate higher relevance.
         """
+        where_clause = f"{self._litfts} MATCH :query"
+        if predicate is not None:
+            predicate = self.expand_name(predicate)
+            where_clause = f"a.predicate = :predicate AND {where_clause}"
         sql = sqlalchemy.text(
             f"""SELECT a.subject, a.predicate, a.object, b.rank FROM {self._literals} AS a
             INNER JOIN {self._litfts} AS b on a.rowid=b.rowid 
-            WHERE {self._litfts} MATCH :query ORDER BY rank;"""
+            WHERE {where_clause} ORDER BY rank;"""
         )
-        rows = self._g.store.engine.execute(sql, {"query": q})
+        rows = self._g.store.engine.execute(sql, {"query": q, "predicate": predicate})
         result = []
         for row in rows:
             result.append(

@@ -35,9 +35,12 @@ def test_load():
 
 
 def test_vocabularies(test_01):
-    vocabs = test_01.vocabularies()
+    vocabs = test_01.vocabularies(abbreviate=False)
     assert len(vocabs) == 1
     assert str(vocabs[0]) == "https://w3id.org/isample/vocabulary/test/1/testvocabulary"
+    vocabs = test_01.vocabularies(abbreviate=True)
+    assert len(vocabs) == 1
+    assert str(vocabs[0]) == "test1:testvocabulary"
 
 
 def test_root(test_01):
