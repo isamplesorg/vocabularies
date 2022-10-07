@@ -306,7 +306,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         )
 
     def match(
-        self, q, predicate=None
+        self, q, predicate=None, abbreviate: bool = False
     ) -> list[tuple[rdflib.URIRef, rdflib.URIRef, str, float]]:
         """
         Return a list of subject,predicate,object,rank that match the provided FTS query.
@@ -327,9 +327,17 @@ PREFIX rdfs: <{NS['rdfs']}>
         rows = self._g.store.engine.execute(sql, {"query": q, "predicate": predicate})
         result = []
         for row in rows:
-            result.append(
-                (rdflib.URIRef(row[0]), rdflib.URIRef(row[1]), str(row[2]), row[3])
-            )
+            if abbreviate:
+                result.append((
+                    rdflib.URIRef(row[0]).n3(self._g.namespace_manager),
+                    rdflib.URIRef(row[1]).n3(self._g.namespace_manager),
+                    str(row[2]),
+                    row[3]
+                ))
+            else:
+                result.append(
+                    (rdflib.URIRef(row[0]), rdflib.URIRef(row[1]), str(row[2]), row[3])
+                )
         return result
 
     def resolve(self, uri: str):

@@ -55,5 +55,108 @@ Note: load currently issues a bunch of `SQLAlchemy.bind()` warnings. This is due
 To load all the current (2022-10-07) vocabularies and extensions:
 
 ```
+navocab load known
+```
+
+### Navigating
+
+To list the available vocabularies (namespace abbreviations can be listed with the `namespaces` operation):
+```
+$ navocab vocabs
+sf:sampledfeaturevocabulary
+mat:materialsvocabulary
+spec:specimentypevocabulary
+ming:mineralgroupvocabulary
+gmat:geomaterialsvocabulary
+```
+
+Or with full namespaces:
+```
+navocab vocabs -f
+https://w3id.org/isample/vocabulary/sampledfeature/0.9/sampledfeaturevocabulary
+https://w3id.org/isample/vocabulary/material/0.9/materialsvocabulary
+https://w3id.org/isample/vocabulary/specimentype/0.9/specimentypevocabulary
+https://w3id.org/isample/vocabulary/mingroup/0.9/mineralgroupvocabulary
+https://w3id.org/isample/vocabulary/geomaterial/0.9/geomaterialsvocabulary
+```
+
+The vocabulary root terms:
+```
+$ navocab roots
+sf:sampledfeaturevocabulary
+  sf:anysampledfeature
+
+mat:materialsvocabulary
+  mat:material
+
+spec:specimentypevocabulary
+  spec:physicalspecimen
+
+ming:mineralgroupvocabulary
+  No root terms in this vocabulary.
+
+gmat:geomaterialsvocabulary
+  No root terms in this vocabulary.
+```
+
+Narrower terms of `spec:physicalspecimen`:
 
 ```
+$ navocab narrower spec:physicalspecimen
+spec:anyaggregation
+  spec:anthropogenicaggregation
+  spec:biomeaggregation
+    spec:bundlebiomeaggregation
+    spec:slurrybiomeaggregation
+  spec:genericaggregation
+spec:artifact
+spec:biologicalspecimen
+  spec:biomeaggregation
+    spec:bundlebiomeaggregation
+    spec:slurrybiomeaggregation
+  spec:organismpart
+  spec:organismproduct
+  spec:wholeorganism
+spec:fluidincontainer
+spec:fossil
+spec:othersolidobject
+spec:researchproduct
+  spec:analyticalpreparation
+  spec:experimentalproduct
+```
+
+Finding concepts (`-c` to just list the concepts uri): 
+```
+navocab match oxide -c
+ming:oxidemineral
+ocmat:faience
+mat:liquidwater
+mat:anyanthropogenicmaterial
+```
+
+Matching strings in specific predicate:
+```
+navocab match oxide -c -p skos:prefLabel
+ming:oxidemineral
+```
+
+Full results:
+```
+navocab match oxide -p skos:prefLabel
+{
+  "uri": "https://w3id.org/isample/vocabulary/mingroup/0.9/oxidemineral",
+  "name": "oxidemineral",
+  "label": [
+    "Mineral-Oxide"
+  ],
+  "definition": "Includes class oxides, hydroxides, and arsenties. Oxides are 
+minerals in which the oxide anion is bonded to one or more metal alloys. The 
+hydroxide-bearing minerals are typically included in the oxide class. Arsenite 
+minerals are very rare oxygen-bearing arsenic minerals.",
+  "broader": [
+    "https://w3id.org/isample/vocabulary/material/0.9/mineral"
+  ],
+  "narrower": []
+}
+```
+

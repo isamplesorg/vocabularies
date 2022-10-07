@@ -77,7 +77,7 @@ def getDefaultVocabulary(vs, abbreviate=False):
 @click.option(
     "-s", "--store", default="vocabularies.db", help="SQLite db for vocabularies"
 )
-@click.option("--verbosity", default="INFO", help="Logging level")
+@click.option("--verbosity", default="ERROR", help="Logging level")
 def main(ctx, store, verbosity) -> int:
     verbosity = verbosity.upper()
     logging_config["loggers"][""]["level"] = verbosity
@@ -267,14 +267,17 @@ def get_concept(ctx, concept):
     "-p", "--predicate", default=None, help="Match only on objects of this predicate"
 )
 @click.pass_context
-def matchconcepts(ctx, query, concepts_only, predicate):
+@click.option(
+    "-f", "--full-uri", is_flag=True, help="Show expanded URIs instead of prefixed"
+)
+def matchconcepts(ctx, query, concepts_only, predicate, full_uri):
     """Perform a full text search against literal values in the store.
 
     QUERY is an sqlite fts match expression
     """
     L = getLogger()
     _s = ctx.obj["store"]
-    results = _s.match(query, predicate=predicate)
+    results = _s.match(query, predicate=predicate, abbreviate=(not full_uri))
     if len(results) < 1:
         L.warning("No matches")
         return
