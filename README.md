@@ -56,6 +56,8 @@ To load all the current (2022-10-07) vocabularies and extensions:
 
 ```
 navocab load known
+...
+2022-10-07 11:25:56,212 navocab:INFO: Graph now has 1414 statements.
 ```
 
 ### Navigating
