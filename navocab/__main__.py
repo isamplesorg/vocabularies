@@ -8,6 +8,7 @@ import logging
 import logging.config
 import sys
 import click
+import yaml
 import navocab
 
 logging_config = {
@@ -65,7 +66,7 @@ def getLogger():
 
 def getDefaultVocabulary(vs, abbreviate=False):
     L = getLogger()
-    vocabs = vs.vocabularies(abbreviate=abbreviate)
+    vocabs = vs.vocabulary_list(abbreviate=abbreviate)
     vocabulary = vocabs[0]
     if len(vocabs) > 1:
         L.warning("More than one vocabulary in store. Using: %s", vocabulary)
@@ -86,7 +87,7 @@ def main(ctx, store, verbosity) -> int:
     ctx.ensure_object(dict)
     store_uri = f"sqlite:///{store}"
     L.info("Using store at: %s", store_uri)
-    ctx.obj["store"] = navocab.Vocabulary(storage_uri=store_uri)
+    ctx.obj["store"] = navocab.VocabularyStore(storage_uri=store_uri)
     return 0
 
 
@@ -137,10 +138,18 @@ def namespaces(ctx, bind):
 def vocabularies(ctx, full_uri):
     """List the vocabulary URIs in the store."""
     _s = ctx.obj["store"]
-    vocabs = _s.vocabularies(abbreviate=(not full_uri))
-    for v in vocabs:
-        print(v)
 
+    vocabs = list(_s.vocabularies(abbreviate=(not full_uri)))
+    roots = []
+    for v in vocabs:
+        if v.extends is None:
+            roots.append(v)
+
+    for r in roots:
+        print(f"{r.label} ({r.uri})")
+        for v in vocabs:
+            if v.extends == r.uri:
+                print(f"  --extend--> {v.label} ({v.uri})")
 
 @main.command("concepts")
 @click.option(
@@ -173,7 +182,7 @@ def concepts(ctx, vocabulary, full_uri):
 def vocabulary_root(ctx, full_uri):
     """Retrieve the vocabulary root term(s)."""
     _s = ctx.obj["store"]
-    vocabs = _s.vocabularies(abbreviate=(not full_uri))
+    vocabs = _s.vocabulary_list(abbreviate=(not full_uri))
     for vocab in vocabs:
         roots = _s.getVocabRoot(vocab, abbreviate=(not full_uri))
         print(f"{vocab}")
@@ -295,6 +304,23 @@ def matchconcepts(ctx, query, concepts_only, predicate, full_uri):
             print(json.dumps(dataclasses.asdict(vt), indent=2))
             print()
 
+
+@main.command("yaml")
+@click.option(
+    "-v",
+    "--vocabulary",
+    default="default",
+    help="URI of vocabulary, 'default' to load first available.",
+)
+@click.pass_context
+def toYaml(ctx, vocabulary):
+    L = getLogger()
+    _s = ctx.obj["store"]
+    if vocabulary == "default":
+        vocabulary = getDefaultVocabulary(_s, abbreviate=True)
+        L.info("Loaded default vocabulary: %s", vocabulary)
+    res = _s.asDict()
+    print(yaml.dump(res))
 
 if __name__ == "__main__":
     sys.exit(main())
