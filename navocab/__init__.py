@@ -277,7 +277,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         except (ValueError, TypeError):
             pass
         q = rdflib.plugins.sparql.prepareQuery(
-            Vocabulary._PFX
+            VocabularyStore._PFX
             + """SELECT ?s
         WHERE {
             ?s skos:topConceptOf ?vocabulary .
@@ -287,7 +287,9 @@ PREFIX rdfs: <{NS['rdfs']}>
         return self._one_res(qres, abbreviate=abbreviate)
 
     def concepts(
-        self, v: typing.Optional[str] = None, abbreviate: bool = False
+        self,
+        v: typing.Optional[str] = None,
+        abbreviate: bool = False
     ) -> list[str]:
         """List the concept URIs in the specific vocabulary.
 
@@ -298,6 +300,7 @@ PREFIX rdfs: <{NS['rdfs']}>
             v = self._g.namespace_manager.expand_curie(v)
         except (ValueError, TypeError):
             pass
+
         if v is None:
             q = (
                 VocabularyStore._PFX
@@ -308,10 +311,6 @@ PREFIX rdfs: <{NS['rdfs']}>
             )
             qres = self._g.query(q)
         else:
-            try:
-                v = self._g.namespace_manager.expand_curie(v)
-            except ValueError:
-                pass
             q = (
                 VocabularyStore._PFX
                 + """SELECT ?s

@@ -161,8 +161,11 @@ def vocabularies(ctx, full_uri):
 @click.option(
     "-f", "--full-uri", is_flag=True, help="Show expanded URIs instead of prefixed"
 )
+@click.option(
+    "-e","--extensions", is_flag=True, help="Include registered vocabulary extensions"
+)
 @click.pass_context
-def concepts(ctx, vocabulary, full_uri):
+def concepts(ctx, vocabulary, full_uri, extensions):
     """List the skos:Concept entities in the selected vocabulary."""
     L = getLogger()
     _s = ctx.obj["store"]
@@ -185,12 +188,11 @@ def vocabulary_root(ctx, full_uri):
     vocabs = _s.vocabulary_list(abbreviate=(not full_uri))
     for vocab in vocabs:
         roots = _s.getVocabRoot(vocab, abbreviate=(not full_uri))
-        print(f"{vocab}")
-        for root in roots:
-            print(f"  {str(root)}")
-        if len(roots) < 1:
-            print("  No root terms in this vocabulary.")
-        print()
+        if len(roots) > 0:
+            print(f"{vocab}")
+            for root in roots:
+                print(f"  {str(root)}")
+            print()
 
 
 @main.command("broader")
@@ -238,9 +240,17 @@ def broader(ctx, vocabulary, concept, depth, full_uri):
 @click.option(
     "-f", "--full-uri", is_flag=True, help="Show expanded URIs instead of prefixed"
 )
+@click.option(
+    "-e", "--extensions", is_flag=True, help="Traverse vocabulary extensions"
+)
 @click.pass_context
-def narrower(ctx, vocabulary, concept, depth, full_uri):
-    """Perform a depth first traversal of the vocabulary starting from CONCEPT."""
+def narrower(ctx, vocabulary, concept, depth, full_uri, extensions):
+    """Perform a depth first traversal of the vocabulary starting from CONCEPT.
+
+    If CONCEPT = "root", all terms starting from the vocabulary root concept
+    are retrieved.
+    Uses the default vocabulary if none specified.
+    """
 
     def _narrower(s, v, c, indent=0, level=0, max=100):
         ns = s.narrower(c, v, abbreviate=(not full_uri))
@@ -254,8 +264,13 @@ def narrower(ctx, vocabulary, concept, depth, full_uri):
     if vocabulary == "default":
         vocabulary = getDefaultVocabulary(_s, abbreviate=(not full_uri))
         L.info("Loaded default vocabulary: %s", vocabulary)
+    if concept == "root":
+        concept = str(_s.getVocabRoot(vocabulary)[0])
+        L.info("Using %s as root concept", concept)
     if depth < 1:
         depth = 100
+    if extensions:
+        vocabulary = None
     _narrower(_s, vocabulary, concept, max=depth)
 
 
