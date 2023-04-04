@@ -273,6 +273,46 @@ def narrower(ctx, vocabulary, concept, depth, full_uri, extensions):
         vocabulary = None
     _narrower(_s, vocabulary, concept, max=depth)
 
+@main.command("uijson")
+@click.argument("vocabulary")
+@click.option(
+    "-e", "--extensions", is_flag=True, help="Traverse vocabulary extensions"
+)
+@click.pass_context
+def uijson(ctx, vocabulary, extensions):
+    """Render VOCABULARY as JSON suitable for inclusion in iSamples WebUI.
+    """
+    def _narrower(s, v, c, indent=0, level=0, max=100):
+        ns = s.narrower(c, v, abbreviate=False)
+        for n in ns:
+            _c = s.concept(n)
+            #TODO: use provided lang instead of assuming everything is @en
+            entry = {
+                "concept": str(n),
+                "label":{
+                    "en": _c.label[0] if len(_c.label)>0 else str(s.compact_name(n))
+                },
+                "children": []
+            }
+            if level < max:
+                for nn in _narrower(s, v, n, indent=indent + 2, level=level + 1, max=max):
+                    entry["children"].append(nn)
+            yield entry
+
+    L = getLogger()
+    _s = ctx.obj["store"]
+    if vocabulary == "default":
+        vocabulary = getDefaultVocabulary(_s, abbreviate=False)
+        L.info("Loaded default vocabulary: %s", vocabulary)
+    concept = str(_s.getVocabRoot(vocabulary)[0])
+    L.info("Using %s as root concept", concept)
+    if extensions:
+        vocabulary = None
+    result = []
+    for n in _narrower(_s, vocabulary, concept):
+        result.append(n)
+    print(json.dumps(result, indent=2))
+
 
 @main.command("concept")
 @click.argument("concept")
