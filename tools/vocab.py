@@ -89,7 +89,7 @@ def main(ctx, store, verbosity) -> int:
     L = getLogger()
     ctx.ensure_object(dict)
     store_uri = f"sqlite:///{store}"
-    L.info("Using store at: %s", store_uri)
+    L.debug("Using store at: %s", store_uri)
     ctx.obj["store"] = navocab.VocabularyStore(storage_uri=store_uri)
     return 0
 
@@ -323,9 +323,9 @@ def uijson(ctx, vocabulary, extensions):
     _s = ctx.obj["store"]
     if vocabulary == "default":
         vocabulary = getDefaultVocabulary(_s, abbreviate=False)
-        L.info("Loaded default vocabulary: %s", vocabulary)
+        L.debug("Loaded default vocabulary: %s", vocabulary)
     concept = str(_s.getVocabRoot(vocabulary)[0])
-    L.info("Using %s as root concept", concept)
+    L.debug("Using %s as root concept", concept)
     if extensions:
         vocabulary = None
     result = []
