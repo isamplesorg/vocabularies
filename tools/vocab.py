@@ -306,6 +306,19 @@ def uijson(ctx, vocabulary, extensions):
         }
         return entry
 
+    def _convert_to_ui_format(entry: dict) -> dict:
+        child_dict = {
+            "label": entry["label"]
+        }
+        ui_dict = {
+            entry["concept"]: child_dict
+        }
+        children = []
+        for child in entry["children"]:
+            children.append(_convert_to_ui_format(child))
+        child_dict["children"] = children
+        return ui_dict
+
     L = getLogger()
     _s = ctx.obj["store"]
     if vocabulary == "default":
@@ -321,6 +334,11 @@ def uijson(ctx, vocabulary, extensions):
     root_entry = _json_for_uri_ref(URIRef(concept), _s)
     for child in result:
         root_entry["children"].append(child)
+
+    # Note that due to the way the RDF queries are structured, if we construct the dictionaries in the format
+    # the UI expects while we are iterating, the RDF query blows up.  So, keep it in one format while iterating and
+    # convert when done.
+    root_entry = _convert_to_ui_format(root_entry)
     print(json.dumps(root_entry, indent=2))
 
 
