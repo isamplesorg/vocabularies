@@ -1,6 +1,6 @@
 import os
 import pytest
-import navocab
+from tools import navocab
 
 
 @pytest.fixture()

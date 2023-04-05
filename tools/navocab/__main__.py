@@ -9,7 +9,7 @@ import logging.config
 import sys
 import click
 import yaml
-import navocab
+from tools import navocab
 
 logging_config = {
     "version": 1,
