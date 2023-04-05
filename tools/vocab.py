@@ -9,6 +9,9 @@ import logging.config
 import sys
 import click
 #import yaml
+from rdflib import URIRef
+from rdflib.store import Store
+
 import navocab
 
 logging_config = {
@@ -285,19 +288,23 @@ def uijson(ctx, vocabulary, extensions):
     def _narrower(s, v, c, indent=0, level=0, max=100):
         ns = s.narrower(c, v, abbreviate=False)
         for n in ns:
-            _c = s.concept(n)
-            #TODO: use provided lang instead of assuming everything is @en
-            entry = {
-                "concept": str(n),
-                "label":{
-                    "en": _c.label[0] if len(_c.label)>0 else str(s.compact_name(n))
-                },
-                "children": []
-            }
+            entry = _json_for_uri_ref(n, s)
             if level < max:
                 for nn in _narrower(s, v, n, indent=indent + 2, level=level + 1, max=max):
                     entry["children"].append(nn)
             yield entry
+
+    def _json_for_uri_ref(n: URIRef, s: Store):
+        _c = s.concept(n)
+        # TODO: use provided lang instead of assuming everything is @en
+        entry = {
+            "concept": str(n),
+            "label": {
+                "en": _c.label[0] if len(_c.label) > 0 else str(s.compact_name(n))
+            },
+            "children": []
+        }
+        return entry
 
     L = getLogger()
     _s = ctx.obj["store"]
@@ -311,7 +318,10 @@ def uijson(ctx, vocabulary, extensions):
     result = []
     for n in _narrower(_s, vocabulary, concept):
         result.append(n)
-    print(json.dumps(result, indent=2))
+    root_entry = _json_for_uri_ref(URIRef(concept), _s)
+    for child in result:
+        root_entry["children"].append(child)
+    print(json.dumps(root_entry, indent=2))
 
 
 @main.command("concept")
