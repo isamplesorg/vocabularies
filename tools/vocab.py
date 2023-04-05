@@ -8,8 +8,8 @@ import logging
 import logging.config
 import sys
 import click
-import yaml
-from tools import navocab
+#import yaml
+import navocab
 
 logging_config = {
     "version": 1,
@@ -78,7 +78,7 @@ def getDefaultVocabulary(vs, abbreviate=False):
 @click.option(
     "-s", "--store", default="vocabularies.db", help="SQLite db for vocabularies"
 )
-@click.option("--verbosity", default="ERROR", help="Logging level")
+@click.option("--verbosity", default="INFO", help="Logging level")
 def main(ctx, store, verbosity) -> int:
     verbosity = verbosity.upper()
     logging_config["loggers"][""]["level"] = verbosity
