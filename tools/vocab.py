@@ -78,7 +78,7 @@ def getDefaultVocabulary(vs, abbreviate=False):
 @click.option(
     "-s", "--store", default="vocabularies.db", help="SQLite db for vocabularies"
 )
-@click.option("--verbosity", default="INFO", help="Logging level")
+@click.option("--verbosity", default="ERROR", help="Logging level")
 def main(ctx, store, verbosity) -> int:
     verbosity = verbosity.upper()
     logging_config["loggers"][""]["level"] = verbosity
@@ -135,7 +135,10 @@ def namespaces(ctx, bind):
 @click.option(
     "-f", "--full-uri", is_flag=True, help="Show expanded URIs instead of prefixed"
 )
-def vocabularies(ctx, full_uri):
+@click.option(
+    "-r","--roots-only", is_flag=True, help="List only the root vocabulary URIs"
+)
+def vocabularies(ctx, full_uri, roots_only):
     """List the vocabulary URIs in the store."""
     _s = ctx.obj["store"]
 
@@ -146,10 +149,13 @@ def vocabularies(ctx, full_uri):
             roots.append(v)
 
     for r in roots:
-        print(f"{r.label} ({r.uri})")
-        for v in vocabs:
-            if v.extends == r.uri:
-                print(f"  --extend--> {v.label} ({v.uri})")
+        if roots_only:
+            print(r.uri)
+        else:
+            print(f"{r.label} ({r.uri})")
+            for v in vocabs:
+                if v.extends == r.uri:
+                    print(f"  --extend--> {v.label} ({v.uri})")
 
 @main.command("concepts")
 @click.option(
