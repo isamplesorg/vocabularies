@@ -3,6 +3,7 @@ vocabularies.db
 *.env
 .idea/
 /data/
+/cache/
 scripts/*.cfg
 # Byte-compiled / optimized / DLL files
 __pycache__/
