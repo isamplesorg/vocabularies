@@ -3,11 +3,12 @@
 The generated markdown is intended for rendering with Quarto.
 '''
 
+import datetime
 import sys
 import textwrap
 import click
+import navocab
 import rdflib
-import datetime
 
 NS = {
     "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
@@ -188,12 +189,19 @@ def getVocabRoot(g, v):
     return res
 
 def getNarrower(g, v, r):
-    q = rdflib.plugins.sparql.prepareQuery(PFX + """SELECT ?s
-    WHERE {
-        ?s skos:inScheme ?vocabulary .
-        ?s skos:broader ?parent .
-    }""")
-    qres = g.query(q, initBindings={'vocabulary': v, 'parent':r})
+    if v is None:
+        q = rdflib.plugins.sparql.prepareQuery(PFX + """SELECT ?s
+        WHERE {
+            ?s skos:broader ?parent .
+        }""")
+        qres = g.query(q, initBindings={'parent': r})
+    else:
+        q = rdflib.plugins.sparql.prepareQuery(PFX + """SELECT ?s
+        WHERE {
+            ?s skos:inScheme ?vocabulary .
+            ?s skos:broader ?parent .
+        }""")
+        qres = g.query(q, initBindings={'vocabulary': v, 'parent':r})
     res = []
     for row in qres:
         res.append(row[0])
@@ -225,6 +233,10 @@ def _labelToLink(label):
 
 def termTree(g, v, r, depth=0):
     label = getObjects(g, r, skosT("prefLabel"))
+    if len(label) < 1:
+        label = getObjects(g, r, rdfsT("label"))
+    if len(label) < 1:
+        label = [r, ]
     llabel = _labelToLink(r)
     res = [f"{'    '*depth}- [{label[0]}](#{llabel})"]
     for term in getNarrower(g, v, r):
@@ -328,8 +340,9 @@ def describeVocabulary(G, V):
     res.append("")
     depth = 1
     roots = getVocabRoot(G, V)
+    narrower_v = None
     for root in roots:
-        res += termTree(G, V, root, depth=0)
+        res += termTree(G, narrower_v, root, depth=0)
         res.append("")
     #res.append("```{ojs}")
     ##res.append("import {Tree} from '@d3/tree'")
@@ -340,32 +353,34 @@ def describeVocabulary(G, V):
     for aroot in roots:
         res += describeTerm(G, aroot, depth=depth, level=level)
         res.append("")
-        res += describeNarrowerTerms(G, V, aroot, depth=depth+1, level=level)
+        res += describeNarrowerTerms(G, narrower_v, aroot, depth=depth+1, level=level)
         res.append("")
     return res
 
 @click.command()
-@click.argument("ttl")
-def main(ttl):
-    """Generate Pandoc markdown from a SKOS vocabulary in Turtle.
+@click.argument("source")
+@click.argument("vocabulary")
+def main(source, vocabulary):
+    """Generate Pandoc markdown from a SKOS vocabulary.
 
-    TTL may be a local file or URL.
+    SOURCE is a navocab triplestore (sqlite database created by rdflib).
+
+    VOCABULARY is a URI for a vocabulary root within SOURCE
 
     Output to STDOUT.
     """
-    vgraph = rdflib.ConjunctiveGraph()
-    vgraph.parse(ttl, format="text/turtle")
-    for k,v in NS.items():
-        vgraph.bind(k, v)
-    vocabs = listVocabularies(vgraph)
+    source = f"sqlite:///{source}"
+    store = navocab.VocabularyStore(storage_uri=source)
     res = []
-    for vocab in vocabs:
-        res.append(describeVocabulary(vgraph, vocab))
+    #TODO: This is a bit of quick hack using the internal graph of VocabularyStore.
+    #      describeVocabulary should leverage functionality of navocab to
+    #      access the vocaulary graphs.
+    vocabulary = store.expand_name(vocabulary)
+    res.append(describeVocabulary(store._g, vocabulary))
     for doc in res:
         for line in doc:
             print(line)
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
