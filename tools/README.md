@@ -1,14 +1,23 @@
 # Vocabulary Tools
 
-# vocabularies
-Vocabularies for categorization of physical samples
+## Installation
 
+1. Create a python virtual environment using python3.8 or later.
+2. Install the dependencies using `pip install -r requirements.txt`.
 
-# Tools
+The tools can be run like:
+```
+python vocab.py
+```
+
+## vocab2md
+
+Generates markdown from a SKOS vocabulary file.
+
 
 ## navocab
 
-`navocab` implements tooling for navigating SKOS vocabulary definitions used in the iSamples project.
+`vocab` implements tooling for navigating SKOS vocabulary definitions used in the iSamples project.
 
 ### Install
 

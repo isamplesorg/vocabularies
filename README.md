@@ -1,3 +1,4 @@
 # vocabularies
-Vocabularies for categorization of physical samples
+
+Vocabularies for categorization of physical samples.
 
