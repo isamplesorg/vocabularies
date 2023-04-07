@@ -2,7 +2,7 @@
 comment: | 
   WARNING: This file is generated. Any edits will be lost!
 title: "iSamples Materials Vocabulary"
-date: "2023-04-07T07:26:25.797143+00:00"
+date: "2023-04-07T07:32:50.718503+00:00"
 subtitle: |
   High level vocabulary to specify the kind of material that constitutes a physical sample
 execute:
@@ -199,10 +199,10 @@ Namespace:
     - [Organic material](#organicmaterial)
         - [Anthropogenic organic material](#anthropogenicorganicmaterial)
             - [Plastic (material)](#plastic)
+        - [Organic animal material](#organicanimalmaterial)
         - [Organic animal product](#organicanimalproduct)
             - [Hair](#hair)
             - [Leather](#leather)
-        - [Organic animal material](#organicanimalmaterial)
         - [Organic plant material](#organicplantmaterial)
             - [Wood](#wood)
         - [Plant Material](#plantmaterial)
@@ -893,8 +893,8 @@ manufactured particulates (e.g. rock powder) should be categorized as
 Concept: [`cinder`](https://w3id.org/isample/vocabulary/opencontext/material/0.1/cinder)
 
 Child of:
- [`rock`](#rock)
  [`particulate`](#particulate)
+ [`rock`](#rock)
 
 The incombustible residue of something burnt.@en
 
@@ -971,8 +971,8 @@ Child of:
 Concept: [`cinder`](https://w3id.org/isample/vocabulary/opencontext/material/0.1/cinder)
 
 Child of:
- [`rock`](#rock)
  [`particulate`](#particulate)
+ [`rock`](#rock)
 
 The incombustible residue of something burnt.@en
 
@@ -2774,6 +2774,16 @@ See Also:
 
 * [""]()
 
+####  Organic animal material
+
+[]{#organicanimalmaterial}
+
+Concept: [`organicanimalmaterial`](https://w3id.org/isample/vocabulary/opencontext/material/0.1/organicanimalmaterial)
+
+Child of:
+ [`organicmaterial`](#organicmaterial)
+
+
 ####  Organic animal product
 
 []{#organicanimalproduct}
@@ -2804,16 +2814,6 @@ Child of:
  [`organicanimalproduct`](#organicanimalproduct)
 
 
-####  Organic animal material
-
-[]{#organicanimalmaterial}
-
-Concept: [`organicanimalmaterial`](https://w3id.org/isample/vocabulary/opencontext/material/0.1/organicanimalmaterial)
-
-Child of:
- [`organicmaterial`](#organicmaterial)
-
-
 ####  Organic plant material
 
 []{#organicplantmaterial}
@@ -2831,8 +2831,8 @@ Child of:
 Concept: [`wood`](https://w3id.org/isample/vocabulary/opencontext/material/0.1/wood)
 
 Child of:
- [`plantmaterial`](#plantmaterial)
  [`organicplantmaterial`](#organicplantmaterial)
+ [`plantmaterial`](#plantmaterial)
 
 
 ####  Plant Material
@@ -2862,8 +2862,8 @@ Child of:
 Concept: [`wood`](https://w3id.org/isample/vocabulary/opencontext/material/0.1/wood)
 
 Child of:
- [`plantmaterial`](#plantmaterial)
  [`organicplantmaterial`](#organicplantmaterial)
+ [`plantmaterial`](#plantmaterial)
 
 
 
