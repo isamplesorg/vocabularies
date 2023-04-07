@@ -9,6 +9,9 @@ import logging.config
 import sys
 import click
 #import yaml
+from rdflib import URIRef
+from rdflib.store import Store
+
 import navocab
 
 logging_config = {
@@ -86,7 +89,7 @@ def main(ctx, store, verbosity) -> int:
     L = getLogger()
     ctx.ensure_object(dict)
     store_uri = f"sqlite:///{store}"
-    L.info("Using store at: %s", store_uri)
+    L.debug("Using store at: %s", store_uri)
     ctx.obj["store"] = navocab.VocabularyStore(storage_uri=store_uri)
     return 0
 
@@ -291,33 +294,58 @@ def uijson(ctx, vocabulary, extensions):
     def _narrower(s, v, c, indent=0, level=0, max=100):
         ns = s.narrower(c, v, abbreviate=False)
         for n in ns:
-            _c = s.concept(n)
-            #TODO: use provided lang instead of assuming everything is @en
-            entry = {
-                "concept": str(n),
-                "label":{
-                    "en": _c.label[0] if len(_c.label)>0 else str(s.compact_name(n))
-                },
-                "children": []
-            }
+            entry = _json_for_uri_ref(n, s)
             if level < max:
                 for nn in _narrower(s, v, n, indent=indent + 2, level=level + 1, max=max):
                     entry["children"].append(nn)
             yield entry
 
+    def _json_for_uri_ref(n: URIRef, s: Store):
+        _c = s.concept(n)
+        # TODO: use provided lang instead of assuming everything is @en
+        entry = {
+            "concept": str(n),
+            "label": {
+                "en": _c.label[0] if len(_c.label) > 0 else str(s.compact_name(n))
+            },
+            "children": []
+        }
+        return entry
+
+    def _convert_to_ui_format(entry: dict) -> dict:
+        child_dict = {
+            "label": entry["label"]
+        }
+        ui_dict = {
+            entry["concept"]: child_dict
+        }
+        children = []
+        for child in entry["children"]:
+            children.append(_convert_to_ui_format(child))
+        child_dict["children"] = children
+        return ui_dict
+
     L = getLogger()
     _s = ctx.obj["store"]
     if vocabulary == "default":
         vocabulary = getDefaultVocabulary(_s, abbreviate=False)
-        L.info("Loaded default vocabulary: %s", vocabulary)
+        L.debug("Loaded default vocabulary: %s", vocabulary)
     concept = str(_s.getVocabRoot(vocabulary)[0])
-    L.info("Using %s as root concept", concept)
+    L.debug("Using %s as root concept", concept)
     if extensions:
         vocabulary = None
     result = []
     for n in _narrower(_s, vocabulary, concept):
         result.append(n)
-    print(json.dumps(result, indent=2))
+    root_entry = _json_for_uri_ref(URIRef(concept), _s)
+    for child in result:
+        root_entry["children"].append(child)
+
+    # Note that due to the way the RDF queries are structured, if we construct the dictionaries in the format
+    # the UI expects while we are iterating, the RDF query blows up.  So, keep it in one format while iterating and
+    # convert when done.
+    root_entry = _convert_to_ui_format(root_entry)
+    print(json.dumps(root_entry, indent=2))
 
 
 @main.command("concept")
