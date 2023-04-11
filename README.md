@@ -1,4 +1,1 @@
-# vocabularies
-
-Vocabularies for categorization of physical samples.
-
+# Vocabulary github action
