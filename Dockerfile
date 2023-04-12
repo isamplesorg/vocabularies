@@ -1,5 +1,6 @@
 FROM python:3-slim
 WORKDIR /app
+COPY github_action_main.py .
 COPY tools /tools
 RUN pip install -r /tools/requirements.txt
 
