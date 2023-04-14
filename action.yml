@@ -6,6 +6,9 @@ inputs:
     description: 'Which action to run -- defaults to uijson'
     required: true
     default: 'uijson'
+  path: 
+    description: 'Path to the output directory for script output'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -14,3 +17,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.action }}
+    - ${{ inputs.path }}

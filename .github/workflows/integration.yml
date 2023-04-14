@@ -13,3 +13,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Vocabulary action
         uses: isamplesorg/vocabularies@main
+        with:
+          action: uijson
+          path: ${{ github.workspace }}
