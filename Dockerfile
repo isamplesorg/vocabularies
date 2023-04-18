@@ -3,6 +3,7 @@ WORKDIR /app
 COPY ./github_action_main.py .
 COPY ./Makefile .
 COPY tools ./tools
+COPY src ./src
 RUN apt-get update && apt-get install -y make
 RUN pip install -r /app/tools/requirements.txt
 ENV PYTHONPATH /app
