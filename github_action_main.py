@@ -25,9 +25,9 @@ def main():
     elif command == "docs":
         print("Generating markdown docs")
         _run_make_in_container("cache")
-        _run_docs_in_container(os.path.join(path, "mat_materialsvocabulary.md"), "/app/src/vocabularies/materialtype.ttl")
-        _run_docs_in_container(os.path.join(path, "sf_sampledfeaturevocabulary.md"), "/app/src/vocabularies/sampledfeature.ttl")
-        _run_docs_in_container(os.path.join(path, "spec_specimentypevocabulary.md"), "/app/src/vocabularies/specimentype.ttl")
+        _run_docs_in_container(os.path.join(path, "mat_materialsvocabulary.md"), "mat:materialsvocabulary")
+        _run_docs_in_container(os.path.join(path, "sf_sampledfeaturevocabulary.md"), "sf:sampledfeaturevocabulary")
+        _run_docs_in_container(os.path.join(path, "spec_specimentypevocabulary.md"), "spec:specimentypevocabulary")
     else:
         print(f"Unknown command {command}.  Exiting.")
         sys.exit(-1)
@@ -44,9 +44,9 @@ def _run_uijson_in_container(output_path: str, vocab_type: str):
         print(f"Successfully wrote uijson file to {output_path}")
 
 
-def _run_docs_in_container(output_path: str, src_ttl: str):
+def _run_docs_in_container(output_path: str, vocab_type: str):
     with open(output_path, "w") as f:
-        docs_args = ["/app/cache/vocabularies.db", src_ttl]
+        docs_args = ["/app/cache/vocabularies.db", vocab_type]
         _run_python_in_container("/app/tools/vocab2md.py", docs_args, f)
         print(f"Successfully wrote doc file to {output_path}")
 
