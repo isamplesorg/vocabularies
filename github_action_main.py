@@ -6,29 +6,52 @@ import sys
 
 
 def main():
-    # my_input = os.environ["INPUT_MYINPUT"]
     print(f"environment variables are {os.environ}")
-    # my_output = f"Hello {my_input}"
-    print(f"::set-output name=myOutput::foo")
     command = os.environ["INPUT_ACTION"]
+    path = os.environ["INPUT_PATH"]
+    if path is None:
+        print("Did not receive a valid path argument so we cannot run.")
+        sys.exit(-1)
     if command == "uijson":
         print("Generating uijson for inclusion in webUI build")
-        path = os.environ["INPUT_PATH"]
-        if path is None:
-            print("Did not receive a valid path argument so we cannot run.")
-            sys.exit(-1)
-        subprocess.run(["/usr/bin/make", "-C", "/app", "-f", "/app/Makefile",  "cache"])
-        material_json = os.path.join(path, "material_hierarchy.json")
-        with open(material_json, "w") as f:
-            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "/app/cache/vocabularies.db", "uijson", "mat:materialsvocabulary", "-e"], stdout=f)
-        sampled_feature_json = os.path.join(path, "sampledFeature_hierarchy.json")
-        with open(sampled_feature_json, "w") as f:
-            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "/app/cache/vocabularies.db", "uijson", "sf:sampledfeaturevocabulary", "-e"], stdout=f)
-        specimentype_json = os.path.join(path, "specimenType_hierarchy.json")
-        with open(specimentype_json, "w") as f:
-            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "/app/cache/vocabularies.db", "uijson", "spec:specimentypevocabulary", "-e"], stdout=f)
+        _run_make_in_container("cache")
+        _run_uijson_in_container(os.path.join(path, "material_hierarchy.json"), "mat:materialsvocabulary")
+        _run_uijson_in_container(os.path.join(path, "sampledFeature_hierarchy.json"), "sf:sampledfeaturevocabulary")
+        _run_uijson_in_container(os.path.join(path, "specimenType_hierarchy.json"), "spec:specimentypevocabulary")
+    elif command == "docs":
+        print("Generating markdown docs")
+        _run_make_in_container("cache")
+        _run_docs_in_container(os.path.join(path, "mat_materialsvocabulary.md"), "mat:materialsvocabulary")
+        _run_docs_in_container(os.path.join(path, "sf_sampledfeaturevocabulary.md"), "sf:sampledfeaturevocabulary")
+        _run_docs_in_container(os.path.join(path, "spec_specimentypevocabulary.md"), "spec:specimentypevocabulary")
+    else:
+        print(f"Unknown command {command}.  Exiting.")
+        sys.exit(-1)
+
+
+def _run_make_in_container(target: str):
+    subprocess.run(["/usr/bin/make", "-C", "/app", "-f", "/app/Makefile", target])
+
+
+def _run_uijson_in_container(output_path: str, vocab_type: str):
+    with open(output_path, "w") as f:
+        vocab_args = ["-s", "/app/cache/vocabularies.db", "uijson", vocab_type, "-e"]
+        _run_python_in_container("/app/tools/vocab.py", vocab_args, f)
+        print(f"Successfully wrote uijson file to {output_path}")
+
+
+def _run_docs_in_container(output_path: str, vocab_type: str):
+    with open(output_path, "w") as f:
+        docs_args = ["/app/cache/vocabularies.db", vocab_type]
+        _run_python_in_container("/app/tools/vocab2md.py", docs_args, f)
+        print(f"Successfully wrote doc file to {output_path}")
+
+
+def _run_python_in_container(path_to_python_script: str, args: list[str], f):
+    subprocess_args = [sys.executable, path_to_python_script]
+    subprocess_args.extend(args)
+    subprocess.run(subprocess_args, stdout=f)
 
 
 if __name__ == "__main__":
-    print("Hello there")
     main()
