@@ -1,12 +1,13 @@
 #!/usr/local/bin/python
 
+import logging
 import os
 import subprocess
 import sys
 
 
 def main():
-    print(f"environment variables are {os.environ}")
+    logging.debug(f"environment variables are {os.environ}")
     command = os.environ["INPUT_ACTION"]
     path = os.environ["INPUT_PATH"]
     if path is None:
