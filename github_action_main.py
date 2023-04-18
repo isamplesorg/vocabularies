@@ -20,13 +20,13 @@ def main():
         subprocess.run(["/usr/bin/make", "-C", "/app", "-f", "/app/Makefile",  "cache"])
         material_json = os.path.join(path, "material_hierarchy.json")
         with open(material_json, "w") as f:
-            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "cache/vocabularies.db", "uijson", "mat:materialsvocabulary", "-e"], stdout=f)
+            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "/app/cache/vocabularies.db", "uijson", "mat:materialsvocabulary", "-e"], stdout=f)
         sampled_feature_json = os.path.join(path, "sampledFeature_hierarchy.json")
         with open(sampled_feature_json, "w") as f:
-            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "cache/vocabularies.db", "uijson", "sf:sampledfeaturevocabulary", "-e"], stdout=f)
+            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "/app/cache/vocabularies.db", "uijson", "sf:sampledfeaturevocabulary", "-e"], stdout=f)
         specimentype_json = os.path.join(path, "specimenType_hierarchy.json")
         with open(specimentype_json, "w") as f:
-            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "cache/vocabularies.db", "uijson", "spec:specimentypevocabulary", "-e"], stdout=f)
+            subprocess.run([sys.executable, "/app/tools/vocab.py", "-s", "/app/cache/vocabularies.db", "uijson", "spec:specimentypevocabulary", "-e"], stdout=f)
 
 
 if __name__ == "__main__":
