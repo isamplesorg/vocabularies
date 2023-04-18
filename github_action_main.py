@@ -17,7 +17,7 @@ def main():
         if path is None:
             print("Did not receive a valid path argument so we cannot run.")
             sys.exit(-1)
-        subprocess.run(["/usr/bin/make", "-f", "/app/Makefile"  "cache"])
+        subprocess.run(["/usr/bin/make", "-f", "/app/Makefile",  "cache"])
         material_json = os.path.join(path, "material_hierarchy.json")
         with open(material_json, "w") as f:
             subprocess.run([sys.executable, "tools/vocab.py", "-s", "cache/vocabularies.db", "uijson", "mat:materialsvocabulary", "-e"], stdout=f)
