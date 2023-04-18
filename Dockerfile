@@ -2,9 +2,9 @@ FROM python:3-slim
 WORKDIR /app
 COPY ./github_action_main.py .
 COPY ./Makefile .
-COPY tools /tools
+COPY tools ./tools
 RUN apt-get update && apt-get install -y make
-RUN pip install -r /tools/requirements.txt
+RUN pip install -r /app/tools/requirements.txt
 ENV PYTHONPATH /app
 ENTRYPOINT ["/app/github_action_main.py"]
 
