@@ -15,6 +15,8 @@ def main():
         sys.exit(-1)
     if not os.path.exists(path):
         os.makedirs(path)
+        # Change to 777 so subsequent steps that deal with the directory don't run into permissions issues
+        os.chmod(path, 777)
         print(f"Created {path} since it didn't exist.")
     if command == "uijson":
         print("Generating uijson for inclusion in webUI build")
