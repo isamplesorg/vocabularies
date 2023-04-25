@@ -11,7 +11,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: '.github/actions/vocabularies/Dockerfile'
+  image: './Dockerfile'
   args:
     - ${{ inputs.action }}
     - ${{ inputs.path }}
