@@ -12,7 +12,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  working-directory: "./github-action/"
   args:
     - ${{ inputs.action }}
     - ${{ inputs.path }}
