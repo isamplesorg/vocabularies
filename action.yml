@@ -9,12 +9,10 @@ inputs:
   path: 
     description: 'Path to the output directory for script output'
     required: true
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  working-directory: "./github-action/"
   args:
     - ${{ inputs.action }}
     - ${{ inputs.path }}
