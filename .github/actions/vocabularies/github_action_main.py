@@ -1,4 +1,8 @@
 #!/usr/local/bin/python
+"""
+Driver file for the vocabularies GitHub Action.  Runs inside of a Docker container, with all of the vocabularies tools
+and dependencies copied into the Docker container.
+"""
 
 import logging
 import os

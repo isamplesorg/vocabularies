@@ -8,3 +8,6 @@ The action is run as a Docker image, and the image is built according to the ins
 
 ### Testing
 There is a test file at `.github/workflows/integration.yml`, which can be run manually using the workflow dispatch option.  It contains the necessary instruction to check out the repository and run it as a GitHub action.
+
+### Implementation
+The Docker entrypoint of the action is the python file located at `.github/actions/vocabularies/github_action_main.py`.  GitHub is responsible for converting the action parameters into environment variables that the script interprets.
