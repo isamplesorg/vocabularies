@@ -18,6 +18,13 @@ ocmat:
   owl:imports mat:materialsvocabulary ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
+ocmat:Plaster
+  rdf:type skos:Concept ;
+  rdfs:label "plaster"@en ;
+  skos:broader mat:otheranthropogenicmaterial ;
+  skos:definition "plaster or mortar"@en ;
+  skos:prefLabel "plaster"@en ;
+.
 ocmat:amber
   rdf:type skos:Concept ;
   rdfs:label "amber" ;
@@ -276,13 +283,6 @@ ocmat:plantmaterial
   rdfs:label "Plant Material"@en ;
   skos:broader mat:organicmaterial ;
   skos:prefLabel "Plant Material"@en ;
-.
-ocmat:plaster
-  rdf:type skos:Concept ;
-  rdfs:label "plaster"@en ;
-  skos:broader mat:otheranthropogenicmaterial ;
-  skos:definition "plaster or mortar"@en ;
-  skos:prefLabel "plaster"@en ;
 .
 ocmat:plasterormortar
   rdf:type skos:Concept ;
