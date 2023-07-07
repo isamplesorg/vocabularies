@@ -342,18 +342,9 @@ skos:topConceptOf
   owl:inverseOf skos:hasTopConcept ;
   skos:definition "Relates a concept to the concept scheme that it is a top level concept of."@en ;
 .
-<https://w3id.org/geochem/1.0/agent/astromat>
-  rdf:type dcterm:Agent ;
-  dcterm:contributor <https://orcid.org/0000-0001-7036-1977> ;
-  dcterm:contributor <https://orcid.org/0000-0002-1286-0193> ;
-  dcterm:description "Analytical methods cited in the Astromat database.  The database currently contains a compilation of data acquired from meteorites and lunar samples returned by the Apollo missions. The Astromaterials Data System (Astromat, https://www.astromat.org/about/overview/) is a comprehensive data infrastructure to access, publish, and preserve laboratory analytical data generated on astromaterials samples. Astromat aims to ensure the long-term value of astromaterials samples data and maximize their impact on scientific discovery and knowledge."@en ;
-  rdfs:isDefinedBy esmat:sampletype ;
-  rdfs:label "Astromaterials Data System (Astromat)"@en ;
-  schema:url "https://www.astromat.org/about/overview/" ;
-.
 esmat:boxedcore
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Boxed core"@en ;
   skos:broader spec:genericaggregation ;
@@ -388,13 +379,13 @@ esmat:compositesample
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Composite sample"@en ;
   skos:broader spec:genericaggregation ;
-  skos:definition "an aggregation of small chips of uniform rock material collected over a large area (generally > 2.5m across). These are the ideal “representative” samples used in mineral exploration. A composite sample might be collected to determine the background values of trace elements in a particular type of rock, or to determine if ore grade mineralization is present over a large area."@en ;
+  skos:definition "an aggregation of small chips of uniform rock material collected over a large area (generally greater than 2.5m across). These are the ideal 'representative' samples used in mineral exploration. A composite sample might be collected to determine the background values of trace elements in a particular type of rock, or to determine if ore grade mineralization is present over a large area."@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Composite sample"@en ;
 .
 esmat:core
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Core"@en ;
   skos:broader spec:othersolidobject ;
@@ -478,6 +469,7 @@ esmat:dissolvedchemicalfraction
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Dissolved chemical fraction"@en ;
   skos:broader spec:analyticalpreparation ;
+  skos:broader spec:fluidincontainer ;
   skos:definition "This is about collection method, not speciment type. Analytical preparation that is a solution concentrating some constituent of interest from a parent sample."@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Dissolved chemical fraction"@en ;
@@ -504,9 +496,10 @@ esmat:dustwipe
 .
 esmat:fiblamella
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "FIB lamella"@en ;
+  skos:broader esmat:solidmaterialsample ;
   skos:broader spec:analyticalpreparation ;
   skos:definition "very thin sheet of solid material milled from a larger sample using a focused ion beam. Used for TEM analysis."@en ;
   skos:inScheme esmat:sampletype ;
@@ -520,15 +513,15 @@ esmat:filtrate
   skos:broader spec:fluidincontainer ;
   skos:definition "A sample that has gone through a filtration process to separate solids from fluids (liquids or gases), using a filter medium through which only the fluid can pass. Must be associated with a filter size."@en ;
   skos:inScheme esmat:sampletype ;
-  skos:prefLabel "Filtrate {@en} " ;
+  skos:prefLabel "Filtrate"@en ;
 .
 esmat:glassslidesmear
   rdf:type skos:Concept ;
-  dcterm:source "" ;
+  dcterm:source "https://pubs.usgs.gov/of/2001/of01-041/htmldocs/methods/sslide.htm" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Glass slide smear"@en ;
+  skos:broader esmat:solidmaterialsample ;
   skos:broader spec:analyticalpreparation ;
-  skos:broader spec:othersolidobject ;
   skos:definition "sample from a cell culture spread into a thin layer on a glass slide for optical investigation"@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Glass slide smear"@en ;
@@ -566,7 +559,7 @@ esmat:individualsolidcylinder
 .
 esmat:magneticfraction
   rdf:type skos:Concept ;
-  dcterm:source "This vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Magnetic fraction"@en ;
   skos:broader spec:analyticalpreparation ;
@@ -587,7 +580,7 @@ esmat:materialcapturedinfilter
 .
 esmat:mechanicalfraction
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Mechanical fraction"@en ;
   skos:broader spec:analyticalpreparation ;
@@ -598,7 +591,7 @@ esmat:mechanicalfraction
 .
 esmat:mineralseparate
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Mineral separate"@en ;
   skos:broader spec:analyticalpreparation ;
@@ -609,7 +602,7 @@ esmat:mineralseparate
 .
 esmat:mineralspecimen
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Mineral specimen"@en ;
   skos:broader spec:othersolidobject ;
@@ -619,9 +612,10 @@ esmat:mineralspecimen
 .
 esmat:mountedsection
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Mounted section"@en ;
+  skos:broader esmat:solidmaterialsample ;
   skos:broader spec:analyticalpreparation ;
   skos:definition "a thin slice of a rock that has been mounted on a glass slide for optical study"@en ;
   skos:inScheme esmat:sampletype ;
@@ -629,7 +623,7 @@ esmat:mountedsection
 .
 esmat:nonmagneticfraction
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Non-magnetic fraction"@en ;
   skos:broader spec:analyticalpreparation ;
@@ -643,6 +637,7 @@ esmat:peel
   dcterm:source "https://strata.uga.edu/cincy/fauna/bryozoanStudy/acetatePeels.html" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Peel"@en ;
+  skos:broader esmat:solidmaterialsample ;
   skos:broader spec:analyticalpreparation ;
   skos:definition "Acetate peels are made by polishing a planar surface on a sample, etching it with acid to give it some relief, and then chemically melting a piece of acetate onto that surface. The acetate is then pulled off for examination under a microscope. The acetate preserves a fingerprint of the internal structure of the sample surface. Used in paleontology to study complex fossils, e.g. bryozoan."@en ;
   skos:inScheme esmat:sampletype ;
@@ -660,12 +655,12 @@ esmat:polishedthinsection
 .
 esmat:preparedpowder
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Prepared powder"@en ;
   skos:broader spec:analyticalpreparation ;
   skos:broader spec:genericaggregation ;
-  skos:definition "distinguish from particulate in that particulate is sampled as a micron-size aggregate, whereas this material is ground to a powder for subsequent analysis, is is a poweder as a function of some preparation process (e.g. chemical precipiation)"@en ;
+  skos:definition "distinguish from particulate in that particulate is sampled as a micron-size aggregate, whereas this material is ground to a powder for subsequent analysis; it is a powder as a function of some preparation process (e.g. chemical precipitation)"@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Prepared powder"@en ;
 .
@@ -674,7 +669,7 @@ esmat:preparedrockpowder
   dcterm:source "https://www.geosamples.org/vocabularies/sample-type-object" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Prepared rock powder"@en ;
-  skos:broader spec:genericaggregation ;
+  skos:broader esmat:preparedpowder ;
   skos:definition "a powder manufactured by pulverizing a rock."@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Prepared rock powder"@en ;
@@ -684,6 +679,7 @@ esmat:pressedpellet
   dcterm:source "" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Pressed pellet"@en ;
+  skos:broader esmat:solidmaterialsample ;
   skos:broader spec:analyticalpreparation ;
   skos:definition "a sample prepared by grinding a parent sample to a fine powder, mixing it with a binder, and pressing the mixture into a die at a pressure of between 15 and 35 tons to produce a solid disc for subsequent analysis, typically by X-Ray fluorescence."@en ;
   skos:inScheme esmat:sampletype ;
@@ -691,13 +687,13 @@ esmat:pressedpellet
 .
 esmat:rockhandsample
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
-  rdfs:label "rock hand sample" ;
+  rdfs:label "Rock hand sample"@en ;
   skos:broader spec:othersolidobject ;
-  skos:definition "individual peice of rock broken from an outcrop or larger peice of rock. " ;
+  skos:definition "individual peice of rock broken from an outcrop or larger peice of rock."@en ;
   skos:inScheme esmat:sampletype ;
-  skos:prefLabel "rock hand sample" ;
+  skos:prefLabel "Rock hand sample"@en ;
 .
 esmat:sampletype
   rdf:type owl:Ontology ;
@@ -706,22 +702,24 @@ esmat:sampletype
   dcterm:contributor <https://orcid.org/0000-0001-6041-5302> ;
   dcterm:created "2023-07-01"^^xsd:date ;
   dcterm:creator <https://orcid.org/0000-0001-6041-5302> ;
-  dcterm:modified "2023-07-01"^^xsd:date ;
-  dcterm:publisher "Astromaterials Data System (Astromat)" ;
+  dcterm:modified "2023-07-07"^^xsd:date ;
+  dcterm:publisher "iSamples project" ;
   rdfs:label "Earth and Environmental Science specimen type extension"@en ;
   owl:imports dcterm: ;
   owl:imports <http://www.w3.org/2000/01/rdf-schema> ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   owl:imports spec:specimentypevocabulary ;
-  skos:definition "This concept scheme contains skos concepts for ."@en ;
-  skos:historyNote "."@en ;
+  skos:definition "This concept scheme contains skos concepts for categorizing kinds of Earth Material sample types, extending the iSamples Material Sample Type vocabulary. Defintions from SESAR, ODM2, wikipedia, ESS-DIVE, and other sources; sources are cited with each term."@en ;
+  skos:hasTopConcept spec:physicalspecimen ;
+  skos:historyNote "2023-07-07 SMR add solid material sample and broader relations from classes it subsumes."@en ;
+  skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Earth and Environmental Science specimen type extension"@en ;
-  schema:funding "."@en ;
-  schema:provider "," ;
+  schema:funding "https://nsf.gov/awardsearch/showAward?AWD_ID=2004562" ;
+  schema:provider "TBD" ;
 .
 esmat:slab
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Slab"@en ;
   skos:broader spec:analyticalpreparation ;
@@ -732,14 +730,15 @@ esmat:slab
 .
 esmat:solidmaterialsample
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Solid material sample"@en ;
-  skos:broader spec:genericaggregation ;
-  skos:broader spec:othersolidobject ;
-  skos:definition "a sample that is either a solid object or aggregation composed of solid, non-biologic material. This is a generic class to allow for poorly constrained sample descriptions, but known not to be anthropogenic, fluid or biological."@en ;
+  skos:broader spec:physicalspecimen ;
+  skos:definition "a sample that is either a solid object or aggregation composed of solid, non-biologic material. This is a generic class to allow for poorly constrained sample descriptions, could be an aggregation or a solid object, but is known not to be anthropogenic, fluid or biological."@en ;
   skos:inScheme esmat:sampletype ;
+  skos:note "This class subsumes most Research products, all 'Other solid object', 'Fossil', 'Artifact', 'Aggregation', 'Anthropogenic aggregation'.  These are included using skos 'has narrower'."@en ;
   skos:prefLabel "Solid material sample"@en ;
+  skos:topConceptOf esmat:sampletype ;
 .
 esmat:thicksection
   rdf:type skos:Concept ;
@@ -758,13 +757,13 @@ esmat:thinsection
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Thin section"@en ;
   skos:broader esmat:mountedsection ;
-  skos:definition "thin sliver of rock cut from a sample with a diamond saw and ground optically flat, and then mounted on a glass slide and ground smooth using progressively finer abrasive grit until the sample is 30 μm thick."@en ;
+  skos:definition "thin sliver of rock cut from a sample with a diamond saw and ground optically flat, and then mounted on a glass slide and ground smooth using progressively finer abrasive grit until the sample is 30 microns thick."@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Thin section"@en ;
 .
 esmat:trawl
   rdf:type skos:Concept ;
-  dcterm:source "this vocab" ;
+  dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Trawl"@en ;
   skos:broader spec:genericaggregation ;
@@ -788,7 +787,33 @@ esmat:ultrathinsection
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Ultra thin section"@en ;
   skos:broader esmat:mountedsection ;
-  skos:definition "An ordinary thin section that is attached to the glass slide using a soluble cement such as Canada balsam (soluble in ethanol) to allow both sides to be worked on. The section is polished on both sides using a fine diamond paste until it has a thickness in the range of 2-12 μm. This technique has been used to study the microstructure of very fine-grained carbonate rocks, and also in the preparation of mineral and rock specimens for transmission electron microscopy."@en ;
+  skos:definition "An ordinary thin section that is attached to the glass slide using a soluble cement such as Canada balsam (soluble in ethanol) to allow both sides to be worked on. The section is polished on both sides using a fine diamond paste until it has a thickness in the range of 2-12 microns. This technique has been used to study the microstructure of very fine-grained carbonate rocks, and also in the preparation of mineral and rock specimens for transmission electron microscopy."@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Ultra thin section"@en ;
+.
+spec:analyticalpreparation
+  skos:topConceptOf esmat:sampletype ;
+.
+spec:anthropogenicaggregation
+  skos:broader esmat:solidmaterialsample ;
+.
+spec:artifact
+  skos:broader esmat:solidmaterialsample ;
+.
+spec:bundlebiomeaggregation
+  skos:topConceptOf esmat:sampletype ;
+.
+spec:fluidincontainer
+  skos:topConceptOf esmat:sampletype ;
+.
+spec:fossil
+  skos:broader esmat:solidmaterialsample ;
+.
+spec:genericaggregation
+  skos:broader esmat:solidmaterialsample ;
+  skos:topConceptOf esmat:sampletype ;
+.
+spec:othersolidobject
+  skos:broader esmat:solidmaterialsample ;
+  skos:topConceptOf esmat:sampletype ;
 .
