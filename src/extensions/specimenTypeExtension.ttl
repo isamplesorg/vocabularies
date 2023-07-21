@@ -734,7 +734,7 @@ esmat:solidmaterialsample
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Solid material sample"@en ;
   skos:broader spec:physicalspecimen ;
-  skos:definition "a sample that is either a solid object or aggregation composed of solid, non-biologic material. This is a generic class to allow for poorly constrained sample descriptions, could be an aggregation or a solid object, but is known not to be anthropogenic, fluid or biological."@en ;
+  skos:definition "a sample that is either a solid object or aggregation composed of solid, non-biologic material. This is a generic class to allow for poorly constrained sample descriptions, could be an aggregation or a solid object, but is known not to be fluid or biological."@en ;
   skos:inScheme esmat:sampletype ;
   skos:note "This class subsumes most Research products, all 'Other solid object', 'Fossil', 'Artifact', 'Aggregation', 'Anthropogenic aggregation'.  These are included using skos 'has narrower'."@en ;
   skos:prefLabel "Solid material sample"@en ;
