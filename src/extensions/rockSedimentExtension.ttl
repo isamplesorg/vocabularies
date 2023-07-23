@@ -457,8 +457,8 @@ rksd:Massive_Sulphide
   rdf:type skos:Concept ;
   dct:source "Provisional SMR 2020-06-07"@en ;
   rdfs:comment "rock consisting of greater than 50% sulphide or sulfosalt minerals formed by any processes. Includes hydrothermal and sedimentary ehalative sulfide."@en ;
-  rdfs:label "Massive sulphide"@en ;
-  skos:altLabel "Massive Sulfide"@en ;
+  rdfs:label "massive sulphide"@en ;
+  skos:altLabel "massive Sulfide"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Massive_Sulphide ;
 .
