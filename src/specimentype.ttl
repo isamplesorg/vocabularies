@@ -65,7 +65,7 @@ spec:artifact
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;
   rdfs:label "Artifact"@en ;
-  skos:broader spec:physicalspecimen ;
+  skos:broader spec:nonbiologicsolidobject ;
   skos:closeMatch <https://en.wikipedia.org/wiki/Artifact_(archaeology)> ;
   skos:definition "An object made (manufactured, shaped, modified) by a human being, or precursor hominid. Include a set of pieces belonging originally to a single object and treated as a single specimen."@en ;
   skos:inScheme spec:specimentypevocabulary ;
@@ -123,8 +123,8 @@ spec:fossil
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;
   rdfs:label "Fossil"@en ;
-  skos:broader spec:physicalspecimen ;
-  skos:definition "Specimen is the remains of one or more organisms preserved in rock; includes whole body, body parts (usually bone or shell), and trace fossils. An organism or organism part becomes a fossil when it has undergone some fossilization process that generally entails physical and chemical changes akin to diagenesis in a sedimentary rock. Trace fossils are manifestations of biologic activity preserved in a rock body (typically sedimentary), without included preserved body parts."@en ;
+  skos:broader spec:nonbiologicsolidobject ;
+  skos:definition "Specimen is the remains of one or more organisms preserved in rock; includes whole body, body parts (usually bone or shell), and trace fossils. An organism or organism part becomes a fossil when it has undergone some fossilization process that generally entails physical and chemical changes akin to diagenesis in a sedimentary rock. Includes trace fossils, which are manifestations of biologic activity preserved in a rock body (typically sedimentary), without included preserved body parts."@en ;
   skos:exactMatch <http://sweet.jpl.nasa.gov/2.3/matrRock.owl#Fossil> ;
   skos:exactMatch <https://en.wikipedia.org/wiki/Fossil> ;
   skos:inScheme spec:specimentypevocabulary ;
@@ -139,6 +139,13 @@ spec:genericaggregation
   skos:definition "An aggregate specimen that is not biogenic or composed of anthropogenic material fragments.  Examples: loose soil or sediment (e.g. in a bag), rock chips, particulate filtrate or precipitate; rock powders."@en ;
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Aggregation"@en ;
+.
+spec:nonbiologicsolidobject
+  rdf:type skos:Concept ;
+  rdfs:label "Non biologic solid object"@en ;
+  skos:broader spec:physicalspecimen ;
+  skos:definition "Individual solid object, not formed directly by or part of a living organism"@en ;
+  skos:prefLabel "Non biologic solid object"@en ;
 .
 spec:organismpart
   rdf:type owl:NamedIndividual ;
@@ -166,8 +173,8 @@ spec:othersolidobject
   rdfs:label "Other solid object"@en ;
   skos:broadMatch <http://purl.obolibrary.org/obo/BFO_0000030> ;
   skos:broadMatch <http://semanticscience.org/resource/SIO_000776> ;
-  skos:broader spec:physicalspecimen ;
-  skos:definition "Single piece of material not one of the other types, e.g. rock specimen, mineral specimen, core. Ice and permafrost are considered solid materials."@en ;
+  skos:broader spec:nonbiologicsolidobject ;
+  skos:definition "Single piece of material not one of the other types." ;
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Other solid object"@en ;
   skos:relatedMatch <http://purl.obolibrary.org/obo/BFO_0000030> ;
@@ -198,6 +205,14 @@ spec:slurrybiomeaggregation
   skos:definition "a material that consists of mixed organic and inorganic material, including whole organisms and organism fragments."@en ;
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Slurry biome aggregation"@en ;
+.
+spec:solidmaterialspecimen
+  rdf:type skos:Concept ;
+  rdfs:label "Solid material specimen"@en ;
+  skos:broader spec:nonbiologicsolidobject ;
+  skos:definition "Individual solid object, not formed directly by or part of a living organism, that is representative of some material."@en ;
+  skos:note "e.g. a rock or mineral specimen, a specimen of some manufactured material, a meteorite. Ice and permafrost are considered solid materials. {@en}"@en ;
+  skos:prefLabel "Solid material specimen"@en ;
 .
 spec:specimentypevocabulary
   rdf:type owl:NamedIndividual ;
