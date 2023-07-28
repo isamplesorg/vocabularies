@@ -15,6 +15,12 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<AWDID:2004562>
+  rdf:type schema:Grant ;
+  schema:funder <https://ror.org/04nh1dc89> ;
+  schema:name "Collaborative Research: Frameworks: Internet of Samples: Toward an Interdisciplinary Cyberinfrastructure for Material Samples" ;
+  schema:url "https://nsf.gov/awardsearch/showAward?AWD_ID=2004562" ;
+.
 gsoc:stephen_richard
   rdf:type owl:NamedIndividual ;
   rdf:type schema:Person ;
@@ -23,6 +29,12 @@ gsoc:stephen_richard
   schema:identifier <https://orcid.org/0000-0001-6041-5302> ;
   schema:name "Dr. Stephen M. Richard" ;
 .
+mat:rock
+  skos:topConceptOf rksd:rocksedimentvocabulary ;
+.
+mat:sediment
+  skos:topConceptOf rksd:rocksedimentvocabulary ;
+.
 rksd:Acidic_Igneous_Rock
   rdf:type skos:Concept ;
   dct:source "after LeMaitre et al. 2002"@en ;
@@ -30,6 +42,7 @@ rksd:Acidic_Igneous_Rock
   rdfs:label "acidic igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Acidic_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Alkali_Feldspar_Granite
   rdf:type skos:Concept ;
@@ -38,6 +51,7 @@ rksd:Alkali_Feldspar_Granite
   rdfs:label "alkali feldspar granite"@en ;
   skos:broader rksd:Granitoid ;
   skos:closeMatch gsrm:Alkali_Feldspar_Granite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Andesite
   rdf:type skos:Concept ;
@@ -48,6 +62,7 @@ rksd:Andesite
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:broader rksd:Intermediate_Composition_Igneous_Rock ;
   skos:closeMatch gsrm:Andesite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Anorthositic_Rock
   rdf:type skos:Concept ;
@@ -57,6 +72,7 @@ rksd:Anorthositic_Rock
   rdfs:label "anorthositic rock"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Anorthositic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Aphanite
   rdf:type skos:Concept ;
@@ -65,6 +81,7 @@ rksd:Aphanite
   rdfs:label "aphanite"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Aphanite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Aplite
   rdf:type skos:Concept ;
@@ -73,6 +90,7 @@ rksd:Aplite
   rdfs:label "aplite"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Aplite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Basalt
   rdf:type skos:Concept ;
@@ -82,6 +100,7 @@ rksd:Basalt
   skos:broader rksd:Basic_Igneous_Rock ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Basalt ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Basic_Igneous_Rock
   rdf:type skos:Concept ;
@@ -90,6 +109,7 @@ rksd:Basic_Igneous_Rock
   rdfs:label "basic igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Basic_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Biogenic_Sediment
   rdf:type skos:Concept ;
@@ -99,6 +119,7 @@ rksd:Biogenic_Sediment
   rdfs:label "biogenic sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Biogenic_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Breccia
   rdf:type skos:Concept ;
@@ -107,6 +128,7 @@ rksd:Breccia
   rdfs:label "breccia"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Breccia ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Carbonate_Sediment
   rdf:type skos:Concept ;
@@ -115,6 +137,7 @@ rksd:Carbonate_Sediment
   rdfs:label "carbonate sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Carbonate_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Carbonate_Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -124,6 +147,7 @@ rksd:Carbonate_Sedimentary_Rock
   rdfs:label "carbonate sedimentary rock"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Carbonate_Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Cataclasite_Series
   rdf:type skos:Concept ;
@@ -132,6 +156,7 @@ rksd:Cataclasite_Series
   rdfs:label "cataclasite series"@en ;
   skos:broader rksd:Fault_Related_Material ;
   skos:closeMatch gsrm:Cataclasite_Series ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Chemical_Sedimentary_Material
   rdf:type skos:Concept ;
@@ -140,6 +165,7 @@ rksd:Chemical_Sedimentary_Material
   rdfs:label "chemical sedimentary material"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Chemical_Sedimentary_Material ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Clastic_Sediment
   rdf:type skos:Concept ;
@@ -149,6 +175,7 @@ rksd:Clastic_Sediment
   rdfs:label "clastic sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Clastic_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Clastic_Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -158,6 +185,7 @@ rksd:Clastic_Sedimentary_Rock
   rdfs:label "clastic sedimentary rock"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Clastic_Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Coal
   rdf:type skos:Concept ;
@@ -167,6 +195,7 @@ rksd:Coal
   rdfs:label "kohle"@de ;
   skos:broader rksd:Organic_Rich_Sedimentary_Rock ;
   skos:closeMatch gsrm:Coal ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Dacite
   rdf:type skos:Concept ;
@@ -176,6 +205,7 @@ rksd:Dacite
   skos:broader rksd:Acidic_Igneous_Rock ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Dacite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Diamictite
   rdf:type skos:Concept ;
@@ -184,6 +214,7 @@ rksd:Diamictite
   rdfs:label "diamictite"@en ;
   skos:broader rksd:Clastic_Sedimentary_Rock ;
   skos:closeMatch gsrm:Diamictite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Diamicton
   rdf:type skos:Concept ;
@@ -193,6 +224,7 @@ rksd:Diamicton
   rdfs:label "diamicton"@en ;
   skos:broader rksd:Clastic_Sediment ;
   skos:closeMatch gsrm:Diamicton ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Dioritoid
   rdf:type skos:Concept ;
@@ -202,6 +234,7 @@ rksd:Dioritoid
   skos:broader rksd:Intermediate_Composition_Igneous_Rock ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Dioritoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Doleritic_Rock
   rdf:type skos:Concept ;
@@ -210,6 +243,7 @@ rksd:Doleritic_Rock
   rdfs:label "doleritic rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Doleritic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Exotic_Composition_Igneous_Rock
   rdf:type skos:Concept ;
@@ -218,6 +252,7 @@ rksd:Exotic_Composition_Igneous_Rock
   rdfs:label "exotic composition igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Exotic_Composition_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Fault_Related_Material
   rdf:type skos:Concept ;
@@ -226,6 +261,7 @@ rksd:Fault_Related_Material
   rdfs:label "fault related material"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:fault_related_material ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Fine_Grained_Igneous_Rock
   rdf:type skos:Concept ;
@@ -236,6 +272,7 @@ rksd:Fine_Grained_Igneous_Rock
   skos:altLabel "volcanic rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Fine_Grained_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Foid_Dioritoid
   rdf:type skos:Concept ;
@@ -244,6 +281,7 @@ rksd:Foid_Dioritoid
   rdfs:label "foid dioritoid"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Foid_Dioritoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Foid_Gabbroid
   rdf:type skos:Concept ;
@@ -252,6 +290,7 @@ rksd:Foid_Gabbroid
   rdfs:label "foid gabbroid"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Foid_Gabbroid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Foid_Syenitoid
   rdf:type skos:Concept ;
@@ -260,6 +299,7 @@ rksd:Foid_Syenitoid
   rdfs:label "foid syenitoid"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Foid_Syenitoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Foiditoid
   rdf:type skos:Concept ;
@@ -270,6 +310,7 @@ rksd:Foiditoid
   skos:altLabel "foiditic rock"@en ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Foiditoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Foidolite
   rdf:type skos:Concept ;
@@ -278,6 +319,7 @@ rksd:Foidolite
   rdfs:label "foidolite"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Foidolite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Fragmental_Igneous_Rock
   rdf:type skos:Concept ;
@@ -287,6 +329,7 @@ rksd:Fragmental_Igneous_Rock
   skos:broader mat:rock ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Fragmental_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Gabbroic_Rock
   rdf:type skos:Concept ;
@@ -296,6 +339,7 @@ rksd:Gabbroic_Rock
   skos:broader rksd:Basic_Igneous_Rock ;
   skos:broader rksd:Gabbroid ;
   skos:closeMatch gsrm:Gabbroic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Gabbroid
   rdf:type skos:Concept ;
@@ -304,6 +348,7 @@ rksd:Gabbroid
   rdfs:label "gabbroid"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Gabbroid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Generic_Conglomerate
   rdf:type skos:Concept ;
@@ -312,6 +357,7 @@ rksd:Generic_Conglomerate
   rdfs:label "generic conglomerate"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Generic_Conglomerate ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Generic_Mudstone
   rdf:type skos:Concept ;
@@ -321,6 +367,7 @@ rksd:Generic_Mudstone
   rdfs:label "generic mudstone"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Generic_Mudstone ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Generic_Sandstone
   rdf:type skos:Concept ;
@@ -329,6 +376,7 @@ rksd:Generic_Sandstone
   rdfs:label "generic sandstone"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Generic_Sandstone ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Glass_Rich_Igneous_Rock
   rdf:type skos:Concept ;
@@ -337,6 +385,7 @@ rksd:Glass_Rich_Igneous_Rock
   rdfs:label "glass rich igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Glass_Rich_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Granite
   rdf:type skos:Concept ;
@@ -345,6 +394,7 @@ rksd:Granite
   rdfs:label "granite"@en ;
   skos:broader rksd:Granitoid ;
   skos:closeMatch gsrm:Granite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Granitoid
   rdf:type skos:Concept ;
@@ -355,6 +405,7 @@ rksd:Granitoid
   skos:broader rksd:Acidic_Igneous_Rock ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Granitoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Granodiorite
   rdf:type skos:Concept ;
@@ -363,6 +414,7 @@ rksd:Granodiorite
   rdfs:label "granodiorite"@en ;
   skos:broader rksd:Granitoid ;
   skos:closeMatch gsrm:Granodiorite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Gravel_Size_Sediment
   rdf:type skos:Concept ;
@@ -371,6 +423,7 @@ rksd:Gravel_Size_Sediment
   rdfs:label "gravel size sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Gravel_Size_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:High_Magnesium_Fine_Grained_Igneous_Rock
   rdf:type skos:Concept ;
@@ -379,6 +432,7 @@ rksd:High_Magnesium_Fine_Grained_Igneous_Rock
   rdfs:label "high magnesium fine grained igneous rock"@en ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:High_Magnesium_Fine_Grained_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Hornblendite
   rdf:type skos:Concept ;
@@ -388,6 +442,7 @@ rksd:Hornblendite
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:broader rksd:Ultramafic_Igneous_Rock ;
   skos:closeMatch gsrm:Hornblendite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Hybrid_Sediment
   rdf:type skos:Concept ;
@@ -396,6 +451,7 @@ rksd:Hybrid_Sediment
   rdfs:label "hybrid sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Hybrid_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Hybrid_Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -404,6 +460,7 @@ rksd:Hybrid_Sedimentary_Rock
   rdfs:label "hybrid sedimentary rock"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Hybrid_Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Hypabyssal_Intrusive_Rock
   rdf:type skos:Concept ;
@@ -412,6 +469,7 @@ rksd:Hypabyssal_Intrusive_Rock
   rdfs:label "hypabyssal intrusive rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Hypabyssal_Intrusive_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Igneous_Rock
   rdf:type skos:Concept ;
@@ -420,6 +478,7 @@ rksd:Igneous_Rock
   rdfs:label "igneous rock"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Impact_Generated_Material
   rdf:type skos:Concept ;
@@ -428,6 +487,7 @@ rksd:Impact_Generated_Material
   rdfs:label "impact generated material"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:impact_generated_material ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Intermediate_Composition_Igneous_Rock
   rdf:type skos:Concept ;
@@ -436,6 +496,7 @@ rksd:Intermediate_Composition_Igneous_Rock
   rdfs:label "intermediate composition igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Intermediate_Composition_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Iron_Rich_Sediment
   rdf:type skos:Concept ;
@@ -444,6 +505,7 @@ rksd:Iron_Rich_Sediment
   rdfs:label "iron rich sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Iron_Rich_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Iron_Rich_Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -452,6 +514,7 @@ rksd:Iron_Rich_Sedimentary_Rock
   rdfs:label "iron rich sedimentary rock"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Iron_Rich_Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Massive_Sulphide
   rdf:type skos:Concept ;
@@ -461,6 +524,7 @@ rksd:Massive_Sulphide
   skos:altLabel "massive Sulfide"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Massive_Sulphide ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Metamorphic_Rock
   rdf:type skos:Concept ;
@@ -470,6 +534,7 @@ rksd:Metamorphic_Rock
   rdfs:label "metamorphic rock"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Metamorphic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Metasomatic_Rock
   rdf:type skos:Concept ;
@@ -479,6 +544,7 @@ rksd:Metasomatic_Rock
   rdfs:label "metasomatic rock"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Metasomatic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Monzogabbroic_Rock
   rdf:type skos:Concept ;
@@ -487,6 +553,7 @@ rksd:Monzogabbroic_Rock
   rdfs:label "monzogabbroic rock"@en ;
   skos:broader rksd:Gabbroid ;
   skos:closeMatch gsrm:Monzogabbroic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Mud_Size_Sediment
   rdf:type skos:Concept ;
@@ -495,6 +562,7 @@ rksd:Mud_Size_Sediment
   rdfs:label "mud size sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Mud_Size_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Mylonitic_Rock
   rdf:type skos:Concept ;
@@ -503,6 +571,7 @@ rksd:Mylonitic_Rock
   rdfs:label "mylonitic rock"@en ;
   skos:broader rksd:Fault_Related_Material ;
   skos:closeMatch gsrm:Mylonitic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Non_Clastic_Siliceous_Sediment
   rdf:type skos:Concept ;
@@ -511,6 +580,7 @@ rksd:Non_Clastic_Siliceous_Sediment
   rdfs:label "non clastic siliceous sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Non_Clastic_Siliceous_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Non_Clastic_Siliceous_Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -520,6 +590,7 @@ rksd:Non_Clastic_Siliceous_Sedimentary_Rock
   rdfs:label "non clastic siliceous sedimentary rock"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Non_Clastic_Siliceous_Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Organic_Rich_Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -529,6 +600,7 @@ rksd:Organic_Rich_Sedimentary_Rock
   rdfs:label "organic rich sedimentary rock"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Organic_Rich_Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Pegmatite
   rdf:type skos:Concept ;
@@ -537,6 +609,7 @@ rksd:Pegmatite
   rdfs:label "pegmatite"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Pegmatite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Peridotite
   rdf:type skos:Concept ;
@@ -546,6 +619,7 @@ rksd:Peridotite
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:broader rksd:Ultramafic_Igneous_Rock ;
   skos:closeMatch gsrm:Peridotite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Phaneritic_Igneous_Rock
   rdf:type skos:Concept ;
@@ -556,6 +630,7 @@ rksd:Phaneritic_Igneous_Rock
   skos:altLabel "plutonic rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Phaneritic_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Phonolitoid
   rdf:type skos:Concept ;
@@ -565,6 +640,7 @@ rksd:Phonolitoid
   skos:altLabel "phonolitic rock"@en ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Phonolitoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Phosphate_Rich_Sediment
   rdf:type skos:Concept ;
@@ -573,6 +649,7 @@ rksd:Phosphate_Rich_Sediment
   rdfs:label "phosphate rich sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Phosphate_Rich_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Phosphorite
   rdf:type skos:Concept ;
@@ -581,6 +658,7 @@ rksd:Phosphorite
   rdfs:label "phosphorite"@en ;
   skos:broader rksd:Sedimentary_Rock ;
   skos:closeMatch gsrm:Phosphorite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Plutonic_Igneous_Rock
   rdf:type skos:Concept ;
@@ -589,6 +667,7 @@ rksd:Plutonic_Igneous_Rock
   rdfs:label "plutonic rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Plutonic_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Porphyry
   rdf:type skos:Concept ;
@@ -597,6 +676,7 @@ rksd:Porphyry
   rdfs:label "porphyry"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Porphyry ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Pyroclastic_Rock
   rdf:type skos:Concept ;
@@ -605,6 +685,7 @@ rksd:Pyroclastic_Rock
   rdfs:label "pyroclastic rock"@en ;
   skos:broader rksd:Fragmental_Igneous_Rock ;
   skos:closeMatch gsrm:Pyroclastic_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Pyroxenite
   rdf:type skos:Concept ;
@@ -614,6 +695,7 @@ rksd:Pyroxenite
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:broader rksd:Ultramafic_Igneous_Rock ;
   skos:closeMatch gsrm:Pyroxenite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Quartz_Rich_Igneous_Rock
   rdf:type skos:Concept ;
@@ -624,6 +706,7 @@ rksd:Quartz_Rich_Igneous_Rock
   skos:broader rksd:Acidic_Igneous_Rock ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Quartz_Rich_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Rhyolitoid
   rdf:type skos:Concept ;
@@ -635,6 +718,7 @@ rksd:Rhyolitoid
   skos:broader rksd:Acidic_Igneous_Rock ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Rhyolitoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Sand_Size_Sediment
   rdf:type skos:Concept ;
@@ -643,6 +727,7 @@ rksd:Sand_Size_Sediment
   rdfs:label "sand size sediment"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Sand_Size_Sediment ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Sedimentary_Rock
   rdf:type skos:Concept ;
@@ -651,6 +736,7 @@ rksd:Sedimentary_Rock
   rdfs:label "sedimentary rock"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Sedimentary_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Syenitoid
   rdf:type skos:Concept ;
@@ -659,6 +745,7 @@ rksd:Syenitoid
   rdfs:label "syenitoid"@en ;
   skos:broader rksd:Phaneritic_Igneous_Rock ;
   skos:closeMatch gsrm:Syenitoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Tephra
   rdf:type skos:Concept ;
@@ -667,6 +754,7 @@ rksd:Tephra
   rdfs:label "tephra"@en ;
   skos:broader mat:sediment ;
   skos:closeMatch gsrm:Tephra ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Tephritoid
   rdf:type skos:Concept ;
@@ -676,6 +764,7 @@ rksd:Tephritoid
   skos:altLabel "tephritic rock"@en ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Tephritoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Tonalite
   rdf:type skos:Concept ;
@@ -684,6 +773,7 @@ rksd:Tonalite
   rdfs:label "tonalite"@en ;
   skos:broader rksd:Granitoid ;
   skos:closeMatch gsrm:Tonalite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Trachytoid
   rdf:type skos:Concept ;
@@ -692,6 +782,7 @@ rksd:Trachytoid
   rdfs:label "trachytoid"@en ;
   skos:broader rksd:Fine_Grained_Igneous_Rock ;
   skos:closeMatch gsrm:Trachytoid ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Tuffite
   rdf:type skos:Concept ;
@@ -702,6 +793,7 @@ rksd:Tuffite
   rdfs:label "tuffite"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Tuffite ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Ultrabasic_Igneous_Rock
   rdf:type skos:Concept ;
@@ -710,6 +802,7 @@ rksd:Ultrabasic_Igneous_Rock
   rdfs:label "ultrabasic igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Ultrabasic_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:Ultramafic_Igneous_Rock
   rdf:type skos:Concept ;
@@ -718,6 +811,7 @@ rksd:Ultramafic_Igneous_Rock
   rdfs:label "ultramafic igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Ultramafic_Igneous_Rock ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:breccia_gouge_series
   rdf:type skos:Concept ;
@@ -726,6 +820,7 @@ rksd:breccia_gouge_series
   rdfs:label "breccia gouge series"@en ;
   skos:broader rksd:Fault_Related_Material ;
   skos:closeMatch gsrm:breccia_gouge_series ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:residual_material
   rdf:type skos:Concept ;
@@ -734,17 +829,23 @@ rksd:residual_material
   rdfs:label "residual material"@en ;
   skos:broader mat:rock ;
   skos:closeMatch gsrm:residual_material ;
+  skos:inScheme rksd:rocksedimentvocabulary ;
 .
 rksd:rocksedimentvocabulary
   rdf:type owl:Ontology ;
+  rdf:type skos:ConceptScheme ;
+  rdf:type schema:CreativeWork ;
   dct:created "2022-08-27"^^xsd:date ;
   dct:creator gsoc:stephen_richard ;
   dct:license <https://creativecommons.org/licenses/by/4.0/legalcode> ;
+  dct:modified "2023-07-27"^^xsd:date ;
   dct:source "http://resource.geosciml.org/classifierScheme/cgi/2016.01/simplelithology" ;
   dct:source "https://w3id.org/gso/rockmaterial/ontology" ;
   rdfs:comment "Rock and sediment categories for iSamples materialType classification. Remove anthropogenic materials and classes for consolidated or non-consolidated material; remove leaf classes subjectively based on abundance of material type and number of subclasses. There are 83 'mat:rock' subclasses; these include some classes that are non-consolidated material (e.g. fault gouge) but these are not sediment and adding 'material' classes that are independent of consolidation seems like more overhead than needed. Note that a given material is likely to fit in more that one class; for example the sediment subclasses include compositional classes (e.g. carbonate, clastic) as well as grain size classes (gravel-size sediment). A calcareous ooze sample would be both 'mud-size sediment' and 'carbonate sediment'.   Change owl:class to skos:concept, and rdfs:subClassOf to skos:broader."@en ;
   rdfs:label "iSamples rock and sediment vocabulary extension"@en ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   skos:definition "Kinds of rock material."@en ;
+  skos:historyNote "2023-07-27 SMR add funding link, and rdf types for ConceptScheme and CreativeWork."@en ;
   skos:prefLabel "iSamples rock and sediment vocabulary extension"@en ;
+  schema:funding <AWDID:2004562> ;
 .
