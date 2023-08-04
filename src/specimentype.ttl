@@ -211,7 +211,8 @@ spec:solidmaterialspecimen
   rdfs:label "Solid material specimen"@en ;
   skos:broader spec:nonbiologicsolidobject ;
   skos:definition "Individual solid object, not formed directly by or part of a living organism, that is representative of some material."@en ;
-  skos:note "e.g. a rock or mineral specimen, a specimen of some manufactured material, a meteorite. Ice and permafrost are considered solid materials. {@en}"@en ;
+  skos:note "Many sediment cores consist of non-consolidated or weakly consolidated material, but are considered solid objects if the core is preserved intact to observe the sedimentary structures and particle relationships within the sediment. If this material were 'disaggregated' into a mass of granular material to put in a bag, it would become an aggregate (spec:genericaggregation)."@en ;
+  skos:note "e.g. a rock or mineral specimen, a specimen of some manufactured material, a meteorite. Ice and permafrost are considered solid materials."@en ;
   skos:prefLabel "Solid material specimen"@en ;
 .
 spec:specimentypevocabulary
