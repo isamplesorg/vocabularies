@@ -174,7 +174,7 @@ mat:mixedsoilsedimentrock
   rdf:type skos:Concept ;
   rdfs:label "Mixed soil sediment or rock"@en ;
   skos:broader mat:earthmaterial ;
-  skos:definition "Material is mixed aggregation of fragments of undifferentiated soil, sediment or  rock origin. e.g. cuttings from some boreholes (rock fragments and caved soil or sediment), sea floor dredge haul (mixed sediment and rock)"@en ;
+  skos:definition "Material is mixed aggregation of fragments of undifferentiated soil, sediment or rock origin. e.g. cuttings from some boreholes (rock fragments and caved soil or sediment), sea floor dredge haul (mixed sediment and rock)"@en ;
   skos:inScheme mat:materialsvocabulary ;
   skos:note "This class is for samples that are solid Earth materials but known not to be mineral or particulate samples."@en ;
   skos:prefLabel "Mixed soil sediment or rock"@en ;
@@ -241,6 +241,8 @@ mat:rockorsediment
   skos:broader mat:earthmaterial ;
   skos:definition "Material is rock or sediment.  E.g. for samples from subsurface cores that are not well described, from drill holes that likely penetrate sediment near the surface an might be sampling rock at greater depth."@en ;
   skos:inScheme mat:materialsvocabulary ;
+  skos:note "Use for sample like dredge hauls and ROV scoops that mix rock and sediment from a water body bottom."@en ;
+  skos:note "Use for samples described as rock>sedimentary AND sediment, where it is unclear whether the sample is a consolidated 'rock' object, or loose disaggregated material in a bag."@en ;
   skos:prefLabel "Rock or sediment"@en ;
   skos:scopeNote "distinct from 'Mixed soil, sediment or rock' that represents samples known to have components of all these materials."@en ;
 .
