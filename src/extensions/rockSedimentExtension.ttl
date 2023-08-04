@@ -326,7 +326,6 @@ rksd:Fragmental_Igneous_Rock
   dct:source "This vocabulary"@en ;
   rdfs:comment "Igneous rock in which greater than 75 percent of the rock consists of fragments produced as a result of igneous rock-forming process. Includes pyroclastic rocks, autobreccia associated with lava flows and intrusive breccias. Excludes deposits reworked by epiclastic processes (see Tuffite)"@en ;
   rdfs:label "fragmental igneous rock"@en ;
-  skos:broader mat:rock ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Fragmental_Igneous_Rock ;
   skos:inScheme rksd:rocksedimentvocabulary ;
