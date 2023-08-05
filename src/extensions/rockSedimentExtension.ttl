@@ -108,6 +108,14 @@ rksd:Breccia
   skos:broader mat:rock ;
   skos:closeMatch gsrm:Breccia ;
 .
+rksd:Breccia_Gouge_Series
+  rdf:type skos:Concept ;
+  dct:source "SLTTm 2004"@en ;
+  rdfs:comment "Fault-related material with features such as void spaces (filled or unfilled), or unconsolidated matrix material between fragments, indicating loss of cohesion during deformation. Includes fault-related breccia and gouge."@en ;
+  rdfs:label "breccia gouge series"@en ;
+  skos:broader rksd:Fault_Related_Material ;
+  skos:closeMatch gsrm:breccia_gouge_series ;
+.
 rksd:Carbonate_Sediment
   rdf:type skos:Concept ;
   dct:source "SLTTs 2004"@en ;
@@ -718,14 +726,6 @@ rksd:Ultramafic_Igneous_Rock
   rdfs:label "ultramafic igneous rock"@en ;
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Ultramafic_Igneous_Rock ;
-.
-rksd:breccia_gouge_series
-  rdf:type skos:Concept ;
-  dct:source "SLTTm 2004"@en ;
-  rdfs:comment "Fault-related material with features such as void spaces (filled or unfilled), or unconsolidated matrix material between fragments, indicating loss of cohesion during deformation. Includes fault-related breccia and gouge."@en ;
-  rdfs:label "breccia gouge series"@en ;
-  skos:broader rksd:Fault_Related_Material ;
-  skos:closeMatch gsrm:breccia_gouge_series ;
 .
 rksd:residual_material
   rdf:type skos:Concept ;
