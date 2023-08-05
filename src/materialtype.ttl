@@ -168,6 +168,7 @@ mat:mixedsoilsedimentrock
   skos:definition "Material is mixed aggregation of fragments of undifferentiated soil, sediment or  rock origin. e.g. cuttings from some boreholes (rock fragments and caved soil or sediment), sea floor dredge haul (mixed sediment and rock)"@en ;
   skos:inScheme mat:materialsvocabulary ;
   skos:note "This class is for samples that are solid Earth materials but known not to be mineral or particulate samples."@en ;
+  skos:note "Use for dredge hauls aggregations that are mixtures of fragments, rock, sediment, likely some biogenic stuff as well."@en ;
   skos:prefLabel "Mixed soil sediment or rock"@en ;
 .
 mat:nonaqueousliquid
