@@ -507,16 +507,9 @@ esmat:dustwipe
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Dust wipe"@en ;
 .
-esmat:epoxyround
-  rdf:type skos:Concept ;
-  dcterm:source "this vocabulary" ;
-  rdfs:label "Epoxy round mount"@en ;
-  skos:broader esmat:mountedsection ;
-  skos:definition "Epoxy cylinder with solid sample material embedded, typically with polished surface exposing mounted material for analysis {@en}	" ;
-  skos:prefLabel "Epoxy round mount"@en ;
-.
 esmat:fiblamella
   rdf:type skos:Concept ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.5-FIB-sections%2C-microtome-slices%2C-atom-probe-tips%2C-TEM-grids" ;
   dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "FIB lamella"@en ;
@@ -647,19 +640,21 @@ esmat:mountedsection
   rdf:type skos:Concept ;
   dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
-  rdfs:label "Mounted section"@en ;
+  rdfs:label "Sectioned specimen"@en ;
   skos:broader spec:analyticalpreparation ;
   skos:broader spec:solidmaterialspecimen ;
-  skos:definition "a thin slice of a rock that has been mounted on a glass slide for optical study"@en ;
+  skos:definition "a thin slice of a solid material that has been mounted on a glass slide for study"@en ;
   skos:inScheme esmat:sampletype ;
-  skos:prefLabel "Mounted section"@en ;
+  skos:prefLabel "Sectioned specimen"@en ;
 .
 esmat:naturalaggregate
   rdf:type skos:Concept ;
   dcterm:source "this vocabulary" ;
+  rdfs:comment "E.g beach sand, soil, river sediment, scoop of regolith."@en ;
   rdfs:label "Natural aggregate specimen"@en ;
+  skos:altLabel "Aggregate sample"@en ;
   skos:broader spec:genericaggregation ;
-  skos:definition "Specimen is aggreage of non-consolidated material formed by natural processes. E.g beach sand, soil, river sediment."@en ;
+  skos:definition "Specimen is aggregate of non-consolidated material formed by natural processes. Particles have not been intentionally modified from the sampled feature."@en ;
   skos:prefLabel "Natural aggregate specimen"@en ;
 .
 esmat:nonmagneticfraction
@@ -684,12 +679,22 @@ esmat:peel
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Peel"@en ;
 .
+esmat:polishedmountedspecimen
+  rdf:type skos:Concept ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.3-Thin-section%2C-thick-section%2C-grain-mounts-(epoxy%2Fmetal-mounts)%2C-and-potted-butts" ;
+  dcterm:source "this vocabulary" ;
+  rdfs:label "Polished mounted specimen"@en ;
+  skos:altLabel "Grain mount"@en ;
+  skos:broader spec:mountedspecimen ;
+  skos:definition "Mounted specimen with polished surface exposing mounted material for analysis {@en}	" ;
+  skos:prefLabel "Polished mounted specimen"@en ;
+.
 esmat:polishedthinsection
   rdf:type skos:Concept ;
   dcterm:source "http://www.minsocam.org/ammin/AM53/AM53_2070.pdf" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "polished thin section"@en ;
-  skos:broader esmat:mountedsection ;
+  skos:broader esmat:thinsection ;
   skos:definition "a thin section that has its free surface polished until perfectly planar and free of pits and scratches. Used for reflected light petrography and for electron microprobe or SEM investigation."@en ;
   skos:inScheme esmat:sampletype ;
   skos:prefLabel "Polished thin section"@en ;
@@ -699,6 +704,7 @@ esmat:preparedpowder
   dcterm:source "this vocabulary" ;
   rdfs:isDefinedBy esmat:sampletype ;
   rdfs:label "Prepared powder"@en ;
+  skos:altLabel "Powder"@en ;
   skos:broader spec:analyticalpreparation ;
   skos:broader spec:genericaggregation ;
   skos:definition "distinguish from particulate in that particulate is sampled as a micron-size aggregate, whereas this material is ground to a powder for subsequent analysis; it is a powder as a function of some preparation process (e.g. chemical precipitation)"@en ;
@@ -738,6 +744,7 @@ esmat:residualmaterial
   rdf:type skos:Concept ;
   dcterm:source "this vocabulary" ;
   rdfs:label "Residual material"@en ;
+  skos:altLabel "Residue"@en ;
   skos:broader spec:analyticalpreparation ;
   skos:definition "Sample is material remaining after processing to extract some other components of interest from the sample."@en ;
   skos:prefLabel "Residual material"@en ;
@@ -850,8 +857,36 @@ esmat:ultrathinsection
 spec:analyticalpreparation
   skos:topConceptOf esmat:sampletype ;
 .
+spec:atomprobetip
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.5-FIB-sections%2C-microtome-slices%2C-atom-probe-tips%2C-TEM-grids" ;
+  rdfs:label "Atom probe tip"@en ;
+  skos:broader spec:solidmaterialspecimen ;
+  skos:definition "needle-shaped sample milled out of a larger sample with a focused ion beam (FIB)."@en ;
+  skos:prefLabel "Atom probe tip"@en ;
+.
 spec:bundlebiomeaggregation
   skos:topConceptOf esmat:sampletype ;
+.
+spec:chip
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138/SAMIS-JSC+Curation+Interface+Control+Document+ICD#6.1-Particles-and-chips" ;
+  rdfs:label "Chip"@en ;
+  skos:broader spec:solidmaterialspecimen ;
+  skos:definition "Individual solid object intentionally broken off a larger solid object sample. A Chip must have a documented parent sample. {@en} " ;
+  skos:prefLabel "Chip"@en ;
+.
+spec:eluate
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://en.wikipedia.org/wiki/Elution" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.6-Liquids-and-Washes" ;
+  rdfs:label "Eluate"@en ;
+  skos:broader esmat:dissolvedchemicalfraction ;
+  skos:definition "The fluid product that contains the analyte of interest washed from a chromatography column"@en ;
+  skos:prefLabel "Eluate"@en ;
 .
 spec:fluidincontainer
   skos:topConceptOf esmat:sampletype ;
@@ -859,6 +894,45 @@ spec:fluidincontainer
 spec:genericaggregation
   skos:topConceptOf esmat:sampletype ;
 .
+spec:microtomeslice
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.5-FIB-sections%2C-microtome-slices%2C-atom-probe-tips%2C-TEM-grids" ;
+  rdfs:comment "Typically from TEM analysis. Slices are commonly deposited in a grid contain with multiple slices and the grid will be given a single sample name, not the individual slices within it. The provenance of the slice from paticle to mounted specimen to slice should be carefully documented"@en ;
+  rdfs:label "Microtome slice "@en ;
+  skos:broader spec:solidmaterialspecimen ;
+  skos:definition "A very thin slice cut from a mounted specimen using a mocrotome or ultramicrotome."@en ;
+  skos:prefLabel "Microtome slice"@en ;
+.
+spec:mountedspecimen
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.3-Thin-section%2C-thick-section%2C-grain-mounts-(epoxy%2Fmetal-mounts)%2C-and-potted-butts" ;
+  rdfs:label "Mounted specimen"@en ;
+  skos:altLabel "Potted butt"@en ;
+  skos:broader spec:solidmaterialspecimen ;
+  skos:definition "one or more solid objects embedded in a stabilizing matrix, typically epoxy, metal, or paraffin to allow slicing through the mounted object(s)."@en ;
+  skos:prefLabel "Mounted specimen"@en ;
+.
 spec:othersolidobject
   skos:topConceptOf esmat:sampletype ;
+.
+spec:particle
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138/SAMIS-JSC+Curation+Interface+Control+Document+ICD#6.1-Particles-and-chips" ;
+  rdfs:comment "Can also used for small peices broken from a 'Rock hand sample'.   OSIRIS-Rex definition specifies 'competent individual geologic sample of any size'. 'Competent' interpreted to be equivalent to 'solid', or 'consolidated'.  The definition here is broader in that it includes materials of any origin, but narrower in that it is restricted to small objects."@en ;
+  rdfs:label "Particle"@en ;
+  skos:broader spec:solidmaterialspecimen ;
+  skos:definition "A small individual solid object that is not one of the other sample types."@en ;
+  skos:prefLabel "Particle"@en ;
+.
+spec:temgrid
+  rdf:type skos:Concept ;
+  dcterm:source "OSIRIS-Rex Sample types" ;
+  dcterm:source "https://osiris-rex.atlassian.net/wiki/spaces/UTDMP/pages/410288138#6.5-FIB-sections%2C-microtome-slices%2C-atom-probe-tips%2C-TEM-grids" ;
+  rdfs:label "TEM grid "@en ;
+  skos:broader spec:genericaggregation ;
+  skos:definition "FIB sections and microtome slices set onto a small grid for handling, transport, and analysis using a transmission electron microscope (TEM). The grid itself can be given a single sample identifier (similar to how there are multiple grains in a grain mount). The linkage from the individual samples in the grid to their parent sample(s) should be documented"@en ;
+  skos:prefLabel "Resonance ionization mass spectrometry" ;
 .
