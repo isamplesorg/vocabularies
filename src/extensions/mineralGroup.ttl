@@ -9,10 +9,17 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<AWDID:2004562>
+  rdf:type schema:Grant ;
+  schema:funder <https://ror.org/04nh1dc89> ;
+  schema:name "Collaborative Research: Frameworks: Internet of Samples: Toward an Interdisciplinary Cyberinfrastructure for Material Samples" ;
+  schema:url "https://nsf.gov/awardsearch/showAward?AWD_ID=2004562" ;
+.
 dct:created
   rdf:type owl:AnnotationProperty ;
 .
@@ -28,6 +35,9 @@ dct:modified
   rdfs:comment "orchid-id: https://orcid.org/0000-0001-6041-5302" ;
   rdfs:label "Dr. Stephen M. Richard" ;
 .
+mat:mineral
+  skos:topConceptOf ming:mineralgroupvocabulary ;
+.
 ming:boratemineral
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;
@@ -35,7 +45,7 @@ ming:boratemineral
   rdfs:label "Mineral-Borate"@en ;
   skos:altLabel "Nickel-Strunz class 06"@en ;
   skos:broader mat:mineral ;
-  skos:definition "Minerals which contain a borate anion group."@en ;
+  skos:definition "Minerals that contain a borate anion group."@en ;
   skos:exactMatch <http://linked.data.gov.au/def/minerals/borates> ;
   skos:inScheme ming:mineralgroupvocabulary ;
   skos:prefLabel "Mineral-Borate"@en ;
@@ -81,6 +91,7 @@ ming:mineralgroupvocabulary
   skos:definition "Vocabulary to extend the mineral material type category with the top level mineral group categories. Uses the Nickel–Strunz mineral classes, which divide minerals into ten classes according to chemical composition and crystal structure. Nickel-Strunz group 10 is not included because that material would be mat:organiccompounds. Version 10 of the classification is modified from v 9 (Strunz and Nickel,2002) by Jim Ferraiolo and others, and now extended and maintained by mindat.org. Some scope notes from linked.data.gov.au. "@en ;
   skos:hasTopConcept mat:mineral ;
   skos:prefLabel "iSamples Mineral Group Vocabulary "@en ;
+  schema:funding <AWDID:2004562> ;
 .
 ming:nativeelementmineral
   rdf:type owl:NamedIndividual ;

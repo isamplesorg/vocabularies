@@ -703,7 +703,7 @@ esmat:sampletype
   dcterm:contributor <https://orcid.org/0000-0001-6041-5302> ;
   dcterm:created "2023-07-01"^^xsd:date ;
   dcterm:creator <https://orcid.org/0000-0001-6041-5302> ;
-  dcterm:modified "2023-07-07"^^xsd:date ;
+  dcterm:modified "2023-07-27"^^xsd:date ;
   dcterm:publisher "iSamples project" ;
   rdfs:label "Earth and Environmental Science specimen type extension"@en ;
   owl:imports dcterm: ;
@@ -713,11 +713,18 @@ esmat:sampletype
   skos:definition "This concept scheme contains skos concepts for categorizing kinds of Earth Material sample types, extending the iSamples Material Sample Type vocabulary. Defintions from SESAR, ODM2, wikipedia, ESS-DIVE, and other sources; sources are cited with each term."@en ;
   skos:hasTopConcept spec:physicalspecimen ;
   skos:historyNote "2023-07-07 SMR add solid material sample and broader relations from classes it subsumes."@en ;
-  skos:inScheme spec:specimentypevocabulary ;
+  skos:historyNote "2023-07-27 SMR modify base specimen type vocabulary, add 'Non biologic solid object' to replace 'solid material sample', change broader relations in this vocab to use that as parent class where appropriate. 'Solid material sample' is too closely linked to material type, created confusion. Intention is a specimen category for solid objects that are not biologic. Obviously there is some overlap with Research specimens."@en ;
   skos:prefLabel "Earth and Environmental Science specimen type extension"@en ;
-  schema:funding "https://nsf.gov/awardsearch/showAward?AWD_ID=2004562" ;
+  schema:funding <AWDID:2004562>;
   schema:provider "TBD" ;
 .
+
+<AWDID:2004562> rdf:type schema:Grant;
+  schema:funder <https://ror.org/04nh1dc89>;
+  schema:name "Collaborative Research: Frameworks: Internet of Samples: Toward an Interdisciplinary Cyberinfrastructure for Material Samples";
+  schema:url   "https://nsf.gov/awardsearch/showAward?AWD_ID=2004562" 
+  .
+  
 esmat:slab
   rdf:type skos:Concept ;
   dcterm:source "this vocabulary" ;
@@ -783,9 +790,7 @@ esmat:ultrathinsection
 spec:analyticalpreparation
   skos:topConceptOf esmat:sampletype ;
 .
-spec:artifact
-  skos:note "A sample is classified as an artifact if it is intended to represent the manufactured item.  For example, core, thin section, peel, glass slide smear are products of human manufacture, but are intended to represent materials or biological specimens."@en ;
-.
+
 spec:bundlebiomeaggregation
   skos:topConceptOf esmat:sampletype ;
 .
