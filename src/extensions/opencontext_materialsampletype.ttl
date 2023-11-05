@@ -1,6 +1,6 @@
 # baseURI: https://w3id.org/isample/vocabulary/opencontext/specimentype/0.1/
 # imports: http://www.w3.org/2004/02/skos/core
-# imports: https://w3id.org/isample/vocabulary/specimentype/0.9/specimentypevocabulary
+# imports: https://w3id.org/isample/vocabulary/specimentype/1.0/specimentypevocabulary
 # prefix: ocspec
 
 @prefix : <https://w3id.org/isample/vocabulary/opencontext/material/0.1/> .
@@ -23,7 +23,7 @@ ocspec:
   rdfs:comment "created based on summary of 'type' values found in OpenContext sample descriptions. This is a bottom-up vocabulary intended as a first draft and demonstration of a material sample type extension for the Open Context community in the iSamples context. Most of the categories are subclasses of spec:Artifact, except for 'bone object' which is a spec:OrganismPart."@en ;
   rdfs:label "Open Context vocabulary extension for material sample type"@en ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
-  owl:imports spec:specimentypevocabulary ;
+  owl:imports <https://w3id.org/isample/vocabulary/specimentype/1.0/specimentypevocabulary> ;
 .
 ocspec:architecturalelement
   rdf:type skos:Concept ;
