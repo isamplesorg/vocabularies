@@ -719,6 +719,15 @@ rksd:Ultramafic_Igneous_Rock
   skos:broader rksd:Igneous_Rock ;
   skos:closeMatch gsrm:Ultramafic_Igneous_Rock ;
 .
+rksd:Volcanic_Rock
+  rdf:type skos:Concept ;
+  rdfs:label "volcanic rock "@en ;
+  skos:broader rksd:Igneous_Rock ;
+  skos:definition "Rock that exhibits direct evidence of extrusive igneous processes in its genesis."@en ;
+  skos:note "Hand-sample level evidence for extrusive origin includes vesiculation, inclusion of supracrustal fragments, eutaxitic foliation, bread-crust surfaces; weaker evidence includes glassy texture or fragmentation interpreted to be related to flow or eruption processes.  In many cases, rocks are classified as volcanic based on the context in which they are collected; as such the assignement of volcanic genesis is not based on properties directly observable in the sample."@en ;
+  skos:note "This class will overlap with various other classes, including exotic compoistion, fine-grained igneous, glass-rich igneous, intermediate-composition, porphyry, ultrabasic, ultramafic, depending on how much information is available"@en ;
+  skos:prefLabel "volcanic rock"@en ;
+.
 rksd:breccia_gouge_series
   rdf:type skos:Concept ;
   dct:source "SLTTm 2004"@en ;
