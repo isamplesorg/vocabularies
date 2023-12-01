@@ -1,8 +1,6 @@
-# baseURI: https://w3id.org/isample/1.0/esmaterialsample/sampletype
-# imports: http://purl.org/dc/terms/
-# imports: http://www.w3.org/2000/01/rdf-schema
+# baseURI: https://w3id.org/isample/1.0/esmaterialsample/ontology
 # imports: http://www.w3.org/2004/02/skos/core
-# imports: https://w3id.org/isample/vocabulary/specimentype/0.9/specimentypevocabulary
+# imports: https://w3id.org/isample/vocabulary/specimentype/1.0/specimentypevocabulary
 
 @prefix dcterm: <http://purl.org/dc/terms/> .
 @prefix esmat: <https://w3id.org/isample/1.0/esmaterialsample/> .
@@ -13,7 +11,7 @@
 @prefix sdev: <http://vocab.nerc.ac.uk/collection/L05/current/> .
 @prefix sdo: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix spec: <https://w3id.org/isample/vocabulary/specimentype/0.9/> .
+@prefix spec: <https://w3id.org/isample/vocabulary/specimentype/1.0/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <AWDID:2004562>
@@ -760,7 +758,7 @@ esmat:rockhandsample
   skos:note "use this category for rough peices of rock that have not undergone any preparation processing (crushing, sawing, etching...)"@en ;
   skos:prefLabel "Rock hand sample"@en ;
 .
-esmat:sampletype
+esmat:ontology
   rdf:type owl:Ontology ;
   rdf:type skos:ConceptScheme ;
   rdf:type schema:CreativeWork ;
@@ -771,7 +769,6 @@ esmat:sampletype
   dcterm:publisher "iSamples project" ;
   rdfs:label "Earth and Environmental Science specimen type extension"@en ;
   owl:imports dcterm: ;
-  owl:imports <http://www.w3.org/2000/01/rdf-schema> ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   owl:imports spec:specimentypevocabulary ;
   skos:definition "This concept scheme contains skos concepts for categorizing kinds of Earth Material sample types, extending the iSamples Material Sample Type vocabulary. Defintions from SESAR, ODM2, wikipedia, ESS-DIVE, and other sources; sources are cited with each term."@en ;
