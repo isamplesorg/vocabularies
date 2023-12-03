@@ -11,7 +11,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<AWDID:2004562>
+<essfrole:2004562>
   rdf:type schema:Grant ;
   schema:funder <https://ror.org/04nh1dc89> ;
   schema:name "Collaborative Research: Frameworks: Internet of Samples: Toward an Interdisciplinary Cyberinfrastructure for Material Samples" ;
@@ -124,7 +124,7 @@ essfrole:ontology
   skos:hasTopConcept essfrole:sampledfeaturepart ;
   skos:historyNote "2023-11-17 SMR generate to account for sample classifications in SESAR"@en ;
   skos:prefLabel "Earth and Environmental Science sampled feature role extension"@en ;
-  schema:funding <AWDID:2004562> ;
+  schema:funding <essfrole:2004562> ;
   schema:provider "TBD" ;
 .
 essfrole:phenocryst
