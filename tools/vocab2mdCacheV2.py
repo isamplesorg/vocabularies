@@ -110,12 +110,16 @@ def getObjects(g, s, p):
     WHERE {
         ?subject ?predicate ?o .
     }""")
+    print(f"getObject prefixes: {PFX}\n")
+    print(f"getObject subject: {s}\n")
+    print(f"getObject predicate: {p}\n")
+
     qres = g.query(q, initBindings={'subject': s, 'predicate': p})
     res = []
     for row in qres:
+        print(f"object: {row[0]}\n")
         res.append(row[0])
     return res
-
 
 def _labelToLink(label):
     if isinstance(label, list):
@@ -244,6 +248,7 @@ def describeNarrowerTerms(g, v, r, depth=0, level=[]):
 def describeVocabulary(G, V):
     res = []
     level = [1, ]
+    print(f"vocab2md: {V} vocabulary to describe \n")
     # this is the header for Quarto in the markdown output
     res.append("---")
     res.append("comment: | \n  WARNING: This file is generated. Any edits will be lost!")
@@ -266,8 +271,8 @@ def describeVocabulary(G, V):
     if len(gobj)>0:
         scheme = gobj[0]
     else:
-#        print(f"vocab2md: {V} object must have a skos:prefLabel")
-        return 1
+        print(f"vocab2md: {V} object must have a skos:prefLabel\n")
+        scheme = "Concept Scheme"
 #    scheme = getObjects(G, V, skosT("prefLabel"))[0]
     lscheme = scheme.replace(" ","")
     res.append("[]{" + f"#{lscheme}" + "}")
@@ -353,8 +358,9 @@ def main(source, vocabulary):
     res = []
 
     vocabulary = store.expand_name(vocabulary)
-#    print(f"vocabulary name: {vocabulary}")
+    print(f"vocabulary name: {vocabulary}\n")
     theMarkdown = describeVocabulary(store._g, vocabulary)
+    print("describeVocabulary result:", type(theMarkdown))
     res.append(theMarkdown)
 
     for doc in res:
