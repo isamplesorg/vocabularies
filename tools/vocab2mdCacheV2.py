@@ -110,12 +110,17 @@ def getObjects(g, s, p):
     WHERE {
         ?subject ?predicate ?o .
     }""")
+    print(f"getObject prefixes: {PFX}\n")
+    print(f"getObject subject: {s}\n")
+    print(f"getObject predicate: {p}\n")
+
     qres = g.query(q, initBindings={'subject': s, 'predicate': p})
     res = []
     for row in qres:
+        print(f"object: {row[0]}\n")
         res.append(row[0])
     return res
-
+p
 
 def _labelToLink(label):
     if isinstance(label, list):
@@ -354,7 +359,7 @@ def main(source, vocabulary):
     res = []
 
     vocabulary = store.expand_name(vocabulary)
-    print(f"vocabulary name: {vocabulary}")
+    print(f"vocabulary name: {vocabulary}\n")
     theMarkdown = describeVocabulary(store._g, vocabulary)
     print("describeVocabulary result:", type(theMarkdown))
     res.append(theMarkdown)
