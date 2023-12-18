@@ -84,12 +84,8 @@ mat:dispersedmedia
   rdf:type skos:Concept ;
   rdfs:label "Dispersed media"@en ;
   skos:broader mat:material ;
-<<<<<<< HEAD:src/materialtype.ttl
-  skos:definition "A material contains discrete elements of one medium that are dispersed in a continuous fluid medium.  The dispersed component can be a gas, a liquid or a solid (based on https://en.wikipedia.org/wiki/Dispersed_media). Does not include mixtures of granular material like soil, sediment, particulate, or solids that would be considered a rock. E.g. aerosol ENVO_00010505, foam ENVO_00005738, emulsion ENVO_00010506, colloidal suspension ENVO_01001560, scum(?) ENVO:00003930, clathrate?"@en ;
-=======
   skos:definition "A material contains discrete elements of one medium that are dispersed in a continuous fluid medium.  The dispersed component can be a gas, a liquid or a solid (based on https://en.wikipedia.org/wiki/Dispersed_media). Does not include mixtures of granular material like soil, sediment, particulate, or solids that would be considered a rock."@en ;
   skos:example "aerosol obo:ENVO_00010505, foam obo:ENVO_00005738, emulsion obo:ENVO_00010506, colloidal suspension obo:ENVO_01001560, scum(?) obo:ENVO_00003930. (prefix obo: http://purl.obolibrary.org/obo/)"@en ;
->>>>>>> sampled_feature_role:src/isamples_material_type/material_type.ttl
   skos:inScheme mat:materialsvocabulary ;
   skos:narrowMatch <http://purl.obolibrary.org/obo/ENVO_00010506> ;
   skos:narrowMatch <http://purl.obolibrary.org/obo/ENVO_01001560> ;

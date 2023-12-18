@@ -234,12 +234,8 @@ sf:sampledfeaturevocabulary
   skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies. Fix typo in glacierenvrionment URI (changed the URI to glacierenvironment)"@en ;
   skos:historyNote "2022-09-07 SMR update some of the skos mappings to other vocabularies; remove references to other vocabularies as NamedIndividual. Remove rocksample class, it was not linked in hierarchy and inconsistent with design."@en ;
   skos:historyNote "2022-09-30 add biological entity as sampled feature, per issue https://github.com/isamplesorg/metadata/issues/107. This update was lost at some point and added back in 2022-12-09."@en ;
-<<<<<<< HEAD:src/sampledfeature.ttl
-    schema:funding <AWDID:2004562>;
-=======
   skos:historyNote "2023-11-05 SMR update version to 1.0, prep for release"@en ;
   skos:historyNote "Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environemtn  subclasses of Active human occupation site."@en ;
->>>>>>> sampled_feature_role:src/isamples_sampled_feature/sampled_feature_type.ttl
   skos:prefLabel "Sampled Feature Type vocabulary"@en ;
   schema:funding <AWDID:2004562> ;
 .
