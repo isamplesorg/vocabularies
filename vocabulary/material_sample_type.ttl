@@ -149,7 +149,6 @@ spec:nonbiologicsolidobject
   skos:broader spec:physicalspecimen ;
   skos:definition "Individual solid object, not formed directly by or part of a living organism"@en ;
   skos:inScheme spec:specimentypevocabulary ;
-  sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:prefLabel "Non biologic solid object"@en ;
 .
 spec:organismpart
