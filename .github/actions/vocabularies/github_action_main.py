@@ -11,7 +11,9 @@ import sys
 
 
 def main():
-    logging.debug(f"environment variables are {os.environ}")
+#    logging.debug(f"environment variables are {os.environ}")
+#    print(f"environment variables are {os.environ}")
+
     command = os.environ["INPUT_ACTION"]
     path = os.environ["INPUT_PATH"]
     if path is None:
