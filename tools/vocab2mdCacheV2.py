@@ -266,7 +266,7 @@ def describeVocabulary(G, V):
     if len(gobj)>0:
         scheme = gobj[0]
     else:
-#        print(f"vocab2md: {V} object must have a skos:prefLabel")
+        print(f"vocab2md: {V} object must have a skos:prefLabel")
         return 1
 #    scheme = getObjects(G, V, skosT("prefLabel"))[0]
     lscheme = scheme.replace(" ","")
@@ -355,7 +355,7 @@ def main(source, vocabulary):
     vocabulary = store.expand_name(vocabulary)
     print(f"vocabulary name: {vocabulary}")
     theMarkdown = describeVocabulary(store._g, vocabulary)
-    print("describeVocabulary result length:", len(theMarkdown))
+    print("describeVocabulary result length:", type(theMarkdown))
     res.append(theMarkdown)
 
     for doc in res:
