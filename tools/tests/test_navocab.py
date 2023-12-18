@@ -7,7 +7,7 @@ from tools import navocab
 def test_01():
     source = "data/test_01.ttl"
     dest = "data/test.db"
-    v = navocab.VocabularyStore(storage_uri=f"sqlite:///{dest}")
+    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
     v.load(source)
     yield v
     os.unlink(dest)
@@ -25,7 +25,7 @@ def test_load():
 
     source = "data/test_01.ttl"
     dest = "data/test.db"
-    v = navocab.VocabularyStore(storage_uri=f"sqlite:///{dest}")
+    v = navocab.Vocabulary(storage_uri=f"sqlite:///{dest}")
     v.load(source, bindings=NS)
     assert len(v) == 33
     # Loading the same content again should not add any statements
