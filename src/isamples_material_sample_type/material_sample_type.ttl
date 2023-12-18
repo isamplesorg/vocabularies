@@ -1,14 +1,14 @@
-# baseURI: https://w3id.org/isample/vocabulary/specimentype/0.9/specimentypevocabulary
+# baseURI: https://w3id.org/isample/vocabulary/specimentype/1.0/specimentypevocabulary
 # imports: http://www.w3.org/2004/02/skos/core
 
-@prefix : <https://w3id.org/isample/vocabulary/specimentype/0.9/> .
+@prefix : <https://w3id.org/isample/vocabulary/specimentype/1.0/specimentypevocabulary#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix spec: <https://w3id.org/isample/vocabulary/specimentype/0.9/> .
+@prefix spec: <https://w3id.org/isample/vocabulary/specimentype/1.0/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -26,6 +26,9 @@ dct:license
 .
 dct:modified
   rdf:type owl:AnnotationProperty ;
+.
+skos:exactMatch
+  skos:exactMatch <http://rs.tdwg.org/dwc/terms/MaterialSample> ;
 .
 <https://orcid.org/0000-0001-6041-5302>
   rdf:type owl:NamedIndividual ;
@@ -47,7 +50,7 @@ spec:anthropogenicaggregation
   rdf:type skos:Concept ;
   rdfs:label "Anthropogenic aggregation"@en ;
   skos:broader spec:anyaggregation ;
-  skos:definition "Aggregation consists of fragments of material produced by human activity,  not described individually, and generally not all originating from the same object.  Includes pottery in an excavation unit that gets an aggregate description, production waste, production raw-materials, or other residues (broken bits of plaster from an destroyed wall), synthetic powders."@en ;
+  skos:definition "Aggregation consists of fragments of material produced by human activity,  not described individually, and generally not all originating from the same object.  Includes pottery in an excavation unit that gets an aggregate description, production waste, production raw-materials, or other residues (broken bits of plaster from a destroyed wall), synthetic powders."@en ;
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Anthropogenic aggregation"@en ;
 .
@@ -56,7 +59,7 @@ spec:anyaggregation
   rdf:type skos:Concept ;
   rdfs:label "Any aggregation specimen"@en ;
   skos:broader spec:physicalspecimen ;
-  skos:definition "Sample consists of a bunch of material fragments, not related to the same object (e.g. not a bunch of broken pot sherds that might be reassembled), but taken together representative of the sampled feature. Examples: loose soil, sediment, crushed rock,  particulate, bunches of unrelated pot sherd, human production waste, filtrates and residues. The sample requires some kind of container to keep it together. Cores of loosely consolidated material are considered 'piece of solid material' because the internal parts have spatial relationships (e.g. upper part, lower part)."@en ;
+  skos:definition "Sample consists of a bunch of material fragments, not related to the same object (e.g. not a bunch of broken pot sherds that might be reassembled), but taken together representative of the sampled feature. Examples: loose soil, sediment, crushed rock,  particulate, bunches of unrelated pot sherd, human production waste, filtrates and residues. The sample requires some kind of container to keep it together. Cores of loosely consolidated material are considered 'Solid material specimen' because the internal parts have spatial relationships (e.g. upper part, lower part, sedimentary structures)."@en ;
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Any aggregation specimen"@en ;
   skos:related <http://purl.allotrope.org/ontologies/quality#AFQ_0000306> ;
@@ -115,7 +118,7 @@ spec:fluidincontainer
   skos:broader spec:physicalspecimen ;
   skos:closeMatch <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25278> ;
   skos:closeMatch <http://purl.obolibrary.org/obo/ENVO_02000140> ;
-  skos:definition "Specimen is a container whose contents are liquid, gas, or mixed dominantly fluid phases, that is the actual sample material. Fluid might include minor solid particles. Container typically human made, but also includes natural fluid container, e.g. fluid inclusion in a mineral grain.  Includes colloids, foams, gels, suspensions. The sample is the fluid substance; fluid samples collected to analyze the contained biome should be considered 'Biome Aggregation'"@en ;
+  skos:definition "Specimen is a container whose contents are liquid, gas, or mixed dominantly fluid phases that is the actual sample material. Fluid might include minor solid particles. Container typically human made, but also includes natural fluid container, e.g. fluid inclusion in a mineral grain.  Includes colloids, foams, gels, suspensions. The sample is the fluid substance; fluid samples collected to analyze the contained biome should be considered 'Biome Aggregation'"@en ;
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Fluid in container"@en ;
 .
@@ -145,6 +148,10 @@ spec:nonbiologicsolidobject
   rdfs:label "Non biologic solid object"@en ;
   skos:broader spec:physicalspecimen ;
   skos:definition "Individual solid object, not formed directly by or part of a living organism"@en ;
+<<<<<<< HEAD:src/specimentype.ttl
+=======
+  skos:inScheme spec:specimentypevocabulary ;
+>>>>>>> sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:prefLabel "Non biologic solid object"@en ;
 .
 spec:organismpart
@@ -174,7 +181,11 @@ spec:othersolidobject
   skos:broadMatch <http://purl.obolibrary.org/obo/BFO_0000030> ;
   skos:broadMatch <http://semanticscience.org/resource/SIO_000776> ;
   skos:broader spec:nonbiologicsolidobject ;
+<<<<<<< HEAD:src/specimentype.ttl
   skos:definition "Single piece of material not one of the other types." ;
+=======
+  skos:definition "Single piece of material not one of the other types."@en ;
+>>>>>>> sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Other solid object"@en ;
   skos:relatedMatch <http://purl.obolibrary.org/obo/BFO_0000030> ;
@@ -183,9 +194,10 @@ spec:physicalspecimen
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;
   rdfs:label "Physical specimen"@en ;
+  skos:altLabel "material sample"@en ;
   skos:closeMatch <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C19157> ;
-  skos:closeMatch <https://dwc.tdwg.org/terms/#materialsample> ;
-  skos:definition "top concept in specimen type hierarchy.  Represents any physical specimen."@en ;
+  skos:definition "A material entity that represents an entity of interest in whole or in part (http://rs.tdwg.org/dwc/terms/MaterialSample) . Top concept in material sample type type hierarchy.  Represents any physical specimen (matrial sample)."@en ;
+  skos:exactMatch <http://rs.tdwg.org/dwc/terms/MaterialSample> ;
   skos:prefLabel "Physical specimen"@en ;
   skos:topConceptOf spec:specimentypevocabulary ;
 .
@@ -202,7 +214,11 @@ spec:slurrybiomeaggregation
   rdf:type skos:Concept ;
   rdfs:label "Slurry biome aggregation"@en ;
   skos:broader spec:biomeaggregation ;
+<<<<<<< HEAD:src/specimentype.ttl
   skos:definition "a material that consists of mixed organic and inorganic material, including whole organisms and organism fragments."@en ;
+=======
+  skos:definition "specimen consists of mixed organic and inorganic material, including whole organisms and organism fragments."@en ;
+>>>>>>> sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:inScheme spec:specimentypevocabulary ;
   skos:prefLabel "Slurry biome aggregation"@en ;
 .
@@ -211,7 +227,12 @@ spec:solidmaterialspecimen
   rdfs:label "Solid material specimen"@en ;
   skos:broader spec:nonbiologicsolidobject ;
   skos:definition "Individual solid object, not formed directly by or part of a living organism, that is representative of some material."@en ;
+<<<<<<< HEAD:src/specimentype.ttl
   skos:note "Many sediment cores consist of non-consolidated or weakly consolidated material, but are considered solid objects if the core is preserved intact to observe the sedimentary structures and particle relationships within the sediment. If this material were 'disaggregated' into a mass of granular material to put in a bag, it would become an aggregate (spec:genericaggregation)."@en ;
+=======
+  skos:inScheme spec:specimentypevocabulary ;
+  skos:note "Many sediment cores consist of non-consolidated or weakly consolidated material, but are considered solid objects if the core is preserved intact to observe the sedimentary structures and particle relationships within the sediment. If this material were 'disaggregated' into a mass of granular material to put in a bag, its type would be ‘Aggregation’."@en ;
+>>>>>>> sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:note "e.g. a rock or mineral specimen, a specimen of some manufactured material, a meteorite. Ice and permafrost are considered solid materials."@en ;
   skos:prefLabel "Solid material specimen"@en ;
 .
@@ -225,12 +246,20 @@ spec:specimentypevocabulary
   dct:modified "2022-03-11"^^xsd:date ;
   rdfs:label "iSamples Material Sample Type Vocabulary"@en ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
+<<<<<<< HEAD:src/specimentype.ttl
+=======
+  skos:altLabel "iSamples Specimen Type Vocabulary"@en ;
+>>>>>>> sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:definition "Broad categories to specify the kind of physical thing identified as the ‘sample’."@en ;
   skos:editorNote "There has been considerable discussion of use of 'specimen' vs. 'sample'; the two terms are considered essentially synonyms in the iSamples context. 'Specimen' was used originally, but after discussion with reviewers, we decided to switch to 'sample'. Some URIs have 'specimen' in the identifier tokens, remaining from the initial vocabulary version."@en ;
   skos:historyNote "2022-01-07 SMR Change base URI to https://w3id.org/isample/vocabulary/, setting up resolution using w3id. Make the conceptScheme and ontology. Add Dublin core imports."@en ;
   skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies."@en ;
   skos:historyNote "2022-09-30 SMR per https://github.com/isamplesorg/metadata/issues/109, change specimen to sample in vocabulary names and labels. Add 'Slurry biome aggregation' and 'Bundle biome aggregation' (github issue 110). Rename 'liquid or gas' sample type to 'fluid in container' (github issue 108)."@en ;
   skos:historyNote "2023-07-27 SMR modify base specimen type vocabulary, add 'Non biologic solid object'  change broader relations in this vocab to use that as parent class where appropriate.  Intention is a specimen category for solid objects that are not biologic; this subsumes 'Fossil' and 'Artifact', but excludes living organism, their parts and products. Obviously there is some overlap with Research specimens."@en ;
+<<<<<<< HEAD:src/specimentype.ttl
+=======
+  skos:historyNote "2023-11-06 SMR add missing inScheme on Non-biologic solid object and solid materal specimen. Update version number in URI to 1.0"@en ;
+>>>>>>> sampled_feature_role:src/isamples_material_sample_type/material_sample_type.ttl
   skos:note "The material sample type is intended to be orthogonal to material type and sampled feature, but there are dependencies between some categories.  The material sample type is mostly determined by the nature of the sample object (solid, fluid, aggregate...), what kind of containment is necessary, and by the genetic origin of the material or object. There is overlap between some of the classes-- Research products might be solid objects or aggregations. Whole organisms, Fossils and Artifacts are typically solid objects. Multiple categories can be assigned to a sample, or one aspect can be chosen as pre-eminent."@en ;
   skos:prefLabel "iSamples Material Sample Type Vocabulary"@en ;
   schema:funding <AWDID:2004562> ;
