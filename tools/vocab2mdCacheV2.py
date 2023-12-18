@@ -355,7 +355,7 @@ def main(source, vocabulary):
     vocabulary = store.expand_name(vocabulary)
     print(f"vocabulary name: {vocabulary}")
     theMarkdown = describeVocabulary(store._g, vocabulary)
-    print("describeVocabulary result length:", len(describeVocabulary))
+    print("describeVocabulary result length:", len(theMarkdown))
     res.append(theMarkdown)
 
     for doc in res:
