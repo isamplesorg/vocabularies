@@ -90,7 +90,7 @@ def load_cachedb(inputf, cachepath):
     # tools/vocab.py --verbosity ERROR -s $(CACHE) load $(SRC)/$@
 
     print(f"cachdb file to load: {inputf}")
-    load_args = ["--verbosity","ERROR", "-s", cachepath, "load", inputf]
+    load_args = ["--verbosity","DEBUG", "-s", cachepath, "load", inputf]
     result = _run_python_in_container("/app/tools/vocab.py", load_args, f="")
     if (result == 0):
         print(f"vocab.py call successful for {inputf}")
