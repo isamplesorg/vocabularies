@@ -1,0 +1,1 @@
+vocabulary name: spec:specimentypevocabulary
