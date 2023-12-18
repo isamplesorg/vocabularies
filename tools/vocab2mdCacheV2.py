@@ -120,7 +120,6 @@ def getObjects(g, s, p):
         print(f"object: {row[0]}\n")
         res.append(row[0])
     return res
-p
 
 def _labelToLink(label):
     if isinstance(label, list):
