@@ -359,10 +359,10 @@ def main(source, vocabulary):
     print("describeVocabulary result:", type(theMarkdown))
     res.append(theMarkdown)
 
-#    for doc in res:
-#        for line in doc:
-#            print(line)
-#    return 0
+    for doc in res:
+        for line in doc:
+            print(line)
+    return 0
     
 
 
