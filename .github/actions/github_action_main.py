@@ -135,7 +135,7 @@ def _run_docs_in_container(output_path: str, vocab_uri: str):
         docs_args = ["/app/cache/vocabularies.db", vocab_uri]
         testflag = _run_python_in_container("/app/tools/vocab2mdCacheV2.py", docs_args, f)
         if (testflag == 0):
-            print(f"Docs in container: Successfully wrote doc file to {output_path}")
+            print(f"Docs in container: Successfully wrote doc file {vocab_uri} to {output_path}")
             return 0
         else:
             print(f"Docs in container: problem processing {vocab_uri}")
@@ -148,7 +148,7 @@ def _run_python_in_container(path_to_python_script: str, args: list[str], f):
         result = subprocess.run(subprocess_args)
     else:
         result = subprocess.run(subprocess_args, stdout=f)
-#    print("container call result ", result.returncode)
+    print("container call result ", result.returncode)
     return result.returncode
 
 
