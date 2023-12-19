@@ -117,7 +117,7 @@ def getObjects(g, s, p):
     qres = g.query(q, initBindings={'subject': s, 'predicate': p})
     print(f"length of qres: {len(qres)}\n", )
     print(f"qres: {qres}\n")
-    
+
     res = []
     for row in qres:
         print(f"object: {row[0]}\n")
@@ -251,7 +251,7 @@ def describeNarrowerTerms(g, v, r, depth=0, level=[]):
 def describeVocabulary(G, V):
     res = []
     level = [1, ]
-    print(f"vocab2md: {V} vocabulary to describe \n")
+    print(f"vocab2md: vocabulary to describe: {V} \n")
     # this is the header for Quarto in the markdown output
     res.append("---")
     res.append("comment: | \n  WARNING: This file is generated. Any edits will be lost!")
@@ -358,6 +358,7 @@ def main(source, vocabulary):
 
     source = f"sqlite:///{source}"
     store = navocab.VocabularyStore(storage_uri=source)
+    
     res = []
 
     vocabulary = store.expand_name(vocabulary)

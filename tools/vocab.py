@@ -109,7 +109,7 @@ def load(ctx, uri):
     if uri =="known":
         uris = CURRENT_ISAMPLES_VOCABULARIES
     for uri in uris:
-        L.info("Loading URI: %s", uri)
+        L.info("vocab.py.load, Loading URI: %s", uri)
         _s.load(uri)
         L.info("Graph now has %s statements.", len(_s._g))
 
