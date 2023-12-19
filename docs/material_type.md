@@ -13,6 +13,10 @@ getObject subject: mat:materialsvocabulary
 
 getObject predicate: http://www.w3.org/2004/02/skos/core#prefLabel
 
+length of qres: 0
+
+qres: <rdflib.plugins.sparql.processor.SPARQLResult object at 0x7f0894826ae0>
+
 vocab2md: mat:materialsvocabulary object must have a skos:prefLabel
 
 getObject prefixes: 
@@ -26,6 +30,10 @@ getObject subject: mat:materialsvocabulary
 
 getObject predicate: http://purl.org/dc/terms/modified
 
+length of qres: 0
+
+qres: <rdflib.plugins.sparql.processor.SPARQLResult object at 0x7f08957904a0>
+
 getObject prefixes: 
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -36,6 +44,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 getObject subject: mat:materialsvocabulary
 
 getObject predicate: http://www.w3.org/2004/02/skos/core#definition
+
+length of qres: 0
+
+qres: <rdflib.plugins.sparql.processor.SPARQLResult object at 0x7f08946bd4c0>
 
 getObject prefixes: 
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -48,6 +60,10 @@ getObject subject: mat:materialsvocabulary
 
 getObject predicate: http://www.w3.org/2000/01/rdf-schema#comment
 
+length of qres: 0
+
+qres: <rdflib.plugins.sparql.processor.SPARQLResult object at 0x7f0895791700>
+
 getObject prefixes: 
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -58,6 +74,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 getObject subject: mat:materialsvocabulary
 
 getObject predicate: http://www.w3.org/2004/02/skos/core#historyNote
+
+length of qres: 0
+
+qres: <rdflib.plugins.sparql.processor.SPARQLResult object at 0x7f08946bdac0>
 
 describeVocabulary result: <class 'list'>
 ---
