@@ -11,7 +11,7 @@ completes
 original code by Dave Vieglais for iSamples project
 modified by SM Richard 2023-12-14
 
-input argumets are grabbed from environmental variables
+input arguments are grabbed from environmental variables
 """
 
 import logging
@@ -71,6 +71,7 @@ def main():
 
     if command == "uijson":
         print("Generating uijson for inclusion in webUI build")
+        index = 0
         while index < len(inputttl):
             _run_uijson_in_container(os.path.join(path, inputttl[index]+".json"), inputvocaburi[index])
             index += 1
@@ -79,8 +80,11 @@ def main():
         index = 0
         print(f"input markdown file: {inputttl[index]}, vocab uri: {inputvocaburi[index]}")
         while index < len(inputttl):
-            _run_docs_in_container(os.path.join(path, inputttl[index]+".md"), inputvocaburi[index])
-            _quarto_render_html((os.path.join(path, inputttl[index]+".md")),path)
+            result = _run_docs_in_container(os.path.join(path, inputttl[index]+".md"), inputvocaburi[index])
+            if result == 0:
+                _quarto_render_html((os.path.join(path, inputttl[index]+".md")),path)
+            else:
+                print(f"problem with {inputttl[index]}, don't call quarto")
             index += 1
     else:
         print(f"Unknown command {command}.  Exiting.")
@@ -93,10 +97,10 @@ def load_cachedb(inputf, cachepath):
     load_args = ["--verbosity","ERROR", "-s", cachepath, "load", inputf]
     result = _run_python_in_container("/app/tools/vocab.py", load_args, f="")
     if (result == 0):
-        print(f"vocab.py call successful for {inputf}")
+        print(f"vocab.py.load call successful for {inputf}")
         return 0
     else:
-        print(f"vocab.py had problem processing {inputf}")
+        print(f"vocab.py.load had problem processing {inputf}")
         return 1
     
 
@@ -104,6 +108,7 @@ def _quarto_render_html(markdown_in:str, output_path:str):
 #     print("In githubActionMain: Quarto render: ",markdown_in,  output_path)
 #     result = subprocess.run(["/opt/quarto/bin/quarto", "check"])
 #     print("Quarto check result ", result.returncode)
+#  NOTE update quarto location for your local install...
      result = subprocess.run(["/opt/quarto/bin/quarto", "render", markdown_in, "-t", "html"])
 #     print("Quarto call result ", result.returncode)
      if (result.returncode == 0):
@@ -138,7 +143,7 @@ def _run_docs_in_container(output_path: str, vocab_uri: str):
             print(f"Successfully wrote doc file to {output_path}")
             return 0
         else:
-            print(f"problem processing {vocab_uri}")
+            print(f"vocab2mdCacheV2. problem processing {vocab_uri}")
             return 1
 
 def _run_python_in_container(path_to_python_script: str, args: list[str], f):
