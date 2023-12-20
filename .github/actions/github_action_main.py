@@ -94,7 +94,7 @@ def load_cachedb(inputf, cachepath):
     # tools/vocab.py --verbosity ERROR -s $(CACHE) load $(SRC)/$@
 
     print(f"cachdb file to load: {inputf}")
-    load_args = ["--verbosity","ERROR", "-s", cachepath, "load", inputf]
+    load_args = ["--verbosity","DEBUG", "-s", cachepath, "load", inputf]
     result = _run_python_in_container("/app/tools/vocab.py", load_args, f="")
     if (result == 0):
         print(f"vocab.py.load call successful for {inputf}")
@@ -129,7 +129,7 @@ def _run_uijson_in_container(output_path: str, vocab_uri: str):
         vocab_args = ["-s", "/app/cache/vocabularies.db", "uijson", vocab_uri, "-e"]
         testflag = _run_python_in_container("/app/tools/vocab.py", vocab_args, f)
         if (testflag == 0):
-            print(f"Successfully wrote uijson file to {output_path}")
+            print(f"Run_uijson: Successfully wrote uijson file to {output_path}")
             return 0
         else:
             print(f"problem processing {vocab_uri}")
@@ -140,7 +140,7 @@ def _run_docs_in_container(output_path: str, vocab_uri: str):
         docs_args = ["/app/cache/vocabularies.db", vocab_uri]
         testflag = _run_python_in_container("/app/tools/vocab2mdCacheV2.py", docs_args, f)
         if (testflag == 0):
-            print(f"Successfully wrote doc file to {output_path}")
+            print(f"Docs in container: Successfully wrote doc file {vocab_uri} to {output_path}")
             return 0
         else:
             print(f"vocab2mdCacheV2. problem processing {vocab_uri}")
@@ -153,7 +153,7 @@ def _run_python_in_container(path_to_python_script: str, args: list[str], f):
         result = subprocess.run(subprocess_args)
     else:
         result = subprocess.run(subprocess_args, stdout=f)
-#    print("container call result ", result.returncode)
+    print("container call result ", result.returncode)
     return result.returncode
 
 

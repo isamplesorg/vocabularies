@@ -69,8 +69,8 @@ PREFIX rdfs: <{NS['rdfs']}>
         self,
         storage_uri=DEFAULT_STORE,
         store_identifier=STORE_IDENTIFIER,
-        purge_existing=False,
-    ):
+        purge_existing=True, #change to true for testing smr 2023-12-19
+        ):
         self.origin = None
         self.storage_uri = storage_uri
         self.store_identifier = store_identifier
@@ -130,6 +130,8 @@ PREFIX rdfs: <{NS['rdfs']}>
         bindings: typing.Optional[dict] = None,
     ):
         g_loaded = self._g.parse(source, format=format)
+
+        L.info("Navocab.load.source: %s", source)
         if bindings is not None:
             for k, v in bindings.items():
                 self._g.bind(k, v)
@@ -146,6 +148,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         )
         qres = g_loaded.query(q)
         loaded_vocabulary = self._result_single_value(qres, abbreviate=False)
+
         if loaded_vocabulary is not None:
             L.info("Loaded vocabulary %s", loaded_vocabulary)
             q = (
