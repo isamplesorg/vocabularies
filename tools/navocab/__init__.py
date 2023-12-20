@@ -69,8 +69,9 @@ PREFIX rdfs: <{NS['rdfs']}>
         self,
         storage_uri=DEFAULT_STORE,
         store_identifier=STORE_IDENTIFIER,
-        purge_existing=True, #change to true for testing smr 2023-12-19
-        ):
+#        purge_existing=False,
+        purge_existing=False  # change to true to get rid of previous loads
+    ):
         self.origin = None
         self.storage_uri = storage_uri
         self.store_identifier = store_identifier
@@ -130,8 +131,8 @@ PREFIX rdfs: <{NS['rdfs']}>
         bindings: typing.Optional[dict] = None,
     ):
         g_loaded = self._g.parse(source, format=format)
-
         L.info("Navocab.load.source: %s", source)
+
         if bindings is not None:
             for k, v in bindings.items():
                 self._g.bind(k, v)
@@ -147,8 +148,8 @@ PREFIX rdfs: <{NS['rdfs']}>
         }"""
         )
         qres = g_loaded.query(q)
+        L.info("Navocab.load.query result: %s", qres)
         loaded_vocabulary = self._result_single_value(qres, abbreviate=False)
-
         if loaded_vocabulary is not None:
             L.info("Loaded vocabulary %s", loaded_vocabulary)
             q = (
@@ -218,7 +219,9 @@ PREFIX rdfs: <{NS['rdfs']}>
         return res
 
     def _result_single_value(self, rows, abbreviate=False) -> typing.Any:
+        L.debug(f"VocabularyStore-count rows in query result: {len(rows)}")
         for r in rows:
+            L.debug(f"VocabularyStore-result single value row: {self.compact_name(r[0])}")
             if abbreviate:
                 return self.compact_name(r[0])
             return r[0]

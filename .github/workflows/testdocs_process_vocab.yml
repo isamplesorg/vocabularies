@@ -17,16 +17,13 @@
 # -- build/steps/with/inputttl is a single string that is a pipe-delimited list of the 
 #       SKOS vocabulary files in the /vocabulary directory that should be processed. 
 #       leave off the file extensions. NOTE that the files will be assumed to be 
-#       serialized using the Turtle format. Do not enclose the string in quotes, and have no spaces 
-#       in the string
+#       serialized using the Turtle format. Do not enclose the string in quotes, and have no spaces #       in the string
 # -- build/steps/with/inputvocaburi is a single string that is a pipe-delimited list of the 
 #       skos:ConceptScheme URIs in each vocabulary file. The order of the URIS must match 
 #       the order of the file names. It will be assumed that each file contains only one 
 #       ConceptScheme.Do not enclose the string in quotes, and have no spaces in the string.
-#       The URIs must be CURIEs, with the prefix assigned by an @prefix statement in the head 
-#       of the ttl file. 
 
-name: Process vocabularies
+name: Test vocabularies to html
 on: [workflow_dispatch]
 jobs:
   build:
@@ -42,16 +39,16 @@ jobs:
           path: ${{ github.workspace }}
           # provide ttl file names without extensions; the base file name will be 
           #    used for output files with the appropriate extension.
-          inputttl: material_sample_type|material_type|sampled_feature_type
+          inputttl: test_01|test_02
           # these are the URIs for the ConceptScheme; there must be a conceptScheme defined in each vocabulary.
-          inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
+          inputvocaburi: test1:testvocabulary|test2:testvocabulary
 
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
-          target-folder: docs  #push the contents of the deployment folder into a
+          target-folder: testoutput  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
           commit-message: "new build of vocabulary display files"
 
@@ -60,6 +57,6 @@ jobs:
         with:
           branch: main # The branch the action should deploy to.
           folder: cache # The folder the action should deploy.
-          target-folder: cache  #push the contents of the deployment folder into a
+          target-folder: testoutput/cache  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
           commit-message: "new build of vocabularies.db"
