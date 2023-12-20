@@ -30,8 +30,50 @@ import textwrap
 import click
 import rdflib
 import datetime
+import logging
+import logging.config
 import navocab  # this is a local python package with routines for
                 # for interacting with skos rdf in an sqlAlchemy database
+
+logging_config = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+            "format": "%(asctime)s %(name)s:%(levelname)s: %(message)s",
+            "dateformat": "%Y-%m-%dT%H:%M:%S",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "standard",
+            "stream": "ext://sys.stderr",
+        },
+    },
+    "loggers": {
+        "": {
+            "handlers": [
+                "console",
+            ],
+            "level": "INFO",
+            "propogate": False,
+        },
+    },
+}
+
+LOG_LEVELS = {
+    "DEBUG": logging.DEBUG,
+    "INFO": logging.INFO,
+    "WARNING": logging.WARNING,
+    "WARN": logging.WARNING,
+    "ERROR": logging.ERROR,
+    "FATAL": logging.CRITICAL,
+    "CRITICAL": logging.CRITICAL,
+}
+verbosity = "INFO"  #control print errors; these will appear in the output markdown file.
+
 
 NS = {
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -48,9 +90,10 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 """
-
 INDENT = "  "
 
+def getLogger():
+    return logging.getLogger("vocab2mdCacheV2")
 
 def skosT(term):
     return rdflib.URIRef(f"{NS['skos']}{term}")
@@ -106,19 +149,20 @@ def getNarrower(g, v, r):
 
 
 def getObjects(g, s, p):
+    L = getLogger()
     q = rdflib.plugins.sparql.prepareQuery(PFX + """SELECT ?o
     WHERE {
         ?subject ?predicate ?o .
     }""")
-    print(f"getObject prefixes: {PFX}\n")
-    print(f"getObject subject: {s}\n")
-    print(f"getObject predicate: {p}\n")
+    L.debug(f"getObject prefixes: {PFX}")
+    L.debug(f"getObject subject: {s}")
+    L.debug(f"getObject predicate: {p}")
     qres = g.query(q, initBindings={'subject': s, 'predicate': p})
-    print(f"length of qres: {len(qres)}\n", )
-    print(f"qres: {qres}\n")
+    L.debug(f"length of qres: {len(qres)}", )
+    L.debug(f"qres: {qres}")
     res = []
     for row in qres:
-        print(f"object: {row[0]}\n")
+        L.debug(f"object: {row[0]}")
         res.append(row[0])
     return res
 
@@ -355,12 +399,18 @@ def main(source, vocabulary):
     # res = []
     # res.append(conceptschemelist(vgraph))
 
+    # logging verbosity is set with global varable , at top
+    # when run github action, log statems are in the github action log.
+    logging_config["loggers"][""]["level"] = verbosity.upper()
+    logging.config.dictConfig(logging_config)
+    L = getLogger()
+
     source = f"sqlite:///{source}"
     store = navocab.VocabularyStore(storage_uri=source)
     res = []
 
     vocabulary = store.expand_name(vocabulary)
-#    print(f"vocabulary name: {vocabulary}")
+    L.debug(f"vocabulary name: {vocabulary}")
     theMarkdown = describeVocabulary(store._g, vocabulary)
     res.append(theMarkdown)
 

@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Vocabulary action
-        uses: isamplesorg/vocabularyTest@main
+        uses: isamplesorg/vocabularies@main
         # input variables 'action' and 'path' are defined in action.yml, and assigned values here
         # GitHub creates an environment variable for the input with the name INPUT_<VARIABLE_NAME>
         with:
@@ -39,9 +39,9 @@ jobs:
           path: ${{ github.workspace }}
           # provide ttl file names without extensions; the base file name will be 
           #    used for output files with the appropriate extension.
-          inputttl: test_01|test_02
+          inputttl: material_sample_type|material_type|sampled_feature_type
           # these are the URIs for the ConceptScheme; there must be a conceptScheme defined in each vocabulary.
-          inputvocaburi: test1:testvocabulary|test2:testvocabulary
+          inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
 
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
