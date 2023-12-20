@@ -10,7 +10,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix schema: <https://schema.org/> .
 
 <AWDID:2004562>
   rdf:type schema:Grant ;
@@ -114,7 +113,7 @@ sf:earthenvironment
   rdfs:seeAlso <http://purl.bioontology.org/ontology/MESH/D004777> ;
   rdfs:seeAlso <http://semanticscience.org/resource/SIO_000955> ;
   skos:broader sf:anysampledfeature ;
-  skos:definition "specimen samples the natural earth environment"@en ;
+  skos:definition "specimen samples the natural Earth environment"@en ;
   skos:inScheme sf:sampledfeaturevocabulary ;
   skos:prefLabel "Earth environment"@en ;
 .
@@ -238,13 +237,6 @@ sf:sampledfeaturevocabulary
   skos:prefLabel "Sampled Feature Type vocabulary"@en ;
   schema:funding <AWDID:2004562> ;
 .
-
-<AWDID:2004562> rdf:type schema:Grant;
-  schema:funder <https://ror.org/04nh1dc89>;
-  schema:name "Collaborative Research: Frameworks: Internet of Samples: Toward an Interdisciplinary Cyberinfrastructure for Material Samples";
-  schema:url   "https://nsf.gov/awardsearch/showAward?AWD_ID=2004562" 
-  .
-
 sf:subaerialsurfaceenvironment
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;

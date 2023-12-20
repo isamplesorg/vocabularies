@@ -60,7 +60,7 @@ mat:anyice
   rdfs:label "Any Ice"@en ;
   skos:broader mat:material ;
   skos:closeMatch <http://purl.obolibrary.org/obo/ENVO_01001125> ;
-  skos:definition "a solid material that is normally a liquid or gas at Standard Temperature and Pressre (STP)  that is in a solid state under the observed temperature and pressure conditions."@en ;
+  skos:definition "a solid material that is normally a liquid or gas at Standard Temperature and Pressre (STP) that is in a solid state under the observed temperature and pressure conditions."@en ;
   skos:inScheme mat:materialsvocabulary ;
   skos:prefLabel "Any ice"@en ;
   skos:scopeNote "Samples of non-aqueous ice should be classified as 'Any ice'. This is considered enough of an edge case that distinguishing 'ice that might or might not be aqueous' from 'non-aqueous ice' does not merit adding another class to the scheme."@en ;
