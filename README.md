@@ -1,7 +1,7 @@
 # iSamples Vocabularies
 
 ## Vocabulary documents
-The authoritative source files are rdf SKOS vocabularies serialized using Turtle syntax. These are in the Vocabularies folder. The docs folder contains Markdown and HTML presenations of the vocabulary content.  This repository contains the three core sample type vocabularies used in iSamples metadata: material type, material sample (specimen) type, and sampled feature type. 
+This repository hosts the three core sample type vocabularies used in iSamples metadata: material type, material sample (specimen) type, and sampled feature type. The authoritative source files are rdf SKOS vocabularies serialized using Turtle syntax. These are in the **vocabulary** folder. The **docs** folder contains Markdown and HTML presentations of the vocabulary content.  
 
 ## Vocabulary github action
 
