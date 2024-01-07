@@ -236,6 +236,8 @@ sf:sampledfeaturevocabulary
   skos:historyNote "Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environemtn  subclasses of Active human occupation site."@en ;
   skos:prefLabel "Sampled Feature Type vocabulary"@en ;
   schema:funding <AWDID:2004562> ;
+  schema:provider <https://vocabs.ardc.edu.au/> ;
+  schema:codeRepository <https://github.com/isamplesorg/vocabularies/tree/main/vocabulary> ;
 .
 sf:subaerialsurfaceenvironment
   rdf:type owl:NamedIndividual ;

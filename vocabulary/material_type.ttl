@@ -158,6 +158,8 @@ mat:materialsvocabulary
   skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes to some definitions.  Add skos matches to URIs from other vocabularies; 2023-11-05 version 1.0, in preparation for release. "@en ;
   skos:prefLabel "iSamples Materials Vocabulary "@en ;
   schema:funding <AWDID:2004562> ;
+  schema:provider <https://vocabs.ardc.edu.au/> ;
+  schema:codeRepository <https://github.com/isamplesorg/vocabularies/tree/main/vocabulary> ;
 .
 mat:mineral
   rdf:type owl:NamedIndividual ;

@@ -241,6 +241,8 @@ spec:specimentypevocabulary
   skos:note "The material sample type is intended to be orthogonal to material type and sampled feature, but there are dependencies between some categories.  The material sample type is mostly determined by the nature of the sample object (solid, fluid, aggregate...), what kind of containment is necessary, and by the genetic origin of the material or object. There is overlap between some of the classes-- Research products might be solid objects or aggregations. Whole organisms, Fossils and Artifacts are typically solid objects. Multiple categories can be assigned to a sample, or one aspect can be chosen as pre-eminent."@en ;
   skos:prefLabel "iSamples Material Sample Type Vocabulary"@en ;
   schema:funding <AWDID:2004562> ;
+  schema:provider <https://vocabs.ardc.edu.au/> ;
+  schema:codeRepository <https://github.com/isamplesorg/vocabularies/tree/main/vocabulary> ;
 .
 spec:wholeorganism
   rdf:type owl:NamedIndividual ;
