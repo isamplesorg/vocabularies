@@ -1,9 +1,6 @@
 #!/usr/local/bin/python
 """
-github_action_main original
-depends on makefile to run vocab.py
-Driver file for the vocabularies GitHub Action.  Runs inside a Docker container,
-with all of the vocabularies tools and dependencies copied into the Docker container.
+Driver file for the vocabularies GitHub Action.  
 
 the github workflow needs to copy output files to the docs directory
 in the public github, else they disappear with the docker container when workflow
@@ -11,7 +8,8 @@ completes
 original code by Dave Vieglais for iSamples project
 modified by SM Richard 2023-12-14
 
-input arguments are grabbed from environmental variables
+input arguments are grabbed from environmental variables that are defined in actions.yml
+and have values assigned in /.github/workflows/ {workflow def.yaml}.
 """
 
 import logging
