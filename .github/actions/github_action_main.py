@@ -62,9 +62,10 @@ def main():
     for inputf in inputttl:
         result=load_cachedb(sourcevocabdir + "/" + inputf + ".ttl", cachepath)
         if (result == 0):
-           print(f"load_cachedb call successful for: {inputf}")
+            print(f"load_cachedb call successful for: {inputf}")
         else:
-           print(f"load_cachedb had problem processing: {inputf}")
+            print(f"load_cachedb had problem processing: {inputf}")
+            sys.exit(-1)
 
 
     if command == "uijson":
