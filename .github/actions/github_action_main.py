@@ -42,7 +42,7 @@ def main():
 
     
     # make sure have cache directory -- this is where the sqlAlchemy db will be         
-    cachepath = "cache/vocabularies.db"
+    cachepath = "/app/cache/vocabularies.db"
     # this is the directory that holds the source SKOS ttl files.
     sourcevocabdir = "vocabulary"
 
@@ -64,7 +64,7 @@ def main():
         if (result == 0):
             print(f"load_cachedb call successful for: {inputf}")
         else:
-            print(f"load_cachedb had problem processing: {inputf}")
+            print(f"load_cachedb had problem processing: {inputf}.  Exiting.")
             sys.exit(-1)
 
 
