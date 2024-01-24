@@ -16,3 +16,6 @@ def test_uijson_material_type_exists():
 
 def test_uijson_samples_feature_type_exists():
 	_assert_file_exists_and_is_json("CVJSON/docs/sampled_feature_type.json")
+
+def test_docs_directory_exists():
+	assert os.path.exists("docs")
