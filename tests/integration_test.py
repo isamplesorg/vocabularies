@@ -9,10 +9,10 @@ def _assert_file_exists_and_is_json(file_path: str):
 
 
 def test_uijson_sample_type_exists():
-	_assert_file_exists_and_is_json("/github/workspace/src/CVJSON/docs/material_sample_type.json")
+	_assert_file_exists_and_is_json("CVJSON/docs/material_sample_type.json")
 
 def test_uijson_material_type_exists():
-	_assert_file_exists_and_is_json("/github/workspace/src/CVJSON/docs/material_type.json")
+	_assert_file_exists_and_is_json("CVJSON/docs/material_type.json")
 
 def test_uijson_samples_feature_type_exists():
-	_assert_file_exists_and_is_json("/github/workspace/src/CVJSON/docs/sampled_feature_type.json")
+	_assert_file_exists_and_is_json("CVJSON/docs/sampled_feature_type.json")
