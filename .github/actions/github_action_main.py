@@ -44,7 +44,7 @@ def main():
     # make sure have cache directory -- this is where the sqlAlchemy db will be         
     cachepath = "/app/cache/vocabularies.db"
     # this is the directory that holds the source SKOS ttl files.
-    sourcevocabdir = "vocabulary"
+    sourcevocabdir = "/app/vocabulary"
 
 
     print("github_action_main: target path for output: ", path)
