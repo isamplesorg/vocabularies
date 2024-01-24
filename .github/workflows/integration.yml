@@ -27,3 +27,8 @@ jobs:
           path: ${{ github.workspace }}/src/CVJSON
           inputttl: material_sample_type|material_type|sampled_feature_type
           inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
+      - name: Test with pytest
+        working-directory: ./tests
+        run: |
+          pip install pytest
+          pytest
