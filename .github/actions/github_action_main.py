@@ -18,6 +18,9 @@ import subprocess
 import sys
 
 
+PATH_PREFIX = "/app/"
+VOCABULARY_CACHE_PATH = f"{PATH_PREFIX}cache/vocabularies.db"
+
 def main():
 #    logging.debug(f"environment variables are {os.environ}")
 #    print(f"environment variables are {os.environ}")
@@ -41,10 +44,8 @@ def main():
             print(f"vocab URIs: {auri}")
 
     
-    # make sure have cache directory -- this is where the sqlAlchemy db will be         
-    cachepath = "/app/cache/vocabularies.db"
     # this is the directory that holds the source SKOS ttl files.
-    sourcevocabdir = "/app/vocabulary"
+    sourcevocabdir = f"{PATH_PREFIX}vocabulary"
 
 
     print("github_action_main: target path for output: ", path)
@@ -60,7 +61,7 @@ def main():
     # do function of original Makefile here
   
     for inputf in inputttl:
-        result=load_cachedb(sourcevocabdir + "/" + inputf + ".ttl", cachepath)
+        result=load_cachedb(sourcevocabdir + "/" + inputf + ".ttl", VOCABULARY_CACHE_PATH)
         if (result == 0):
             print(f"load_cachedb call successful for: {inputf}")
         else:
@@ -125,7 +126,7 @@ def _run_make_in_container(target: str):
 
 def _run_uijson_in_container(output_path: str, vocab_uri: str):
     with open(output_path, "w") as f:
-        vocab_args = ["-s", "/app/cache/vocabularies.db", "uijson", vocab_uri, "-e"]
+        vocab_args = ["-s", VOCABULARY_CACHE_PATH, "uijson", vocab_uri, "-e"]
         testflag = _run_python_in_container("/app/tools/vocab.py", vocab_args, f)
         if (testflag == 0):
             print(f"Run_uijson: Successfully wrote uijson file to {output_path}")
@@ -136,7 +137,7 @@ def _run_uijson_in_container(output_path: str, vocab_uri: str):
 
 def _run_docs_in_container(output_path: str, vocab_uri: str):
     with open(output_path, "w") as f:
-        docs_args = ["/app/cache/vocabularies.db", vocab_uri]
+        docs_args = [VOCABULARY_CACHE_PATH, vocab_uri]
         testflag = _run_python_in_container("/app/tools/vocab2mdCacheV2.py", docs_args, f)
         if (testflag == 0):
             print(f"Docs in container: Successfully wrote doc file {vocab_uri} to {output_path}")

@@ -3,7 +3,8 @@
 #  for information on how this works
 
 name: 'Vocabulary Action'
-author: 'Dave Vieglais( https://orcid.org/0000-0002-6513-4996), 
+author: 'Danny Mandel (danny.mandel@gmail.com),
+         Dave Vieglais( https://orcid.org/0000-0002-6513-4996), 
          Stephen M Richard (https://orcid.org/0000-0001-6041-5302)'
 description: 'creates a docker container to run python routines that 
        1) load skos (rdf/turtle) vocabularies into an sqlAlchmey
