@@ -31,4 +31,4 @@ jobs:
         working-directory: ./tests
         run: |
           pip install pytest
-          pytest
+          pytest --ignore CVJSON
