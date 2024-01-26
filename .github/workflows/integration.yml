@@ -41,6 +41,7 @@ jobs:
           inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
       - name: Test with pytest
         working-directory: ./tests
+        # install pytest, and make sure we don't search for tests in the output directories
         run: |
           pip install pytest
           pytest --ignore CVJSON --ignore docs
