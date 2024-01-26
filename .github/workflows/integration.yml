@@ -3,16 +3,47 @@
 # This can be run locally using act (https://github.com/nektos/act) like this:
 # act -v -j build --
 # This will build the docker image that packages the GitHub Action and run it, with verbose logging to show each step in detail
+name: build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
-name: Integration Test
-on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Vocabulary action
-        uses: isamplesorg/vocabularies@main
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Verify that the Docker image for the action builds
+        run: docker build . --file Dockerfile
+      - name: uijson integration test
+        # This syntax tells the test to run the current directory as a GitHub Action
+        uses: ./
         with:
           action: uijson
-          path: ${{ github.workspace }}
+          path: ./tests/CVJSON
+          inputttl: material_sample_type|material_type|sampled_feature_type
+          inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
+      - name: docs integration test
+        # This syntax tells the test to run the current directory as a GitHub Action
+        uses: ./
+        with:
+          action: docs
+          path: ./tests/docs
+          # provide ttl file names without extensions; the base file name will be
+          #    used for output files with the appropriate extension.
+          inputttl: material_sample_type|material_type|sampled_feature_type
+          # these are the URIs for the ConceptScheme; there must be a conceptScheme defined in each vocabulary.
+          inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
+      - name: Test with pytest
+        working-directory: ./tests
+        # install pytest, and make sure we don't search for tests in the output directories
+        run: |
+          pip install pytest
+          pytest --ignore CVJSON --ignore docs
