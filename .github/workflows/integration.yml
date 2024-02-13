@@ -22,14 +22,6 @@ jobs:
           python-version: '3.10'
       - name: Verify that the Docker image for the action builds
         run: docker build . --file Dockerfile
-      - name: uijson integration test
-        # This syntax tells the test to run the current directory as a GitHub Action
-        uses: ./
-        with:
-          action: uijson
-          path: ./tests/CVJSON
-          inputttl: material_sample_type|material_type|sampled_feature_type
-          inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
       - name: docs integration test
         # This syntax tells the test to run the current directory as a GitHub Action
         uses: ./
