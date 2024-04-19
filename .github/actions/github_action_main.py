@@ -19,6 +19,7 @@ import sys
 
 
 PATH_PREFIX = "/app/"
+VOCAB_PY = f"{PATH_PREFIX}/tools/vocab.py"
 VOCABULARY_CACHE_PATH = f"{PATH_PREFIX}cache/vocabularies.db"
 
 def main():
@@ -70,11 +71,8 @@ def main():
 
 
     if command == "uijson":
-        print("Generating uijson for inclusion in webUI build")
-        index = 0
-        while index < len(inputttl):
-            _run_uijson_in_container(os.path.join(path, inputttl[index]+".json"), inputvocaburi[index])
-            index += 1
+        print("uijson action has been removed.  json is now fetched dynamically at page load.")
+        sys.exit(-1)
     elif command == "docs":
         print("Generating markdown and html docs")
         index = 0
@@ -95,7 +93,7 @@ def load_cachedb(inputf, cachepath):
 
     print(f"cachdb file to load: {inputf}")
     load_args = ["--verbosity","DEBUG", "-s", cachepath, "load", inputf]
-    result = _run_python_in_container("/app/tools/vocab.py", load_args, f="")
+    result = _run_python_in_container(VOCAB_PY, load_args, f="")
     if (result == 0):
         print(f"vocab.py.load call successful for {inputf}")
         return 0
@@ -123,17 +121,6 @@ def _run_make_in_container(target: str):
     print("In githubActionMain: make in container, target: ", target)
     subprocess.run(["/usr/bin/make", "-C", "/app", "-f", "/app/Makefile", target])
 
-
-def _run_uijson_in_container(output_path: str, vocab_uri: str):
-    with open(output_path, "w") as f:
-        vocab_args = ["-s", VOCABULARY_CACHE_PATH, "uijson", vocab_uri, "-e"]
-        testflag = _run_python_in_container("/app/tools/vocab.py", vocab_args, f)
-        if (testflag == 0):
-            print(f"Run_uijson: Successfully wrote uijson file to {output_path}")
-            return 0
-        else:
-            print(f"problem processing {vocab_uri}")
-            return 1
 
 def _run_docs_in_container(output_path: str, vocab_uri: str):
     with open(output_path, "w") as f:

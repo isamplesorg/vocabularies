@@ -74,11 +74,8 @@ def main(command, path):
 
     #  essfrole_earthenv_sampled_feature_role  spec_earthenv_specimen_type
     if command == "uijson":
-        print("Generating uijson for inclusion in webUI build")
-        index = 0
-        while index < len(inputttl):
-            _run_uijson_in_container(os.path.join(path, inputttl[index] + ".json"), inputvocaburi[index])
-            index += 1
+        print("uijson action has been removed.  json is now fetched dynamically at page load.")
+        sys.exit(-1)
     elif command == "docs":
         print("Generating markdown and html docs")
         index = 0
@@ -121,13 +118,6 @@ def _quarto_render_html(markdown_in: str, output_path: str):
     else:
         print(f"Quarto had problem processing {markdown_in}")
         return 1
-
-
-def _run_uijson_in_container(output_path: str, vocab_type: str):
-    with open(output_path, "w") as f:
-        vocab_args = ["-s", "../cache/vocabularies.db", "uijson", vocab_type, "-e"]
-        _run_python_in_container("vocab.py", vocab_args, f)
-        print(f"Successfully wrote uijson file to {output_path}")
 
 
 def _run_docs_in_container(output_path: str, vocab_type: str):
