@@ -206,7 +206,7 @@ sf:marinewaterbodybottom
   skos:inScheme sf:sampledfeaturevocabulary ;
   skos:narrowMatch <http://purl.obolibrary.org/obo/ENVO_00000482> ;
   skos:prefLabel "Marine water body bottom"@en ;
-  skos:altLabel "Sea floor" @en ;
+  skos:altLabel "Sea floor"@en ;
 .
 sf:pasthumanoccupationsite
   rdf:type owl:NamedIndividual ;
