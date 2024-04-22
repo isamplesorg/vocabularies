@@ -38,7 +38,7 @@ mat:anthropogenicmetal
   rdfs:label "Anthropogenic metal material "@en ;
   skos:broader mat:anyanthropogenicmaterial ;
   skos:closeMatch <http://purl.obolibrary.org/obo/ENVO_01001069> ;
-  skos:definition "Metal that has been produced or used by humans. Samples of naturally occuring metallic material (e.g. native copper, gold nuggets) should be considered mineral material. Metallic material is material that when polished or fractured, shows a lustrous appearance, and conducts electricity and heat relatively well. Metals are typically malleable (they can be hammered into thin sheets) or ductile (can be drawn into wires). The boundaries between metals, nonmetals, and metalloids fluctuate slightly due to a lack of universally accepted definitions of the categories involved. (https://en.wikipedia.org/wiki/Metal, c.f. http://purl.obolibrary.org/obo/ENVO_01001069)"@en ;
+  skos:definition "Metal that has been produced or used by humans. Samples of naturally occurring metallic material (e.g. native copper, gold nuggets) should be considered mineral material. Metallic material is material that when polished or fractured, shows a lustrous appearance, and conducts electricity and heat relatively well. Metals are typically malleable (they can be hammered into thin sheets) or ductile (can be drawn into wires). The boundaries between metals, nonmetals, and metalloids fluctuate slightly due to a lack of universally accepted definitions of the categories involved. (https://en.wikipedia.org/wiki/Metal, c.f. http://purl.obolibrary.org/obo/ENVO_01001069)"@en ;
   skos:inScheme mat:materialsvocabulary ;
   skos:prefLabel "Anthropogenic metal material "@en ;
 .

@@ -47,7 +47,7 @@ msot:anthropogenicaggregation
   rdf:type skos:Concept ;
   rdfs:label "Anthropogenic aggregation"@en ;
   skos:broader msot:anyaggregation ;
-  skos:definition "An aggregate material sample consiting of fragments of material produced by human activity,  not described individually, and generally not all originating from the same object.  Includes pottery in an excavation unit that gets an aggregate description, production waste, production raw-materials, or other residues (broken bits of plaster from a destroyed wall), synthetic powders."@en ;
+  skos:definition "An aggregate material sample consisting of fragments of material produced by human activity, not described individually, and generally not all originating from the same object.  Includes pottery in an excavation unit that gets an aggregate description, production waste, production raw-materials, or other residues (broken bits of plaster from a destroyed wall), synthetic powders."@en ;
   skos:inScheme msot:conceptscheme ;
   skos:prefLabel "Anthropogenic aggregation"@en ;
 .
@@ -153,7 +153,7 @@ msot:fossil
   skos:exactMatch <http://sweet.jpl.nasa.gov/2.3/matrRock.owl#Fossil> ;
   skos:exactMatch <https://en.wikipedia.org/wiki/Fossil> ;
   skos:inScheme msot:conceptscheme ;
-  skos:note "There are many processes that lead to fossilization, including permineralization, casts and molds, authigenic mineralization, replacement and recrystallization, adpression, carbonization, and bioimmuration (https://en.wikipedia.org/wiki/Fossil)."@en ;
+  skos:note "There are many processes that lead to fossilization, including permineralization, casts and molds, authigenic mineralization, replacement, recrystallization, adpression, carbonization, and bioimmuration (https://en.wikipedia.org/wiki/Fossil)."@en ;
   skos:prefLabel "Fossil"@en ;
 .
 msot:genericaggregation
@@ -180,7 +180,7 @@ msot:nonbiologicsolidobject
   rdf:type skos:Concept ;
   rdfs:label "Non biologic solid object"@en ;
   skos:broader msot:materialsample ;
-  skos:definition "Individual solid object, not formed directly by or part of a living organism"@en ;
+  skos:definition "Individual solid object, the substance of which is not formed directly by or part of a living organism"@en ;
   skos:inScheme msot:conceptscheme ;
   skos:prefLabel "Non biologic solid object"@en ;
 .
