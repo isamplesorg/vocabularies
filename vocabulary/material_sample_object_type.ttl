@@ -2,12 +2,12 @@
 # imports: http://www.w3.org/2004/02/skos/core
 
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix msot: <https://w3id.org/isample/vocabulary/materialsampleobjecttype/1.0/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix msot: <https://w3id.org/isample/vocabulary/materialsampleobjecttype/1.0/> .
 @prefix spec: <https://w3id.org/isample/vocabulary/specimentype/1.0/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -27,7 +27,6 @@ dct:license
 dct:modified
   rdf:type owl:AnnotationProperty ;
 .
-
 <https://orcid.org/0000-0001-6041-5302>
   rdf:type owl:NamedIndividual ;
   rdfs:comment "e-mail: mailto:smrTucson@gmail.com " ;
@@ -99,6 +98,31 @@ msot:bundlebiomeaggregation
   skos:definition "Material sample that is an aggregation of whole organisms representative of some biome."@en ;
   skos:inScheme msot:conceptscheme ;
   skos:prefLabel "Bundle biome aggregation"@en ;
+.
+msot:conceptscheme
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:Ontology ;
+  rdf:type skos:ConceptScheme ;
+  dct:created "2021-03-24"^^xsd:date ;
+  dct:creator <https://orcid.org/0000-0001-6041-5302> ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/legalcode> ;
+  dct:modified "2022-03-11"^^xsd:date ;
+  schema:codeRepository <https://github.com/isamplesorg/vocabularies/tree/main/vocabulary> ;
+  schema:funding <AWDID:2004562> ;
+  schema:provider <https://vocabs.ardc.edu.au/> ;
+  rdfs:label "iSamples Material Sample Object Type Vocabulary"@en ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  skos:altLabel "iSamples Material Sample Object Type Vocabulary"@en ;
+  skos:definition "Broad categories to specify the kind of physical thing identified as the ‘sample’."@en ;
+  skos:editorNote "There has been considerable discussion of use of 'specimen' vs. 'sample'; the two terms are considered essentially synonyms in the iSamples context. 'Specimen' was used originally, but after discussion with reviewers, we decided to switch to 'material sample', consistent with Darwin Core TDWG wg decision (https://dwc.tdwg.org/list/#dwc_MaterialSample) and current OGC O&M/ISO19156 (http://www.opengis.net/doc/as/om/3.0). Some original URIs (0.9 version) had 'specimen' in the identifier tokens, these have been revised to materialsample for v1.0 release."@en ;
+  skos:historyNote "2022-01-07 SMR Change base URI to https://w3id.org/isample/vocabulary/, setting up resolution using w3id. Make the conceptScheme and ontology. Add Dublin core imports."@en ;
+  skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies."@en ;
+  skos:historyNote "2022-09-30 SMR per https://github.com/isamplesorg/metadata/issues/109, change specimen to sample in vocabulary names and labels. Add 'Slurry biome aggregation' and 'Bundle biome aggregation' (github issue 110). Rename 'liquid or gas' sample type to 'fluid in container' (github issue 108)."@en ;
+  skos:historyNote "2023-07-27 SMR modify base specimen type vocabulary, add 'Non biologic solid object'  change broader relations in this vocab to use that as parent class where appropriate.  Intention is a specimen category for solid objects that are not biologic; this subsumes 'Fossil' and 'Artifact', but excludes living organism, their parts and products. Obviously there is some overlap with Research specimens."@en ;
+  skos:historyNote "2023-11-06 SMR add missing inScheme on Non-biologic solid object and solid materal specimen. Update version number in URI to 1.0"@en ;
+  skos:historyNote "2024-04-19 SMR update language to always use 'material sample' instead of specimen or physical specimen, including in text, labels, and in the URI tokens.  Edit defintions to improve clarity."@en ;
+  skos:note "The material sample object type is intended to be orthogonal to material type and sampled feature, but there are dependencies between some categories.  The material sample object type is mostly determined by the nature of the sample object (solid, fluid, aggregate...), what kind of containment is necessary, and by the genetic origin of the material or object. There is overlap between some of the classes-- Research products might be solid objects or aggregations. Whole organisms, Fossils and Artifacts are typically solid objects. Multiple categories can be assigned to a sample, or one aspect can be chosen as pre-eminent."@en ;
+  skos:prefLabel "iSamples Material Sample Object Type Vocabulary"@en ;
 .
 msot:experimentalproduct
   rdf:type owl:NamedIndividual ;
@@ -219,31 +243,6 @@ msot:solidmaterialsample
   skos:note "Many sediment cores consist of non-consolidated or weakly consolidated material, but are considered solid objects if the core is preserved intact to observe the sedimentary structures and particle relationships within the sediment. If this material were 'disaggregated' into a mass of granular material to put in a bag, it would become an aggregate (msot:genericaggregation)."@en ;
   skos:note "e.g. a rock or mineral sample, a sample of some manufactured material, a meteorite. Ice and permafrost are considered solid materials."@en ;
   skos:prefLabel "Solid material sample"@en ;
-.
-msot:conceptscheme
-  rdf:type owl:NamedIndividual ;
-  rdf:type owl:Ontology ;
-  rdf:type skos:ConceptScheme ;
-  dct:created "2021-03-24"^^xsd:date ;
-  dct:creator <https://orcid.org/0000-0001-6041-5302> ;
-  dct:license <https://creativecommons.org/licenses/by/4.0/legalcode> ;
-  dct:modified "2022-03-11"^^xsd:date ;
-  schema:codeRepository <https://github.com/isamplesorg/vocabularies/tree/main/vocabulary> ;
-  schema:funding <AWDID:2004562> ;
-  schema:provider <https://vocabs.ardc.edu.au/> ;
-  rdfs:label "iSamples Material Sample Object Type Vocabulary"@en ;
-  owl:imports <http://www.w3.org/2004/02/skos/core> ;
-  skos:altLabel "iSamples Material Sample Object Type Vocabulary"@en ;
-  skos:definition "Broad categories to specify the kind of physical thing identified as the ‘sample’."@en ;
-  skos:editorNote "There has been considerable discussion of use of 'specimen' vs. 'sample'; the two terms are considered essentially synonyms in the iSamples context. 'Specimen' was used originally, but after discussion with reviewers, we decided to switch to 'material sample', consistent with Darwin Core TDWG wg decision (https://dwc.tdwg.org/list/#dwc_MaterialSample) and current OGC O&M/ISO19156 (http://www.opengis.net/doc/as/om/3.0). Some original URIs (0.9 version) had 'specimen' in the identifier tokens, these have been revised to materialsample for v1.0 release."@en ;
-  skos:historyNote "2022-01-07 SMR Change base URI to https://w3id.org/isample/vocabulary/, setting up resolution using w3id. Make the conceptScheme and ontology. Add Dublin core imports."@en ;
-  skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies."@en ;
-  skos:historyNote "2022-09-30 SMR per https://github.com/isamplesorg/metadata/issues/109, change specimen to sample in vocabulary names and labels. Add 'Slurry biome aggregation' and 'Bundle biome aggregation' (github issue 110). Rename 'liquid or gas' sample type to 'fluid in container' (github issue 108)."@en ;
-  skos:historyNote "2023-07-27 SMR modify base specimen type vocabulary, add 'Non biologic solid object'  change broader relations in this vocab to use that as parent class where appropriate.  Intention is a specimen category for solid objects that are not biologic; this subsumes 'Fossil' and 'Artifact', but excludes living organism, their parts and products. Obviously there is some overlap with Research specimens."@en ;
-  skos:historyNote "2023-11-06 SMR add missing inScheme on Non-biologic solid object and solid materal specimen. Update version number in URI to 1.0"@en ;
-  skos:historyNote "2024-04-19 SMR update language to always use 'material sample' instead of specimen or physical specimen, including in text, labels, and in the URI tokens.  Edit defintions to improve clarity."@en ;
-  skos:note "The material sample object type is intended to be orthogonal to material type and sampled feature, but there are dependencies between some categories.  The material sample object type is mostly determined by the nature of the sample object (solid, fluid, aggregate...), what kind of containment is necessary, and by the genetic origin of the material or object. There is overlap between some of the classes-- Research products might be solid objects or aggregations. Whole organisms, Fossils and Artifacts are typically solid objects. Multiple categories can be assigned to a sample, or one aspect can be chosen as pre-eminent."@en ;
-  skos:prefLabel "iSamples Material Sample Object Type Vocabulary"@en ;
 .
 msot:wholeorganism
   rdf:type owl:NamedIndividual ;
