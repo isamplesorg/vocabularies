@@ -47,7 +47,7 @@ msot:anthropogenicaggregation
   rdf:type skos:Concept ;
   rdfs:label "Anthropogenic aggregation"@en ;
   skos:broader msot:anyaggregation ;
-  skos:definition "An aggregate material sample consiting of fragments of material produced by human activity,  not described individually, and generally not all originating from the same object.  Includes pottery in an excavation unit that gets an aggregate description, production waste, production raw-materials, or other residues (broken bits of plaster from a destroyed wall), synthetic powders."@en ;
+  skos:definition "An aggregate material sample consisting of fragments of material produced by human activity, not described individually, and generally not all originating from the same object.  Includes pottery in an excavation unit that gets an aggregate description, production waste, production raw-materials, or other residues (broken bits of plaster from a destroyed wall), synthetic powders."@en ;
   skos:inScheme msot:conceptscheme ;
   skos:prefLabel "Anthropogenic aggregation"@en ;
 .
@@ -67,7 +67,7 @@ msot:artifact
   rdfs:label "Artifact"@en ;
   skos:broader msot:nonbiologicsolidobject ;
   skos:closeMatch <https://en.wikipedia.org/wiki/Artifact_(archaeology)> ;
-  skos:definition "An object made (manufactured, shaped, modified) by a human being, or precursor hominid. Include a set of pieces belonging originally to a single object and treated as a single specimen."@en ;
+  skos:definition "An object made (manufactured, shaped, modified) by a human being, or precursor hominid. Include a set of pieces belonging originally to a single object and treated as a single sample."@en ;
   skos:inScheme msot:conceptscheme ;
   skos:note "A sample is classified as an artifact if it is intended to represent the manufactured item.  For example, core, thin section, peel, glass slide smear are products of human manufacture, but are intended to represent materials or biological entities, thus not considered Artifact as a material sample object type."@en ;
   skos:prefLabel "Artifact"@en ;
@@ -113,7 +113,9 @@ msot:conceptscheme
   rdfs:label "iSamples Material Sample Object Type Vocabulary"@en ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   skos:altLabel "iSamples Material Sample Object Type Vocabulary"@en ;
+
   skos:definition "Broad categories to specify the kind of physical thing identified as the ‘sample’."@en ;
+
   skos:editorNote "There has been considerable discussion of use of 'specimen' vs. 'sample'; the two terms are considered essentially synonyms in the iSamples context. 'Specimen' was used originally, but after discussion with reviewers, we decided to switch to 'material sample', consistent with Darwin Core TDWG wg decision (https://dwc.tdwg.org/list/#dwc_MaterialSample) and current OGC O&M/ISO19156 (http://www.opengis.net/doc/as/om/3.0). Some original URIs (0.9 version) had 'specimen' in the identifier tokens, these have been revised to materialsample for v1.0 release."@en ;
   skos:historyNote "2022-01-07 SMR Change base URI to https://w3id.org/isample/vocabulary/, setting up resolution using w3id. Make the conceptScheme and ontology. Add Dublin core imports."@en ;
   skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies."@en ;
@@ -153,7 +155,7 @@ msot:fossil
   skos:exactMatch <http://sweet.jpl.nasa.gov/2.3/matrRock.owl#Fossil> ;
   skos:exactMatch <https://en.wikipedia.org/wiki/Fossil> ;
   skos:inScheme msot:conceptscheme ;
-  skos:note "There are many processes that lead to fossilization, including permineralization, casts and molds, authigenic mineralization, replacement and recrystallization, adpression, carbonization, and bioimmuration (https://en.wikipedia.org/wiki/Fossil)."@en ;
+  skos:note "There are many processes that lead to fossilization, including permineralization, casts and molds, authigenic mineralization, replacement, recrystallization, adpression, carbonization, and bioimmuration (https://en.wikipedia.org/wiki/Fossil)."@en ;
   skos:prefLabel "Fossil"@en ;
 .
 msot:genericaggregation
@@ -180,7 +182,7 @@ msot:nonbiologicsolidobject
   rdf:type skos:Concept ;
   rdfs:label "Non biologic solid object"@en ;
   skos:broader msot:materialsample ;
-  skos:definition "Individual solid object, not formed directly by or part of a living organism"@en ;
+  skos:definition "Individual solid object, the substance of which is not formed directly by or part of a living organism"@en ;
   skos:inScheme msot:conceptscheme ;
   skos:prefLabel "Non biologic solid object"@en ;
 .
@@ -213,7 +215,7 @@ msot:othersolidobject
   skos:broader msot:nonbiologicsolidobject ;
   skos:definition "A non-biologic solid object that is not one of the other types."@en ;
   skos:inScheme msot:conceptscheme ;
-  skos:note "The sample is not intended as representative of its constituent material.  Included for logical completeness, but might not be necessary."@en ;
+  skos:note "The sample is not intended as representative of its constituent material.  Examples -- a bird nest, termite tower, ventrifact, geode."@en ;
   skos:prefLabel "Other solid object"@en ;
   skos:relatedMatch <http://purl.obolibrary.org/obo/BFO_0000030> ;
 .

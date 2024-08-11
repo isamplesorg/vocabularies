@@ -30,9 +30,9 @@ jobs:
           path: ./tests/docs
           # provide ttl file names without extensions; the base file name will be
           #    used for output files with the appropriate extension.
-          inputttl: material_sample_type|material_type|sampled_feature_type
+          inputttl: material_sample_object_type|material_type|sampled_feature_type
           # these are the URIs for the ConceptScheme; there must be a conceptScheme defined in each vocabulary.
-          inputvocaburi: spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
+          inputvocaburi: msot:conceptscheme|mat:materialsvocabulary|sf:sampledfeaturevocabulary
       - name: Test with pytest
         working-directory: ./tests
         # install pytest, and make sure we don't search for tests in the output directories
