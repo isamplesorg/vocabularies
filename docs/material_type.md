@@ -66,6 +66,7 @@ Namespace:
 []{#anyanthropogenicmaterial}
 
 ###  Any anthropogenic material
+* `Anthropogenic material`
 
 
 - Child of:
@@ -95,12 +96,23 @@ and metalloids fluctuate slightly due to a lack of universally
 accepted definitions of the categories involved.
 (https://en.wikipedia.org/wiki/Metal). c.f.
 http://purl.obolibrary.org/obo/ENVO_01001069
+- Metal that has been produced or used by humans. Samples of naturally
+occurring metallic material (e.g. native copper, gold nuggets) should
+be considered mineral material. Metallic material is material that
+when polished or fractured, shows a lustrous appearance, and conducts
+electricity and heat relatively well. Metals are typically malleable
+(they can be hammered into thin sheets) or ductile (can be drawn into
+wires). The boundaries between metals, nonmetals, and metalloids
+fluctuate slightly due to a lack of universally accepted definitions
+of the categories involved. (https://en.wikipedia.org/wiki/Metal, c.f.
+http://purl.obolibrary.org/obo/ENVO_01001069)
 - Concept URI token: anthropogenicmetal
 
 
 []{#otheranthropogenicmaterial}
 
 ####  Anthropogenic material
+* `Other anthropogenic material`
 
 
 - Child of:
@@ -124,6 +136,9 @@ concrete, slag, (anthropogenic) glass, mine tailing, plaster, waste.
 - a solid material that is normally a liquid or gas at Standard
 Temperature and Pressre (STP) that is in a solid state under the
 observed temperature and pressure conditions.
+- a material that is in a solid state under the temperature and
+pressure conditions of the preserved sample, but is a liquid or gas at
+Standard Temperature and Pressure (STP).
 - Concept URI token: anyice
 
 
@@ -171,6 +186,12 @@ be a gas, a liquid or a solid (based on
 https://en.wikipedia.org/wiki/Dispersed_media). Does not include
 mixtures of granular material like soil, sediment, particulate, or
 solids that would be considered a rock.
+- Material that contains discrete elements of some material dispersed
+in a continuous fluid medium.  The dispersed component can be a gas, a
+liquid or a solid (based on
+https://en.wikipedia.org/wiki/Dispersed_media). Does not include
+mixtures of granular material like soil, sediment, particulate, or
+solids that would be considered  rock material.
 - Concept URI token: dispersedmedia
 
 
@@ -186,6 +207,8 @@ solids that would be considered a rock.
 Typically (nessarily?) a granular aggregate that might include any of
 the previous constiturents. Use for Earth Material aggregates of
 uncertain origin
+- A naturally occurring solid material that is not anthropogenic,
+biogenic, or ice.
 - Concept URI token: earthmaterial
 
 
@@ -213,6 +236,22 @@ occurring mineral-like substance that does not demonstrate
 crystallinity. Mineraloids possess chemical compositions that vary
 beyond the generally accepted ranges for specific minerals. Examples:
 obsidian, Opal. (https://en.wikipedia.org/wiki/Mineraloid)
+- Material consists of a single mineral or mineraloid phase.  'A
+mineral is an element or chemical compound that is normally
+crystalline and that has been formed as a result of geological
+processes.' (Nickel, Ernest H. (1995), The definition of a mineral,
+The Canadian Mineralogist. 33 (3): 689–90). Include mineraloids. ... A
+material primarily composed of some substance that is naturally
+occurring, solid and stable at room temperature, representable by a
+chemical formula, usually abiogenic, and that has an ordered atomic
+structure. (http://purl.obolibrary.org/obo/ENVO_01000256). The
+identity of a mineral species is defined by a crystal structure and a
+chemical composition that might include various specific elemental
+substitutions in that structure. Mineraloid: A naturally occurring
+mineral-like substance that does not demonstrate crystallinity.
+Mineraloids possess chemical compositions that vary beyond the
+generally accepted ranges for specific minerals. Examples: obsidian,
+Opal. (https://en.wikipedia.org/wiki/Mineraloid)
 - Concept URI token: mineral
 
 
@@ -250,6 +289,18 @@ solid or liquid particles suspended in another material would be a
 dispersed_media in this scheme, not defined in ENVO. Human
 manufactured particulates (e.g. rock powder) should be categorized as
 'anthropogenic material' as well as 'Particulate'
+- Material consists of microscopic particulate material derived by
+precipitation, filtering, or settling from suspension in a fluid, e.g.
+filtrate from water, deposition from atmosphere, astro material
+particles. Might include mineral, organic, or biological material.
+ENVO definition (ENVO_01000060) has "composed of microscopic portions
+of solid or liquid material suspended in another environmental
+material." Refine here to define as the solid particles, distinct from
+a material in which they are suspended. A material that includes solid
+or liquid particles suspended in another material would be a
+dispersed_media in this scheme, not defined in ENVO. Human
+manufactured particulates (e.g. rock powder) should be categorized as
+'Anthropogenic material' as well as 'Particulate'
 - Concept URI token: particulate
 
 
@@ -265,6 +316,10 @@ manufactured particulates (e.g. rock powder) should be categorized as
 cores that are not well described, from drill holes that likely
 penetrate sediment near the surface an might be sampling rock at
 greater depth.
+- Material is rock or sediment.  For example core from boreholes that
+likely penetrate sediment near the surface and rock at greater depth,
+with descriptions that do not clearly distinguish non-consolidated
+sediment from rock.
 - Concept URI token: rockorsediment
 
 
@@ -310,6 +365,17 @@ Sediment is not consolidated, i.e. Particulate constituents of a
 compound material do not adhere to each other strongly enough that the
 aggregate can be considered a solid material in its own right. Similar
 to http://purl.obolibrary.org/obo/ENVO_00002007
+- Solid granular material transported by wind, water, or gravity, not
+modified by interaction with biosphere or atmosphere (to differentiate
+from soil). Particles might be derived by erosion of pre-existing
+rock, from shell or other body parts from organisms, precipitated
+chemically in the surficial environment, or generated by explosive
+volcanic activity.
+(http://resource.geosciml.org/classifier/cgi/lithology/sediment).
+Sediment is not consolidated, i.e. the particulate constituents do not
+adhere to each other strongly enough that the aggregate can be
+considered a solid material in its own right. Similar to
+http://purl.obolibrary.org/obo/ENVO_00002007
 - Concept URI token: sediment
 
 
@@ -325,6 +391,16 @@ to http://purl.obolibrary.org/obo/ENVO_00002007
 between earth material, biosphere, and atmosphere, consisting mostly
 of varying proportions of sand, silt, and clay, organic material such
 as humus, gases, liquids, and a broad range of resident micro- and
+macroorganisms. (https://en.wikipedia.org/wiki/Soil) Soil consists of
+horizons near the Earth's surface that, in contrast to the underlying
+parent material, have been altered by the interactions of climate,
+relief, and living organisms over time. (http://www.nrcs.usda.gov/wps/
+portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280)
+(http://purl.obolibrary.org/obo/ENVO_00001998)
+- Mixed granular mineral and organic matter modified by interaction
+between earth material, biosphere, and atmosphere, consisting of
+varying proportions of sand, silt, and clay, organic material such as
+humus, gases, liquids, and a broad range of resident micro- and
 macroorganisms. (https://en.wikipedia.org/wiki/Soil) Soil consists of
 horizons near the Earth's surface that, in contrast to the underlying
 parent material, have been altered by the interactions of climate,
@@ -350,6 +426,11 @@ stress, or external force. Fluids are a phase of matter and include
 liquids, gases and plasmas. They are substances with zero shear
 modulus, or, in simpler terms, substances that cannot resist any shear
 force applied to them. (https://en.wikipedia.org/wiki/Fluid)
+- Substance that continually deforms (flows) under an applied shear
+stress, or external force. Fluids are a phase of matter and include
+liquids, gases and plasmas. They are substances with zero or small
+shear modulus, and flow at a perceptible rate under any shear force
+applied to them. (https://en.wikipedia.org/wiki/Fluid)
 - Concept URI token: fluid
 
 
@@ -408,6 +489,12 @@ primarily of one or more very large molecules of biological origin.
 Examples: body (animal or plant), body part, fecal matter, seeds,
 wood, tissue, biological fluids, biological waste, algal material,
 biofilm, necromass, plankton. source:
+http://purl.obolibrary.org/obo/ENVO_01000155
+- Material derived from living organisms and composed primarily of one
+or more very large molecules of biological origin. Examples: body
+(animal or plant), body part, fecal matter, seeds, wood, tissue,
+biological fluids, biological waste, algal material, biofilm,
+necromass, plankton. source:
 http://purl.obolibrary.org/obo/ENVO_01000155
 - Concept URI token: organicmaterial
 
