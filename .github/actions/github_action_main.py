@@ -23,8 +23,7 @@ VOCAB_PY = f"{PATH_PREFIX}/tools/vocab.py"
 VOCABULARY_CACHE_PATH = f"{PATH_PREFIX}cache/vocabularies.db"
 
 def main():
-#    logging.debug(f"environment variables are {os.environ}")
-#    print(f"environment variables are {os.environ}")
+    print(f"environment variables are {os.environ}")
 
     command = os.environ["INPUT_ACTION"]
     print("github_action_main: INPUT_ACTION: ", command)
