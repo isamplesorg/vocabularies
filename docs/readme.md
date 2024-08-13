@@ -5,6 +5,8 @@ HTML representations of vocabularies for categorizing material sample type chara
 
 ## Concept scheme: iSamples Material Type Vocabulary
 
+[HTML web page version](https://isamplesorg.github.io/vocabularies/material_type.html) 
+
 [ARDC Research Vocabularies Australia (RVA) vocabulary service landing page](https://vocabs.ardc.edu.au/viewById/664)
 
 [RDF source file](https://raw.githubusercontent.com/isamplesorg/vocabularies/main/vocabulary/material_type.ttl). This is the authoritative representation. 
