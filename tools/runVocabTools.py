@@ -40,7 +40,7 @@ def main(command, path):
 #    command = 'uijson'
     path = '../docs'
 # *******************
-    input1 = "material_sample_type|material_sample_object_type|material_type|sampled_feature_type"
+    input1 = "material_sample_type(superseded)|material_sample_object_type|material_type|sampled_feature_type"
     inputttl = input1.split('|')
 # inputttl is a list of skos rdf vocabulary filenames with Turtle serialization
 # vocab_source_dir is the path to the directory that contains the source files

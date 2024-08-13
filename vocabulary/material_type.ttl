@@ -231,9 +231,9 @@ mat:rock
   rdf:type owl:NamedIndividual ;
   rdf:type skos:Concept ;
   rdfs:label "Rock"@en ;
-  rdfs:seeAlso <http://purl.obolibrary.org/obo/ENVO_00001995> ;
-  rdfs:seeAlso <http://resource.geosciml.org/classifier/cgi/lithology/rock> ;
   skos:broader mat:rockorsediment ;
+  skos:closeMatch <http://purl.obolibrary.org/obo/ENVO_00001995> ;
+  skos:closeMatch <http://resource.geosciml.org/classifier/cgi/lithology/rock> ;
   skos:definition "Consolidated aggregate of particles (grains) of rock, mineral (including native elements), mineraloid, or solid organic material. Includes mineral aggregates such as granite, shale, marble; natural glass such as obsidian; organic material formed by geologic processes such a coal;  extraterrestrial material in meteorites; and  crushed rock fragments like drill cuttings from rock.  (based on http://resource.geosciml.org/classifier/cgi/lithology/rock, same as http://purl.obolibrary.org/obo/ENVO_00001995)"@en ;
   skos:inScheme mat:materialsvocabulary ;
   skos:prefLabel "Rock"@en ;
