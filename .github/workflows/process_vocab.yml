@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Vocabulary action
-        uses: isamplesorg/vocabularies@smrgeoinfo-patch-1
+        uses: isamplesorg/vocabularies@develop
         # input variables 'action', 'path', 'inputttl' and 'inputvocaburi' are defined in action.yml, and assigned values here
         # GitHub creates an environment variable for the input with the name INPUT_<VARIABLE_NAME>
         with:
@@ -49,7 +49,7 @@ jobs:
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: smrgeoinfo-patch-1 # The branch the action should deploy to.
+          branch: develop # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
           target-folder: docs  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
@@ -58,7 +58,7 @@ jobs:
       - name: Deploy vocabulary database
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: smrgeoinfo-patch-1 # The branch the action should deploy to.
+          branch: develop # The branch the action should deploy to.
           folder: cache # The folder the action should deploy.
           target-folder: cache  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
