@@ -97,6 +97,7 @@ def main():
         print(f"Unknown command {command}.  Exiting.")
         sys.exit(-1)
 
+# update to add inputuri argument so works with vocab.py SMR 2024-08-14
 def load_cachedb(inputf, inputuri, cachepath):
     # tools/vocab.py --verbosity ERROR -s $(CACHE) load $(SRC)/$@
     print(f"cachdb file to load: {inputf}")
