@@ -17,7 +17,7 @@ execute:
 
 # **Concept scheme:** iSamples Materials Vocabulary 
 
-Vocabulary last modified:  2022-03-11
+Vocabulary last modified:  2024-08-14
 
 subtitle: 
   High level vocabulary to specify the kind of material that constitutes a physical sample
@@ -29,11 +29,12 @@ Namespace:
 
 * 2022-01-05 SMR version 0.9, change base uri to https://w3id.org/isample/vocabulary/material/0.9/ for testing with ESIP COR and w3id uri resolution
 * 2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes to some definitions.  Add skos matches to URIs from other vocabularies; 2023-11-05 version 1.0, in preparation for release. 
+* 2024-08-14 SMR, various updates since 2023-12:  change seeAlso to closeMatch for Rock mapping to http://resource.geosciml.org/classifier/cgi/lithology/rock; minor edits to align with manuscript about the metadata schema; update vocabularies to use 'material sample' instead of 'specimen'; update schema.org namespace to http://; add provider and codeRepository in conceptScheme metadata; minor typo fixes and definition edits.
 
 - [Material ](#material)
-    - [Any anthropogenic material](#anyanthropogenicmaterial)
+    - [Anthropogenic material](#anyanthropogenicmaterial)
         - [Anthropogenic metal material ](#anthropogenicmetal)
-        - [Anthropogenic material](#otheranthropogenicmaterial)
+        - [Other anthropogenic material](#otheranthropogenicmaterial)
     - [Any ice](#anyice)
         - [Frozen water](#waterice)
     - [Biogenic non-organic material](#biogenicnonorganicmaterial)
@@ -65,8 +66,7 @@ Namespace:
 
 []{#anyanthropogenicmaterial}
 
-###  Any anthropogenic material
-* `Anthropogenic material`
+###  Anthropogenic material
 
 
 - Child of:
@@ -84,18 +84,6 @@ Namespace:
 - Child of:
  [`anyanthropogenicmaterial`](#anyanthropogenicmaterial)
 
-- Specimen is dominantly composed of metal that has been produced or
-used by humans; subclass of anthropogenic material. Samples of
-naturally occuring metallic material (e.g. native copper, gold
-nuggets) should be considered mineral material. Metallic material is
-material that when polished or fractured, shows a lustrous appearance,
-and conducts electricity and heat relatively well. Metals are
-typically malleable (they can be hammered into thin sheets) or ductile
-(can be drawn into wires). The boundaries between metals, nonmetals,
-and metalloids fluctuate slightly due to a lack of universally
-accepted definitions of the categories involved.
-(https://en.wikipedia.org/wiki/Metal). c.f.
-http://purl.obolibrary.org/obo/ENVO_01001069
 - Metal that has been produced or used by humans. Samples of naturally
 occurring metallic material (e.g. native copper, gold nuggets) should
 be considered mineral material. Metallic material is material that
@@ -111,8 +99,7 @@ http://purl.obolibrary.org/obo/ENVO_01001069)
 
 []{#otheranthropogenicmaterial}
 
-####  Anthropogenic material
-* `Other anthropogenic material`
+####  Other anthropogenic material
 
 
 - Child of:
@@ -133,9 +120,6 @@ concrete, slag, (anthropogenic) glass, mine tailing, plaster, waste.
 - Child of:
  [`material`](#material)
 
-- a solid material that is normally a liquid or gas at Standard
-Temperature and Pressre (STP) that is in a solid state under the
-observed temperature and pressure conditions.
 - a material that is in a solid state under the temperature and
 pressure conditions of the preserved sample, but is a liquid or gas at
 Standard Temperature and Pressure (STP).
@@ -180,12 +164,6 @@ skeleton,
 - Child of:
  [`material`](#material)
 
-- A material contains discrete elements of one medium that are
-dispersed in a continuous fluid medium.  The dispersed component can
-be a gas, a liquid or a solid (based on
-https://en.wikipedia.org/wiki/Dispersed_media). Does not include
-mixtures of granular material like soil, sediment, particulate, or
-solids that would be considered a rock.
 - Material that contains discrete elements of some material dispersed
 in a continuous fluid medium.  The dispersed component can be a gas, a
 liquid or a solid (based on
@@ -203,10 +181,6 @@ solids that would be considered  rock material.
 - Child of:
  [`material`](#material)
 
-- Undifferentiated soil, sediment, rock, or natural particulates.
-Typically (nessarily?) a granular aggregate that might include any of
-the previous constiturents. Use for Earth Material aggregates of
-uncertain origin
 - A naturally occurring solid material that is not anthropogenic,
 biogenic, or ice.
 - Concept URI token: earthmaterial
@@ -220,22 +194,6 @@ biogenic, or ice.
 - Child of:
  [`earthmaterial`](#earthmaterial)
 
-- Material consists of a single mineral or mineraloid phase. .  'A
-mineral is an element or chemical compound that is normally
-crystalline and that has been formed as a result of geological
-processes.' (Nickel, Ernest H. (1995), The definition of a mineral,
-The Canadian Mineralogist. 33 (3): 689–90). Include mineraloids. ... A
-material primarily composed of some substance that is naturally
-occurring, solid and stable at room temperature, representable by a
-chemical formula, usually abiogenic, and that has an ordered atomic
-structure. (http://purl.obolibrary.org/obo/ENVO_01000256). Comment:
-the identity of a mineral species is defined by a crystal structure
-and a chemical composition that might include various specific
-elemental substitutions in that structure. Mineraloid: A naturally
-occurring mineral-like substance that does not demonstrate
-crystallinity. Mineraloids possess chemical compositions that vary
-beyond the generally accepted ranges for specific minerals. Examples:
-obsidian, Opal. (https://en.wikipedia.org/wiki/Mineraloid)
 - Material consists of a single mineral or mineraloid phase.  'A
 mineral is an element or chemical compound that is normally
 crystalline and that has been formed as a result of geological
@@ -283,18 +241,6 @@ filtrate from water, deposition from atmosphere, astro material
 particles. Might include mineral, organic, or biological material.
 ENVO definition (ENVO_01000060) has "composed of microscopic portions
 of solid or liquid material suspended in another environmental
-material.", refine here to define as the solid particles, distinct
-from a material in which they are suspended. A material that includes
-solid or liquid particles suspended in another material would be a
-dispersed_media in this scheme, not defined in ENVO. Human
-manufactured particulates (e.g. rock powder) should be categorized as
-'anthropogenic material' as well as 'Particulate'
-- Material consists of microscopic particulate material derived by
-precipitation, filtering, or settling from suspension in a fluid, e.g.
-filtrate from water, deposition from atmosphere, astro material
-particles. Might include mineral, organic, or biological material.
-ENVO definition (ENVO_01000060) has "composed of microscopic portions
-of solid or liquid material suspended in another environmental
 material." Refine here to define as the solid particles, distinct from
 a material in which they are suspended. A material that includes solid
 or liquid particles suspended in another material would be a
@@ -312,10 +258,6 @@ manufactured particulates (e.g. rock powder) should be categorized as
 - Child of:
  [`earthmaterial`](#earthmaterial)
 
-- Material is rock or sediment.  E.g. for samples from subsurface
-cores that are not well described, from drill holes that likely
-penetrate sediment near the surface an might be sampling rock at
-greater depth.
 - Material is rock or sediment.  For example core from boreholes that
 likely penetrate sediment near the surface and rock at greater depth,
 with descriptions that do not clearly distinguish non-consolidated
@@ -339,10 +281,6 @@ such a coal;  extraterrestrial material in meteorites; and  crushed
 rock fragments like drill cuttings from rock.  (based on
 http://resource.geosciml.org/classifier/cgi/lithology/rock, same as
 http://purl.obolibrary.org/obo/ENVO_00001995)
-
-- See Also:
-* [<http://purl.obolibrary.org/obo/ENVO_00001995>](http://purl.obolibrary.org/obo/ENVO_00001995)
-* [<http://resource.geosciml.org/classifier/cgi/lithology/rock>](http://resource.geosciml.org/classifier/cgi/lithology/rock)
 - Concept URI token: rock
 
 
@@ -354,17 +292,6 @@ http://purl.obolibrary.org/obo/ENVO_00001995)
 - Child of:
  [`rockorsediment`](#rockorsediment)
 
-- Solid granular material transported by wind, water, or gravity, not
-modified by interaction with biosphere or atmosphere (to differentiate
-from soil). Particles derived by erosion of pre-existing rock, from
-shell or other body parts from organisms, precipitated chemically in
-the surficial environment, or generated by explosive volcanic
-activity.
-(http://resource.geosciml.org/classifier/cgi/lithology/sediment).
-Sediment is not consolidated, i.e. Particulate constituents of a
-compound material do not adhere to each other strongly enough that the
-aggregate can be considered a solid material in its own right. Similar
-to http://purl.obolibrary.org/obo/ENVO_00002007
 - Solid granular material transported by wind, water, or gravity, not
 modified by interaction with biosphere or atmosphere (to differentiate
 from soil). Particles might be derived by erosion of pre-existing
@@ -387,16 +314,6 @@ http://purl.obolibrary.org/obo/ENVO_00002007
 - Child of:
  [`earthmaterial`](#earthmaterial)
 
-- Mixed granular mineral and organic matter modified by interaction
-between earth material, biosphere, and atmosphere, consisting mostly
-of varying proportions of sand, silt, and clay, organic material such
-as humus, gases, liquids, and a broad range of resident micro- and
-macroorganisms. (https://en.wikipedia.org/wiki/Soil) Soil consists of
-horizons near the Earth's surface that, in contrast to the underlying
-parent material, have been altered by the interactions of climate,
-relief, and living organisms over time. (http://www.nrcs.usda.gov/wps/
-portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280)
-(http://purl.obolibrary.org/obo/ENVO_00001998)
 - Mixed granular mineral and organic matter modified by interaction
 between earth material, biosphere, and atmosphere, consisting of
 varying proportions of sand, silt, and clay, organic material such as
@@ -421,11 +338,6 @@ portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280)
 - Child of:
  [`material`](#material)
 
-- a substance that continually deforms (flows) under an applied shear
-stress, or external force. Fluids are a phase of matter and include
-liquids, gases and plasmas. They are substances with zero shear
-modulus, or, in simpler terms, substances that cannot resist any shear
-force applied to them. (https://en.wikipedia.org/wiki/Fluid)
 - Substance that continually deforms (flows) under an applied shear
 stress, or external force. Fluids are a phase of matter and include
 liquids, gases and plasmas. They are substances with zero or small
@@ -484,12 +396,6 @@ petroleum.
 - Child of:
  [`material`](#material)
 
-- Environmental material derived from living organisms and composed
-primarily of one or more very large molecules of biological origin.
-Examples: body (animal or plant), body part, fecal matter, seeds,
-wood, tissue, biological fluids, biological waste, algal material,
-biofilm, necromass, plankton. source:
-http://purl.obolibrary.org/obo/ENVO_01000155
 - Material derived from living organisms and composed primarily of one
 or more very large molecules of biological origin. Examples: body
 (animal or plant), body part, fecal matter, seeds, wood, tissue,

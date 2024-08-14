@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Vocabulary action
-        uses: isamplesorg/vocabularies@main
+        uses: isamplesorg/vocabularies@smrgeoinfo-patch-1
         # input variables 'action', 'path', 'inputttl' and 'inputvocaburi' are defined in action.yml, and assigned values here
         # GitHub creates an environment variable for the input with the name INPUT_<VARIABLE_NAME>
         with:
@@ -42,14 +42,14 @@ jobs:
           path: ${{ github.workspace }}
           # provide ttl file names without extensions; the base file name will be 
           #    used for output files with the appropriate extension.
-          inputttl: material_sample_object_type|material_sample_type|material_type|sampled_feature_type
+          inputttl: material_sample_object_type|material_sample_type(superseded)|material_type|sampled_feature_type
           # these are the URIs for the ConceptScheme; there must be a conceptScheme defined in each vocabulary.
           inputvocaburi: msot:conceptscheme|spec:specimentypevocabulary|mat:materialsvocabulary|sf:sampledfeaturevocabulary
 
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: main # The branch the action should deploy to.
+          branch: smrgeoinfo-patch-1 # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
           target-folder: docs  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
@@ -58,7 +58,7 @@ jobs:
       - name: Deploy vocabulary database
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: main # The branch the action should deploy to.
+          branch: smrgeoinfo-patch-1 # The branch the action should deploy to.
           folder: cache # The folder the action should deploy.
           target-folder: cache  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
