@@ -76,20 +76,19 @@ ul.task-list li input[type="checkbox"] {
 <p><span id="SampledFeatureTypevocabulary"></span></p>
 <section id="concept-scheme-sampled-feature-type-vocabulary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> <strong>Concept scheme:</strong> Sampled Feature Type vocabulary</h1>
-<p>Vocabulary last modified: 2022-12-09</p>
+<p>Vocabulary last modified: 2024-04-19</p>
 <p>subtitle: Categories to specify the broad context that a sample is intended to represent.</p>
 <p>Namespace: <a href="https://w3id.org/isample/vocabulary/sampledfeature/1.0/sampledfeaturevocabulary"><code>https://w3id.org/isample/vocabulary/sampledfeature/1.0/sampledfeaturevocabulary</code></a></p>
 <p><strong>History</strong></p>
 <ul>
+<li><p>2021-07-09 Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environment subclasses of Active human occupation site.</p></li>
 <li><p>2021-12-10 SMR add missing skos:inScheme statements</p></li>
 <li><p>2022-01-07 SMR change to https://w3id.org/isample/ uri base, make the ConceptScheme an ontology as well. For uploading to ESIP COR and w3id resolution redirect set up. Add some mappings to other ontologies using seeAlso, closeMatch, narrowMatch.</p></li>
 <li><p>2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies. Fix typo in glacierenvrionment URI (changed the URI to glacierenvironment)</p></li>
 <li><p>2022-09-07 SMR update some of the skos mappings to other vocabularies; remove references to other vocabularies as NamedIndividual. Remove rocksample class, it was not linked in hierarchy and inconsistent with design.</p></li>
 <li><p>2022-09-30 add biological entity as sampled feature, per issue https://github.com/isamplesorg/metadata/issues/107. This update was lost at some point and added back in 2022-12-09.</p></li>
 <li><p>2023-11-05 SMR update version to 1.0, prep for release</p></li>
-<li><p>Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environemtn subclasses of Active human occupation site.</p></li>
 <li><p>2024-04-19 SMR update definitions to remove use of ‘specimen’. Edit some definitions for better clarity</p></li>
-<li><p>Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environment subclasses of Active human occupation site.</p></li>
 <li><p><a href="#anysampledfeature">Any sampled feature</a></p>
 <ul>
 <li><a href="#anthropogenicenvironment">Anthropogenic environment</a>
@@ -144,7 +143,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.1.1" data-anchor-id="active-human-occupation-site"><span class="header-section-number">1.1.1.1</span> Active human occupation site</h4>
 <ul>
 <li><p>Child of: <a href="#anthropogenicenvironment"><code>anthropogenicenvironment</code></a></p></li>
-<li><p>Specimen samples materials or objects produced by current or ongoing human activity</p></li>
 <li><p>sampled feature is a site at which there are ongoing human activities</p></li>
 <li><p>Concept URI token: activehumanoccupationsite</p></li>
 </ul>
@@ -153,7 +151,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.1.1.1" data-anchor-id="experiment-setting"><span class="header-section-number">1.1.1.1.1</span> Experiment setting</h5>
 <ul>
 <li><p>Child of: <a href="#activehumanoccupationsite"><code>activehumanoccupationsite</code></a></p></li>
-<li><p>Sampled feature is the experimental set up that produced the sample.</p></li>
 <li><p>Sampled feature is an experimental set up that produced the sample; the sample is the product of the experiment.</p></li>
 <li><p>Concept URI token: experimentsetting</p></li>
 </ul>
@@ -163,7 +160,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.1.1.2" data-anchor-id="laboratory-or-curatorial-environment"><span class="header-section-number">1.1.1.1.2</span> Laboratory or curatorial environment</h5>
 <ul>
 <li><p>Child of: <a href="#activehumanoccupationsite"><code>activehumanoccupationsite</code></a></p></li>
-<li><p>Specimen samples environment in a laboratory; e.g.&nbsp;lab blank measurements.</p></li>
 <li><p>Sampled feature is a laboratory or other research site, collected with intention of characterizing the environment in which data are collected or other research conducted, that might affect results or safety; e.g.&nbsp;lab blank measurements.</p></li>
 <li><p>Concept URI token: laboratorycuratorialenvironment</p></li>
 </ul>
@@ -174,7 +170,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.1.2" data-anchor-id="site-of-past-human-activities"><span class="header-section-number">1.1.1.2</span> Site of past human activities</h4>
 <ul>
 <li><p>Child of: <a href="#anthropogenicenvironment"><code>anthropogenicenvironment</code></a></p></li>
-<li><p>specimen samples a place where humans have been and left evidence of their activity. Includes prehistoric and paleo hominid sites</p></li>
 <li><p>sampled feature is a place where humans have been and left evidence of their activity. Includes prehistoric and paleo hominid sites</p></li>
 <li><p>Concept URI token: pasthumanoccupationsite</p></li>
 </ul>
@@ -185,7 +180,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.2" data-anchor-id="biological-entity"><span class="header-section-number">1.1.2</span> Biological entity</h3>
 <ul>
 <li><p>Child of: <a href="#anysampledfeature"><code>anysampledfeature</code></a></p></li>
-<li><p>Sampled feature is an organism. Use for samples that represent some species of organism as the proximate sampled feature for which the focus is not the environment that the organism inhabits.</p></li>
 <li><p>Sampled feature is an organism. Use for samples that represent some species of organism as the proximate sampled feature, not the environment that the organism inhabits.</p></li>
 <li><p>Concept URI token: biologicalentity</p></li>
 </ul>
@@ -195,7 +189,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.3" data-anchor-id="earth-environment"><span class="header-section-number">1.1.3</span> Earth environment</h3>
 <ul>
 <li><p>Child of: <a href="#anysampledfeature"><code>anysampledfeature</code></a></p></li>
-<li><p>specimen samples the natural Earth environment</p></li>
 <li><p>Sampled feature is the natural Earth environment</p></li>
 <li><p>See Also:</p></li>
 <li><p><a href="http://purl.bioontology.org/ontology/MESH/D004777">&lt;http://purl.bioontology.org/ontology/MESH/D004777&gt;</a></p></li>
@@ -207,7 +200,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.3.1" data-anchor-id="atmosphere"><span class="header-section-number">1.1.3.1</span> Atmosphere</h4>
 <ul>
 <li><p>Child of: <a href="#earthenvironment"><code>earthenvironment</code></a></p></li>
-<li><p>specimen samples the Earth’s atmosphere</p></li>
 <li><p>Sampled feature is the Earth’s atmosphere</p></li>
 <li><p>See Also:</p></li>
 <li><p><a href="http://purl.obolibrary.org/obo/ENVO_01000267">&lt;http://purl.obolibrary.org/obo/ENVO_01000267&gt;</a></p></li>
@@ -220,7 +212,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.3.2" data-anchor-id="earth-interior"><span class="header-section-number">1.1.3.2</span> Earth interior</h4>
 <ul>
 <li><p>Child of: <a href="#earthenvironment"><code>earthenvironment</code></a></p></li>
-<li><p>Specimen samples solid material within the earth</p></li>
 <li><p>Sampled feature is solid material from within the Earth</p></li>
 <li><p>Concept URI token: earthinterior</p></li>
 </ul>
@@ -230,7 +221,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.3.3" data-anchor-id="earth-surface"><span class="header-section-number">1.1.3.3</span> Earth surface</h4>
 <ul>
 <li><p>Child of: <a href="#earthenvironment"><code>earthenvironment</code></a></p></li>
-<li><p>Specimen samples the interface between solid earth and hydrosphere or atmosphere. Includes samples representing things collected on the surface, or in the uppermost part of the material below the surface. Not including recently deposited sediment that has not been modified by interaction with the surface environment.</p></li>
 <li><p>Sampled feature is the interface between solid earth and hydrosphere or atmosphere. Includes samples representing things collected on the surface, in the uppermost part of the material below the surface, or air or water directly at the contact with the Earth surface.</p></li>
 <li><p>Concept URI token: earthsurface</p></li>
 </ul>
@@ -239,7 +229,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.3.3.1" data-anchor-id="lake-river-or-stream-bottom"><span class="header-section-number">1.1.3.3.1</span> Lake river or stream bottom</h5>
 <ul>
 <li><p>Child of: <a href="#earthsurface"><code>earthsurface</code></a></p></li>
-<li><p>Specimen samples the solid Earth interface with a lake or flowing water body</p></li>
 <li><p>Sampled feature is the interface between the solid Earth interface and a lake or flowing water body.</p></li>
 <li><p>Concept URI token: lakeriverstreambottom</p></li>
 </ul>
@@ -249,7 +238,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.3.3.2" data-anchor-id="marine-water-body-bottom"><span class="header-section-number">1.1.3.3.2</span> Marine water body bottom</h5>
 <ul>
 <li><p>Child of: <a href="#earthsurface"><code>earthsurface</code></a></p></li>
-<li><p>Specimen samples the solid Earth interface with marine or brackish water body. Includes&nbsp;benthic boundary layer: the bottom layer of water and the uppermost layer of sediment directly influenced by the overlying water</p></li>
 <li><p>Sampled feature is the interface between the solid Earth and a marine or brackish water body. Includes&nbsp;benthic boundary layer: the bottom layer of water and the uppermost layer of sediment directly influenced by the overlying water.</p></li>
 <li><p><strong>Alternate labels:</strong> Sea floor</p></li>
 <li><p>Concept URI token: marinewaterbodybottom</p></li>
@@ -260,7 +248,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.3.3.3" data-anchor-id="subaerial-surface-environment"><span class="header-section-number">1.1.3.3.3</span> Subaerial surface environment</h5>
 <ul>
 <li><p>Child of: <a href="#earthsurface"><code>earthsurface</code></a></p></li>
-<li><p>Specimen samples the interface between solid Earth and atmosphere. Sample is collected on the surface, or immediately below surface (zone of bioturbation). Include soil and recently deposited subaerial sediment at the surface.</p></li>
 <li><p>sampled feature is the interface between solid Earth and atmosphere. Sample is collected on the surface, or immediately below surface (zone of bioturbation). Include soil and recently deposited subaerial sediment at the surface.</p></li>
 <li><p>Concept URI token: subaerialsurfaceenvironment</p></li>
 </ul>
@@ -271,7 +258,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.3.4" data-anchor-id="glacier-environment"><span class="header-section-number">1.1.3.4</span> Glacier environment</h4>
 <ul>
 <li><p>Child of: <a href="#earthenvironment"><code>earthenvironment</code></a></p></li>
-<li><p>Sample of ice, water, or other thing from a glacier, ice sheet, ice shelf, iceberg. Does not include various environments adjacent to glacier.</p></li>
 <li><p>Sampled feature is a glacier, ice sheet, ice shelf, iceberg, or rock or water directly under or on top of such ice.</p></li>
 <li><p>Concept URI token: glacierenvironment</p></li>
 </ul>
@@ -281,7 +267,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.3.5" data-anchor-id="subsurface-fluid-reservoir"><span class="header-section-number">1.1.3.5</span> Subsurface fluid reservoir</h4>
 <ul>
 <li><p>Child of: <a href="#earthenvironment"><code>earthenvironment</code></a></p></li>
-<li><p>Specimen samples fluid that resides in fractures or intergranular porosity in the solid earth.</p></li>
 <li><p>Sampled feature is fluid that resides in fractures, intergranular porosity or other open space in the solid earth.</p></li>
 <li><p>Concept URI token: subsurfacefluidreservoir</p></li>
 </ul>
@@ -291,7 +276,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.3.6" data-anchor-id="water-body"><span class="header-section-number">1.1.3.6</span> Water body</h4>
 <ul>
 <li><p>Child of: <a href="#earthenvironment"><code>earthenvironment</code></a></p></li>
-<li><p>Specimen samples the hydrosphere</p></li>
 <li><p>Sampled feature is the Earth’s hydrosphere.</p></li>
 <li><p>Concept URI token: waterbody</p></li>
 </ul>
@@ -300,7 +284,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.3.6.1" data-anchor-id="marine-environment"><span class="header-section-number">1.1.3.6.1</span> Marine environment</h5>
 <ul>
 <li><p>Child of: <a href="#waterbody"><code>waterbody</code></a></p></li>
-<li><p>specimen samples marine hydrosphere</p></li>
 <li><p>Sampled feature is the marine hydrosphere.</p></li>
 <li><p>See Also:</p></li>
 <li><p><a href="http://purl.obolibrary.org/obo/ENVO_01000686">&lt;http://purl.obolibrary.org/obo/ENVO_01000686&gt;</a></p></li>
@@ -312,7 +295,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.3.6.2" data-anchor-id="terrestrial-water-body"><span class="header-section-number">1.1.3.6.2</span> Terrestrial water body</h5>
 <ul>
 <li><p>Child of: <a href="#waterbody"><code>waterbody</code></a></p></li>
-<li><p>Specimen samples terrestrial hydrosphere– lake, other standing water, or a flowing water body (river, stream..) Include saline water in terrestrial evaporite environments.</p></li>
 <li><p>Sampled feature is terrestrial hydrosphere– lake, other standing water, or a flowing water body (river, stream..). Include saline water in terrestrial evaporite environments.</p></li>
 <li><p>Concept URI token: terrestrialwaterbody</p></li>
 </ul>
@@ -324,7 +306,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.4" data-anchor-id="extraterrestrial-environment"><span class="header-section-number">1.1.4</span> Extraterrestrial environment</h3>
 <ul>
 <li><p>Child of: <a href="#anysampledfeature"><code>anysampledfeature</code></a></p></li>
-<li><p>specimen samples environment outside of solid earth, hydrosphere, or atmosphere.</p></li>
 <li><p>Sampled feature is the environment outside of solid earth, hydrosphere, or atmosphere.</p></li>
 <li><p>Concept URI token: extraterrestrialenvironment</p></li>
 </ul>
