@@ -74,6 +74,7 @@ def main(command, path):
     index = 0
     while index < len(inputttl):
         # for inputf in inputttl:
+        print(f"load_cachedb call: {inputttl[index]},{inputvocaburi[index]} ")
         result = load_cachedb(sourcevocabdir + "/" + inputttl[index] + ".ttl", inputvocaburi[index], cachepath)
         if (result == 0):
             print(f"load_cachedb call successful for: {inputttl[index]}")
@@ -105,7 +106,7 @@ def main(command, path):
 def load_cachedb(inputf, inputuri, cachepath):
     # tools/vocab.py --verbosity ERROR -s $(CACHE) load $(SRC)/$@
     print(f"cachdb file to load: {inputf}")
-    load_args = ["--verbosity", "ERROR", "-s", cachepath, "load", inputf, inputuri]
+    load_args = ["--verbosity", "INFO", "-s", cachepath, "load", inputf, inputuri]
     result = _run_python_in_container("vocab.py", load_args, f="")
     if (result == 0):
         print(f"vocab.py call successful for {inputf}")
