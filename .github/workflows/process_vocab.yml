@@ -60,6 +60,6 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
-          target-folder: cache  #push the contents of the deployment folder into a
+          target-folder: docs/cache  #push the contents of the deployment folder into a
                                  # specific directory on the deployment branch
           commit-message: "new build of vocabularies.db"
