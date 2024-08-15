@@ -17,7 +17,7 @@ execute:
 
 # **Concept scheme:** Sampled Feature Type vocabulary
 
-Vocabulary last modified:  2024-04-19
+Vocabulary last modified:  2022-12-09
 
 subtitle: 
   Categories to specify the broad context that a sample is intended to represent.
@@ -27,14 +27,15 @@ Namespace:
 
 **History**
 
-* 2021-07-09  Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environment subclasses of Active human occupation site.
 * 2021-12-10 SMR add missing skos:inScheme statements
 * 2022-01-07 SMR change to https://w3id.org/isample/ uri base, make the ConceptScheme an ontology as well. For uploading to ESIP COR and w3id resolution redirect set up. Add some mappings to other ontologies using seeAlso, closeMatch, narrowMatch.
 * 2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes in definitions. Add skos matches to URIs from other vocabularies. Fix typo in glacierenvrionment URI (changed the URI to glacierenvironment)
 * 2022-09-07 SMR update some of the skos mappings to other vocabularies; remove references to other vocabularies as NamedIndividual. Remove rocksample class, it was not linked in hierarchy and inconsistent with design.
 * 2022-09-30 add biological entity as sampled feature, per issue https://github.com/isamplesorg/metadata/issues/107. This update was lost at some point and added back in 2022-12-09.
 * 2023-11-05 SMR update version to 1.0, prep for release
+* Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environemtn  subclasses of Active human occupation site.
 * 2024-04-19 SMR update definitions to remove use of 'specimen'. Edit some definitions for better clarity
+* Remove Marine biome, Subaerial terrestrial environment, Subaqueous terrestrial environment per github issue https://github.com/isamplesorg/metadata/issues/41. Make Experiment setting and Laboratory or curatorial environment subclasses of Active human occupation site.
 
 - [Any sampled feature](#anysampledfeature)
     - [Anthropogenic environment](#anthropogenicenvironment)
@@ -90,6 +91,8 @@ present.
 - Child of:
  [`anthropogenicenvironment`](#anthropogenicenvironment)
 
+- Specimen samples materials or objects produced by current or ongoing
+human activity
 - sampled feature is a site at which there are ongoing human
 activities
 - Concept URI token: activehumanoccupationsite
@@ -103,6 +106,7 @@ activities
 - Child of:
  [`activehumanoccupationsite`](#activehumanoccupationsite)
 
+- Sampled feature is the experimental set up that produced the sample.
 - Sampled feature is an experimental set up that produced the sample;
 the sample is the product of the experiment.
 - Concept URI token: experimentsetting
@@ -116,6 +120,8 @@ the sample is the product of the experiment.
 - Child of:
  [`activehumanoccupationsite`](#activehumanoccupationsite)
 
+- Specimen samples environment in a laboratory; e.g. lab blank
+measurements.
 - Sampled feature is a laboratory or other research site, collected
 with intention of characterizing the environment in which data are
 collected or other research conducted, that might affect results or
@@ -131,6 +137,8 @@ safety; e.g. lab blank measurements.
 - Child of:
  [`anthropogenicenvironment`](#anthropogenicenvironment)
 
+- specimen samples a place where humans have been and left evidence of
+their activity. Includes prehistoric and paleo hominid sites
 - sampled feature is a place where humans have been and left evidence
 of their activity. Includes prehistoric and paleo hominid sites
 - Concept URI token: pasthumanoccupationsite
@@ -145,6 +153,9 @@ of their activity. Includes prehistoric and paleo hominid sites
  [`anysampledfeature`](#anysampledfeature)
 
 - Sampled feature is an organism. Use for samples that represent some
+species of organism as the proximate sampled feature for which the
+focus is not the environment that the organism inhabits.
+- Sampled feature is an organism. Use for samples that represent some
 species of organism as the proximate sampled feature, not the
 environment that the organism inhabits.
 - Concept URI token: biologicalentity
@@ -158,6 +169,7 @@ environment that the organism inhabits.
 - Child of:
  [`anysampledfeature`](#anysampledfeature)
 
+- specimen samples the natural Earth environment
 - Sampled feature is the natural Earth environment
 
 - See Also:
@@ -174,6 +186,7 @@ environment that the organism inhabits.
 - Child of:
  [`earthenvironment`](#earthenvironment)
 
+- specimen samples the Earth's atmosphere
 - Sampled feature is the Earth's atmosphere
 
 - See Also:
@@ -190,6 +203,7 @@ environment that the organism inhabits.
 - Child of:
  [`earthenvironment`](#earthenvironment)
 
+- Specimen samples solid material within the earth
 - Sampled feature is solid material from within the Earth
 - Concept URI token: earthinterior
 
@@ -202,6 +216,11 @@ environment that the organism inhabits.
 - Child of:
  [`earthenvironment`](#earthenvironment)
 
+- Specimen samples the interface between solid earth and hydrosphere
+or atmosphere. Includes samples representing things collected on the
+surface, or in the uppermost part of the material below the surface.
+Not including recently deposited sediment that has not been modified
+by interaction with the surface environment.
 - Sampled feature is the interface between solid earth and hydrosphere
 or atmosphere. Includes samples representing things collected on the
 surface, in the uppermost part of the material below the surface, or
@@ -217,6 +236,8 @@ air or water directly at the contact with the Earth surface.
 - Child of:
  [`earthsurface`](#earthsurface)
 
+- Specimen samples the solid Earth interface with a lake or flowing
+water body
 - Sampled feature is the interface between the solid Earth interface
 and a lake or flowing water body.
 - Concept URI token: lakeriverstreambottom
@@ -230,6 +251,10 @@ and a lake or flowing water body.
 - Child of:
  [`earthsurface`](#earthsurface)
 
+- Specimen samples the solid Earth interface with marine or brackish
+water body. Includes benthic boundary layer:  the bottom layer of
+water and the uppermost layer of sediment directly influenced by the
+overlying water
 - Sampled feature is the interface between the solid Earth and a
 marine or brackish water body. Includes benthic boundary layer:  the
 bottom layer of water and the uppermost layer of sediment directly
@@ -249,6 +274,10 @@ Sea floor
 - Child of:
  [`earthsurface`](#earthsurface)
 
+- Specimen samples the interface between solid Earth and atmosphere.
+Sample is collected on the surface, or immediately below surface (zone
+of bioturbation). Include soil and recently deposited subaerial
+sediment at the surface.
 - sampled feature is the interface between solid Earth and atmosphere.
 Sample is collected on the surface, or immediately below surface (zone
 of bioturbation). Include soil and recently deposited subaerial
@@ -264,6 +293,9 @@ sediment at the surface.
 - Child of:
  [`earthenvironment`](#earthenvironment)
 
+- Sample of ice, water, or other thing from a glacier, ice sheet, ice
+shelf, iceberg. Does not include various environments adjacent to
+glacier.
 - Sampled feature is a glacier, ice sheet, ice shelf, iceberg, or rock
 or water directly under or on top of such ice.
 - Concept URI token: glacierenvironment
@@ -277,6 +309,8 @@ or water directly under or on top of such ice.
 - Child of:
  [`earthenvironment`](#earthenvironment)
 
+- Specimen samples fluid that resides in fractures or intergranular
+porosity in the solid earth.
 - Sampled feature is fluid that resides in fractures, intergranular
 porosity or other open space in the solid earth.
 - Concept URI token: subsurfacefluidreservoir
@@ -290,6 +324,7 @@ porosity or other open space in the solid earth.
 - Child of:
  [`earthenvironment`](#earthenvironment)
 
+- Specimen samples the hydrosphere
 - Sampled feature is the Earth's hydrosphere.
 - Concept URI token: waterbody
 
@@ -302,6 +337,7 @@ porosity or other open space in the solid earth.
 - Child of:
  [`waterbody`](#waterbody)
 
+- specimen samples marine hydrosphere
 - Sampled feature is the marine hydrosphere.
 
 - See Also:
@@ -317,6 +353,9 @@ porosity or other open space in the solid earth.
 - Child of:
  [`waterbody`](#waterbody)
 
+- Specimen samples terrestrial hydrosphere-- lake, other standing
+water, or a flowing water body (river, stream..) Include saline water
+in terrestrial evaporite environments.
 - Sampled feature is terrestrial hydrosphere-- lake, other standing
 water, or a flowing water body (river, stream..). Include saline water
 in terrestrial evaporite environments.
@@ -331,6 +370,8 @@ in terrestrial evaporite environments.
 - Child of:
  [`anysampledfeature`](#anysampledfeature)
 
+- specimen samples environment outside of solid earth, hydrosphere, or
+atmosphere.
 - Sampled feature is the environment outside of solid earth,
 hydrosphere, or atmosphere.
 - Concept URI token: extraterrestrialenvironment

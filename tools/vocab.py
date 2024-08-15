@@ -26,7 +26,7 @@ logging_config = {
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
-            "level": "INFO",
+            "level": "DEBUG",
             "formatter": "standard",
             "stream": "ext://sys.stderr",
         },
@@ -61,12 +61,12 @@ LOG_LEVELS = {
 #     "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/rockSedimentExtension.ttl",
 #     "https://raw.githubusercontent.com/isamplesorg/metadata/develop/src/vocabularies/OpenContextMaterial.ttl",
 # ]
-# CURRENT_ISAMPLES_VOCABULARIES = [
-#     "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_material_extension_mineral_group.ttl",
-#     "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_material_extension_rock_sediment.ttl",
-#     "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_sampled_feature_role.ttl",
-#     "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_specimen_type.ttl"
-# ]
+CURRENT_ISAMPLES_VOCABULARIES = [
+    "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_material_extension_mineral_group.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_material_extension_rock_sediment.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_sampled_feature_role.ttl",
+    "https://raw.githubusercontent.com/isamplesorg/metadata_profile_earth_science/main/vocabulary/earthenv_specimen_type.ttl"
+]
 
 def getLogger():
     return logging.getLogger("navocab")
@@ -84,7 +84,7 @@ def getDefaultVocabulary(vs, abbreviate=False):
 @click.group()
 @click.pass_context
 @click.option("-s", "--store", default="vocabularies.db", help="SQLite db for vocabularies" )
-@click.option("--verbosity", default="INFO", help="Logging level")
+@click.option("--verbosity", default="ERROR", help="Logging level")
 def main(ctx, store, verbosity) -> int:
     verbosity = verbosity.upper()
     logging_config["loggers"][""]["level"] = verbosity
@@ -93,31 +93,25 @@ def main(ctx, store, verbosity) -> int:
     ctx.ensure_object(dict)
     store_uri = f"sqlite:///{store}"
     L.debug("Using store at: %s", store_uri)
-    ctx.obj["store"] = navocab.VocabularyStore(storage_uri=store_uri, purge_existing=True)
+    ctx.obj["store"] = navocab.VocabularyStore(storage_uri=store_uri)
     return 0
 
 
-@main.command("purgeStore")
-@click.pass_context
-def purgeStore(ctx):
-    _s = ctx.obj["store"]
-    _s.purge_store()
-
 @main.command("load")
 @click.pass_context
-@click.argument("inputf")
-@click.argument("voc_uri")
-def load(ctx, inputf, voc_uri):
+@click.argument("uri")
+def load(ctx, uri):
     """Load RDF from the provided local or remote URI."""
     L = getLogger()
     _s = ctx.obj["store"]
-    L.info(f"input file to load: {inputf}")
-
-    # stifle cascade of warnings from sqlalchemy about
-    # 'caught a TypeError, retrying call to
-    #   <class 'rdflib_sqlalchemy.store.SQLAlchemy'>.bind without override'
-    _s.load(inputf, voc_uri)
-    L.info("Graph now has %s statements.", len(_s._g))
+    uris = [uri, ]
+    L.debug(f"uri to load: {uri}")
+    if uri =="known":
+        uris = CURRENT_ISAMPLES_VOCABULARIES
+    for uri in uris:
+        L.info("Loading URI: %s", uri)
+        _s.load(uri)
+        L.info("Graph now has %s statements.", len(_s._g))
 
 
 @main.command("namespaces")
@@ -135,8 +129,8 @@ def namespaces(ctx, bind):
     if bind is not None:
         p_uri = bind.split("=", 1)
         if len(p_uri) < 2:
-            L.error("namespace.bind: Insufficient parameters: %s", bind)
-            L.info("namespace.bind: Format the bind request like 'prefix=namespace'")
+            L.error("Insufficient parameters: %s", bind)
+            L.info("Format the bind request like 'prefix=namspace'")
             return
         _s.bind(p_uri[0].strip(), p_uri[1].strip())
     for prefix, uri in _s.namespaces():

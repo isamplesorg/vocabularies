@@ -10,7 +10,6 @@ import rdflib
 import rdflib.namespace
 import rdflib.plugins.sparql
 import sqlalchemy
-import logging.config
 
 STORE_IDENTIFIER = "https://w3id.org/isample/vocabulary"
 NS = {
@@ -71,7 +70,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         storage_uri=DEFAULT_STORE,
         store_identifier=STORE_IDENTIFIER,
 #        purge_existing=False,
-        purge_existing=True  # change to true to get rid of previous loads
+        purge_existing=False  # change to true to get rid of previous loads
     ):
         self.origin = None
         self.storage_uri = storage_uri
@@ -85,22 +84,14 @@ PREFIX rdfs: <{NS['rdfs']}>
     def __len__(self):
         return len(self._g)
 
-    def purge_store(self):
-        """Clears out the Sqlite cache."""
-        # added by SMR to enable purge
-        L.debug("purge_store: purging %s", self.store_identifier)
-        graph.destroy(self.storage_uri)
-
     def _initialize_store(self, purge=False):
         """Sets up the rdf store using an Sqlite cache."""
-        L.info("initialize SQLAlchemy datastore. purge:%s", purge)
+    #    print("initialize SQLAlchemy datastore")
         graph = rdflib.ConjunctiveGraph("SQLAlchemy", identifier=self.store_identifier)
         
         
         if purge:
-            L.info("navocab init: purging %s doesn't work", self.storage_uri)
-
-#            graph.destroy(self.storage_uri)
+            graph.destroy(self.storage_uri)
         
         graph.open(self.storage_uri, create=True)
         ident = graph.store._interned_id
@@ -136,38 +127,29 @@ PREFIX rdfs: <{NS['rdfs']}>
     def load(
         self,
         source: str,
-        voc_uri: str,
         format: str = DEFAULT_FORMAT,
         bindings: typing.Optional[dict] = None,
     ):
         g_loaded = self._g.parse(source, format=format)
         L.info("Navocab.load.source: %s", source)
 
-        test = self._g.namespace_manager.namespaces()
-        for prefix, ns_url in test:
-            print(f"{prefix}: {ns_url}")
-            self._g.bind(prefix, ns_url)
-
         if bindings is not None:
             for k, v in bindings.items():
-                L.debug("binding item k: %", k)
-                L.debug("binding item v: %", v)
                 self._g.bind(k, v)
         # Figure the broader concept vocabularies.
         # First check for extension_vocab rdfs:subPropertyOf extended_vocab
         # if not present, then compute and add it for later use.
         # What vocabulary did we just load?
-        #        q = (
-        #           VocabularyStore._PFX
-        #            + """SELECT ?s
-        #        WHERE {
-        #            ?s rdf:type skos:ConceptScheme .
-        #        }"""
-        #       )
-        # this query will return multiple values if more than one vocab has been loaded
-        #        qres = g_loaded.query(q)
-#        loaded_vocabulary = self._result_single_value(qres, abbreviate=False)
-        loaded_vocabulary = voc_uri
+        q = (
+            VocabularyStore._PFX
+            + """SELECT ?s
+        WHERE {
+            ?s rdf:type skos:ConceptScheme .
+        }"""
+        )
+        qres = g_loaded.query(q)
+        L.info("Navocab.load.query result: %s", qres)
+        loaded_vocabulary = self._result_single_value(qres, abbreviate=False)
         if loaded_vocabulary is not None:
             L.info("Loaded vocabulary %s", loaded_vocabulary)
             q = (
@@ -180,7 +162,7 @@ PREFIX rdfs: <{NS['rdfs']}>
             qres = self._g.query(q, initBindings={"vocabulary": loaded_vocabulary})
             _extended_vocab = self._result_single_value(qres, abbreviate=False)
             if _extended_vocab is not None:
-                L.info("subPropertyOf Extends: %s", _extended_vocab)
+                L.info("Extends: %s", _extended_vocab)
                 return
             # The extended vocabulary is not specified
             # Figure it by examining the broader concepts for each
@@ -191,11 +173,9 @@ PREFIX rdfs: <{NS['rdfs']}>
             WHERE {
                 ?child rdf:type skos:Concept .
                 ?child skos:broader ?s .
-                ?child skos:inScheme ?voc .
             }"""
             )
-#            qres = g_loaded.query(q)
-            qres = g_loaded.query(q, initBindings={"voc": loaded_vocabulary})
+            qres = g_loaded.query(q)
             broader_concepts = self._one_res(qres)
             vocabs = set()
             for c in broader_concepts:
@@ -204,7 +184,7 @@ PREFIX rdfs: <{NS['rdfs']}>
                     vocabs.add(concept.vocabulary)
             for vocab in vocabs:
                 if str(vocab) != str(loaded_vocabulary):
-                    L.info("broader concept Extends: %s", vocab)
+                    L.info("Extends: %s", vocab)
                     self._g.add((rdflib.URIRef(loaded_vocabulary), rdfsT("subPropertyOf"), rdflib.URIRef(vocab)))
                     self._g.commit()
             return
@@ -239,10 +219,9 @@ PREFIX rdfs: <{NS['rdfs']}>
         return res
 
     def _result_single_value(self, rows, abbreviate=False) -> typing.Any:
-        L.debug(f"result_single_value-count rows in query result: {len(rows)}")
+        L.debug(f"VocabularyStore-count rows in query result: {len(rows)}")
         for r in rows:
             L.debug(f"VocabularyStore-result single value row: {self.compact_name(r[0])}")
-        for r in rows:
             if abbreviate:
                 return self.compact_name(r[0])
             return r[0]
