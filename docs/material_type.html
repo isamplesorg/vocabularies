@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,10 +48,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#material" id="toc-material" class="nav-link" data-scroll-target="#material"><span class="header-section-number">1.1</span> Material</a>
   <ul class="collapse">
-  <li><a href="#any-anthropogenic-material" id="toc-any-anthropogenic-material" class="nav-link" data-scroll-target="#any-anthropogenic-material"><span class="header-section-number">1.1.1</span> Any anthropogenic material</a>
+  <li><a href="#anthropogenic-material" id="toc-anthropogenic-material" class="nav-link" data-scroll-target="#anthropogenic-material"><span class="header-section-number">1.1.1</span> Anthropogenic material</a>
   <ul class="collapse">
   <li><a href="#anthropogenic-metal-material" id="toc-anthropogenic-metal-material" class="nav-link" data-scroll-target="#anthropogenic-metal-material"><span class="header-section-number">1.1.1.1</span> Anthropogenic metal material</a></li>
-  <li><a href="#anthropogenic-material" id="toc-anthropogenic-material" class="nav-link" data-scroll-target="#anthropogenic-material"><span class="header-section-number">1.1.1.2</span> Anthropogenic material</a></li>
+  <li><a href="#other-anthropogenic-material" id="toc-other-anthropogenic-material" class="nav-link" data-scroll-target="#other-anthropogenic-material"><span class="header-section-number">1.1.1.2</span> Other anthropogenic material</a></li>
   </ul></li>
   <li><a href="#any-ice" id="toc-any-ice" class="nav-link" data-scroll-target="#any-ice"><span class="header-section-number">1.1.2</span> Any ice</a>
   <ul class="collapse">
@@ -83,22 +83,24 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <p><span id="iSamplesMaterialsVocabulary"></span></p>
 <section id="concept-scheme-isamples-materials-vocabulary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> <strong>Concept scheme:</strong> iSamples Materials Vocabulary</h1>
-<p>Vocabulary last modified: 2022-03-11</p>
+<p>Vocabulary last modified: 2024-08-14</p>
 <p>subtitle: High level vocabulary to specify the kind of material that constitutes a physical sample</p>
 <p>Namespace: <a href="https://w3id.org/isample/vocabulary/material/1.0/materialsvocabulary"><code>https://w3id.org/isample/vocabulary/material/1.0/materialsvocabulary</code></a></p>
 <p><strong>History</strong></p>
 <ul>
 <li><p>2022-01-05 SMR version 0.9, change base uri to https://w3id.org/isample/vocabulary/material/0.9/ for testing with ESIP COR and w3id uri resolution</p></li>
 <li><p>2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes to some definitions. Add skos matches to URIs from other vocabularies; 2023-11-05 version 1.0, in preparation for release.</p></li>
+<li><p>2024-08-14 SMR, various updates since 2023-12: change seeAlso to closeMatch for Rock mapping to http://resource.geosciml.org/classifier/cgi/lithology/rock; minor edits to align with manuscript about the metadata schema; update vocabularies to use ‘material sample’ instead of ‘specimen’; update schema.org namespace to http://; add provider and codeRepository in conceptScheme metadata; minor typo fixes and definition edits.</p></li>
 <li><p><a href="#material">Material</a></p>
 <ul>
-<li><a href="#anyanthropogenicmaterial">Any anthropogenic material</a>
+<li><a href="#anyanthropogenicmaterial">Anthropogenic material</a>
 <ul>
 <li><a href="#anthropogenicmetal">Anthropogenic metal material</a></li>
-<li><a href="#otheranthropogenicmaterial">Anthropogenic material</a></li>
+<li><a href="#otheranthropogenicmaterial">Other anthropogenic material</a></li>
 </ul></li>
 <li><a href="#anyice">Any ice</a>
 <ul>
@@ -136,10 +138,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Concept URI token: material</li>
 </ul>
 <p><span id="anyanthropogenicmaterial"></span></p>
-<section id="any-anthropogenic-material" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" data-anchor-id="any-anthropogenic-material"><span class="header-section-number">1.1.1</span> Any anthropogenic material</h3>
+<section id="anthropogenic-material" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" data-anchor-id="anthropogenic-material"><span class="header-section-number">1.1.1</span> Anthropogenic material</h3>
 <ul>
-<li><p><code>Anthropogenic material</code></p></li>
 <li><p>Child of: <a href="#material"><code>material</code></a></p></li>
 <li><p>Material produced by human activity.</p></li>
 <li><p>Concept URI token: anyanthropogenicmaterial</p></li>
@@ -149,16 +150,14 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.1.1" data-anchor-id="anthropogenic-metal-material"><span class="header-section-number">1.1.1.1</span> Anthropogenic metal material</h4>
 <ul>
 <li><p>Child of: <a href="#anyanthropogenicmaterial"><code>anyanthropogenicmaterial</code></a></p></li>
-<li><p>Specimen is dominantly composed of metal that has been produced or used by humans; subclass of anthropogenic material. Samples of naturally occuring metallic material (e.g.&nbsp;native copper, gold nuggets) should be considered mineral material. Metallic material is material that when polished or fractured, shows a lustrous appearance, and conducts electricity and heat relatively well. Metals are typically malleable (they can be hammered into thin sheets) or ductile (can be drawn into wires). The boundaries between metals, nonmetals, and metalloids fluctuate slightly due to a lack of universally accepted definitions of the categories involved. (https://en.wikipedia.org/wiki/Metal). c.f. http://purl.obolibrary.org/obo/ENVO_01001069</p></li>
 <li><p>Metal that has been produced or used by humans. Samples of naturally occurring metallic material (e.g.&nbsp;native copper, gold nuggets) should be considered mineral material. Metallic material is material that when polished or fractured, shows a lustrous appearance, and conducts electricity and heat relatively well. Metals are typically malleable (they can be hammered into thin sheets) or ductile (can be drawn into wires). The boundaries between metals, nonmetals, and metalloids fluctuate slightly due to a lack of universally accepted definitions of the categories involved. (https://en.wikipedia.org/wiki/Metal, c.f. http://purl.obolibrary.org/obo/ENVO_01001069)</p></li>
 <li><p>Concept URI token: anthropogenicmetal</p></li>
 </ul>
 <p><span id="otheranthropogenicmaterial"></span></p>
 </section>
-<section id="anthropogenic-material" class="level4" data-number="1.1.1.2">
-<h4 data-number="1.1.1.2" data-anchor-id="anthropogenic-material"><span class="header-section-number">1.1.1.2</span> Anthropogenic material</h4>
+<section id="other-anthropogenic-material" class="level4" data-number="1.1.1.2">
+<h4 data-number="1.1.1.2" data-anchor-id="other-anthropogenic-material"><span class="header-section-number">1.1.1.2</span> Other anthropogenic material</h4>
 <ul>
-<li><p><code>Other anthropogenic material</code></p></li>
 <li><p>Child of: <a href="#anyanthropogenicmaterial"><code>anyanthropogenicmaterial</code></a></p></li>
 <li><p>Non-metallic material produced by human activity. Organic products of agricultural activity are both anthropogenic and organic. Include lab preparations like XRF pellet and rock powders. Examples: ceramics, concrete, slag, (anthropogenic) glass, mine tailing, plaster, waste.</p></li>
 <li><p>Concept URI token: otheranthropogenicmaterial</p></li>
@@ -170,7 +169,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.2" data-anchor-id="any-ice"><span class="header-section-number">1.1.2</span> Any ice</h3>
 <ul>
 <li><p>Child of: <a href="#material"><code>material</code></a></p></li>
-<li><p>a solid material that is normally a liquid or gas at Standard Temperature and Pressre (STP) that is in a solid state under the observed temperature and pressure conditions.</p></li>
 <li><p>a material that is in a solid state under the temperature and pressure conditions of the preserved sample, but is a liquid or gas at Standard Temperature and Pressure (STP).</p></li>
 <li><p>Concept URI token: anyice</p></li>
 </ul>
@@ -199,7 +197,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.4" data-anchor-id="dispersed-media"><span class="header-section-number">1.1.4</span> Dispersed media</h3>
 <ul>
 <li><p>Child of: <a href="#material"><code>material</code></a></p></li>
-<li><p>A material contains discrete elements of one medium that are dispersed in a continuous fluid medium. The dispersed component can be a gas, a liquid or a solid (based on https://en.wikipedia.org/wiki/Dispersed_media). Does not include mixtures of granular material like soil, sediment, particulate, or solids that would be considered a rock.</p></li>
 <li><p>Material that contains discrete elements of some material dispersed in a continuous fluid medium. The dispersed component can be a gas, a liquid or a solid (based on https://en.wikipedia.org/wiki/Dispersed_media). Does not include mixtures of granular material like soil, sediment, particulate, or solids that would be considered rock material.</p></li>
 <li><p>Concept URI token: dispersedmedia</p></li>
 </ul>
@@ -209,7 +206,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.5" data-anchor-id="natural-solid-material"><span class="header-section-number">1.1.5</span> Natural Solid Material</h3>
 <ul>
 <li><p>Child of: <a href="#material"><code>material</code></a></p></li>
-<li><p>Undifferentiated soil, sediment, rock, or natural particulates. Typically (nessarily?) a granular aggregate that might include any of the previous constiturents. Use for Earth Material aggregates of uncertain origin</p></li>
 <li><p>A naturally occurring solid material that is not anthropogenic, biogenic, or ice.</p></li>
 <li><p>Concept URI token: earthmaterial</p></li>
 </ul>
@@ -218,7 +214,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.5.1" data-anchor-id="mineral"><span class="header-section-number">1.1.5.1</span> Mineral</h4>
 <ul>
 <li><p>Child of: <a href="#earthmaterial"><code>earthmaterial</code></a></p></li>
-<li><p>Material consists of a single mineral or mineraloid phase. . ‘A mineral is an element or chemical compound that is normally crystalline and that has been formed as a result of geological processes.’ (Nickel, Ernest H. (1995), The definition of a mineral, The Canadian Mineralogist. 33 (3): 689–90). Include mineraloids. … A material primarily composed of some substance that is naturally occurring, solid and stable at room temperature, representable by a chemical formula, usually abiogenic, and that has an ordered atomic structure. (http://purl.obolibrary.org/obo/ENVO_01000256). Comment: the identity of a mineral species is defined by a crystal structure and a chemical composition that might include various specific elemental substitutions in that structure. Mineraloid: A naturally occurring mineral-like substance that does not demonstrate crystallinity. Mineraloids possess chemical compositions that vary beyond the generally accepted ranges for specific minerals. Examples: obsidian, Opal. (https://en.wikipedia.org/wiki/Mineraloid)</p></li>
 <li><p>Material consists of a single mineral or mineraloid phase. ‘A mineral is an element or chemical compound that is normally crystalline and that has been formed as a result of geological processes.’ (Nickel, Ernest H. (1995), The definition of a mineral, The Canadian Mineralogist. 33 (3): 689–90). Include mineraloids. … A material primarily composed of some substance that is naturally occurring, solid and stable at room temperature, representable by a chemical formula, usually abiogenic, and that has an ordered atomic structure. (http://purl.obolibrary.org/obo/ENVO_01000256). The identity of a mineral species is defined by a crystal structure and a chemical composition that might include various specific elemental substitutions in that structure. Mineraloid: A naturally occurring mineral-like substance that does not demonstrate crystallinity. Mineraloids possess chemical compositions that vary beyond the generally accepted ranges for specific minerals. Examples: obsidian, Opal. (https://en.wikipedia.org/wiki/Mineraloid)</p></li>
 <li><p>Concept URI token: mineral</p></li>
 </ul>
@@ -237,7 +232,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.5.3" data-anchor-id="particulate"><span class="header-section-number">1.1.5.3</span> Particulate</h4>
 <ul>
 <li><p>Child of: <a href="#earthmaterial"><code>earthmaterial</code></a></p></li>
-<li><p>Material consists of microscopic particulate material derived by precipitation, filtering, or settling from suspension in a fluid, e.g. filtrate from water, deposition from atmosphere, astro material particles. Might include mineral, organic, or biological material. ENVO definition (ENVO_01000060) has “composed of microscopic portions of solid or liquid material suspended in another environmental material.”, refine here to define as the solid particles, distinct from a material in which they are suspended. A material that includes solid or liquid particles suspended in another material would be a dispersed_media in this scheme, not defined in ENVO. Human manufactured particulates (e.g.&nbsp;rock powder) should be categorized as ‘anthropogenic material’ as well as ‘Particulate’</p></li>
 <li><p>Material consists of microscopic particulate material derived by precipitation, filtering, or settling from suspension in a fluid, e.g. filtrate from water, deposition from atmosphere, astro material particles. Might include mineral, organic, or biological material. ENVO definition (ENVO_01000060) has “composed of microscopic portions of solid or liquid material suspended in another environmental material.” Refine here to define as the solid particles, distinct from a material in which they are suspended. A material that includes solid or liquid particles suspended in another material would be a dispersed_media in this scheme, not defined in ENVO. Human manufactured particulates (e.g.&nbsp;rock powder) should be categorized as ‘Anthropogenic material’ as well as ‘Particulate’</p></li>
 <li><p>Concept URI token: particulate</p></li>
 </ul>
@@ -247,7 +241,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.5.4" data-anchor-id="rock-or-sediment"><span class="header-section-number">1.1.5.4</span> Rock or sediment</h4>
 <ul>
 <li><p>Child of: <a href="#earthmaterial"><code>earthmaterial</code></a></p></li>
-<li><p>Material is rock or sediment. E.g. for samples from subsurface cores that are not well described, from drill holes that likely penetrate sediment near the surface an might be sampling rock at greater depth.</p></li>
 <li><p>Material is rock or sediment. For example core from boreholes that likely penetrate sediment near the surface and rock at greater depth, with descriptions that do not clearly distinguish non-consolidated sediment from rock.</p></li>
 <li><p>Concept URI token: rockorsediment</p></li>
 </ul>
@@ -257,9 +250,6 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>Child of: <a href="#rockorsediment"><code>rockorsediment</code></a></p></li>
 <li><p>Consolidated aggregate of particles (grains) of rock, mineral (including native elements), mineraloid, or solid organic material. Includes mineral aggregates such as granite, shale, marble; natural glass such as obsidian; organic material formed by geologic processes such a coal; extraterrestrial material in meteorites; and crushed rock fragments like drill cuttings from rock. (based on http://resource.geosciml.org/classifier/cgi/lithology/rock, same as http://purl.obolibrary.org/obo/ENVO_00001995)</p></li>
-<li><p>See Also:</p></li>
-<li><p><a href="http://purl.obolibrary.org/obo/ENVO_00001995">&lt;http://purl.obolibrary.org/obo/ENVO_00001995&gt;</a></p></li>
-<li><p><a href="http://resource.geosciml.org/classifier/cgi/lithology/rock">&lt;http://resource.geosciml.org/classifier/cgi/lithology/rock&gt;</a></p></li>
 <li><p>Concept URI token: rock</p></li>
 </ul>
 <p><span id="sediment"></span></p>
@@ -268,7 +258,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 data-number="1.1.5.4.2" data-anchor-id="sediment"><span class="header-section-number">1.1.5.4.2</span> Sediment</h5>
 <ul>
 <li><p>Child of: <a href="#rockorsediment"><code>rockorsediment</code></a></p></li>
-<li><p>Solid granular material transported by wind, water, or gravity, not modified by interaction with biosphere or atmosphere (to differentiate from soil). Particles derived by erosion of pre-existing rock, from shell or other body parts from organisms, precipitated chemically in the surficial environment, or generated by explosive volcanic activity. (http://resource.geosciml.org/classifier/cgi/lithology/sediment). Sediment is not consolidated, i.e.&nbsp;Particulate constituents of a compound material do not adhere to each other strongly enough that the aggregate can be considered a solid material in its own right. Similar to http://purl.obolibrary.org/obo/ENVO_00002007</p></li>
 <li><p>Solid granular material transported by wind, water, or gravity, not modified by interaction with biosphere or atmosphere (to differentiate from soil). Particles might be derived by erosion of pre-existing rock, from shell or other body parts from organisms, precipitated chemically in the surficial environment, or generated by explosive volcanic activity. (http://resource.geosciml.org/classifier/cgi/lithology/sediment). Sediment is not consolidated, i.e.&nbsp;the particulate constituents do not adhere to each other strongly enough that the aggregate can be considered a solid material in its own right. Similar to http://purl.obolibrary.org/obo/ENVO_00002007</p></li>
 <li><p>Concept URI token: sediment</p></li>
 </ul>
@@ -279,7 +268,6 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="1.1.5.5" data-anchor-id="soil"><span class="header-section-number">1.1.5.5</span> Soil</h4>
 <ul>
 <li><p>Child of: <a href="#earthmaterial"><code>earthmaterial</code></a></p></li>
-<li><p>Mixed granular mineral and organic matter modified by interaction between earth material, biosphere, and atmosphere, consisting mostly of varying proportions of sand, silt, and clay, organic material such as humus, gases, liquids, and a broad range of resident micro- and macroorganisms. (https://en.wikipedia.org/wiki/Soil) Soil consists of horizons near the Earth’s surface that, in contrast to the underlying parent material, have been altered by the interactions of climate, relief, and living organisms over time. (http://www.nrcs.usda.gov/wps/ portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280) (http://purl.obolibrary.org/obo/ENVO_00001998)</p></li>
 <li><p>Mixed granular mineral and organic matter modified by interaction between earth material, biosphere, and atmosphere, consisting of varying proportions of sand, silt, and clay, organic material such as humus, gases, liquids, and a broad range of resident micro- and macroorganisms. (https://en.wikipedia.org/wiki/Soil) Soil consists of horizons near the Earth’s surface that, in contrast to the underlying parent material, have been altered by the interactions of climate, relief, and living organisms over time. (http://www.nrcs.usda.gov/wps/ portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280) (http://purl.obolibrary.org/obo/ENVO_00001998)</p></li>
 <li><p>See Also:</p></li>
 <li><p><a href="http://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280">&lt;http://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280&gt;</a></p></li>
@@ -292,7 +280,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.6" data-anchor-id="fluid-material"><span class="header-section-number">1.1.6</span> Fluid material</h3>
 <ul>
 <li><p>Child of: <a href="#material"><code>material</code></a></p></li>
-<li><p>a substance that continually deforms (flows) under an applied shear stress, or external force. Fluids are a phase of matter and include liquids, gases and plasmas. They are substances with zero shear modulus, or, in simpler terms, substances that cannot resist any shear force applied to them. (https://en.wikipedia.org/wiki/Fluid)</p></li>
 <li><p>Substance that continually deforms (flows) under an applied shear stress, or external force. Fluids are a phase of matter and include liquids, gases and plasmas. They are substances with zero or small shear modulus, and flow at a perceptible rate under any shear force applied to them. (https://en.wikipedia.org/wiki/Fluid)</p></li>
 <li><p>Concept URI token: fluid</p></li>
 </ul>
@@ -329,7 +316,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1.7" data-anchor-id="organic-material"><span class="header-section-number">1.1.7</span> Organic material</h3>
 <ul>
 <li><p>Child of: <a href="#material"><code>material</code></a></p></li>
-<li><p>Environmental material derived from living organisms and composed primarily of one or more very large molecules of biological origin. Examples: body (animal or plant), body part, fecal matter, seeds, wood, tissue, biological fluids, biological waste, algal material, biofilm, necromass, plankton. source: http://purl.obolibrary.org/obo/ENVO_01000155</p></li>
 <li><p>Material derived from living organisms and composed primarily of one or more very large molecules of biological origin. Examples: body (animal or plant), body part, fecal matter, seeds, wood, tissue, biological fluids, biological waste, algal material, biofilm, necromass, plankton. source: http://purl.obolibrary.org/obo/ENVO_01000155</p></li>
 <li><p>Concept URI token: organicmaterial</p></li>
 </ul>
@@ -367,18 +353,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -410,11 +385,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -424,8 +438,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -437,7 +460,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -481,6 +627,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -506,6 +653,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -566,6 +739,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
