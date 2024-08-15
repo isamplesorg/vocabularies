@@ -1,1 +1,0 @@
-this directory contains SQLAlchemy database vocabularies.db, used as a triple store to access rdf triples laoded from SKOS via navocab.load

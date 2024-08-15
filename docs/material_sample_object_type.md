@@ -21,6 +21,7 @@ Vocabulary last modified:  2024-04-19
 
 subtitle: 
   Broad categories to specify the kind of physical object identified as the ‘sample’.
+  Broad categories to specify the kind of physical thing identified as the ‘sample’.
 
 Namespace: 
 [`https://w3id.org/isample/vocabulary/materialsampleobjecttype/1.0/conceptscheme`](https://w3id.org/isample/vocabulary/materialsampleobjecttype/1.0/conceptscheme)
