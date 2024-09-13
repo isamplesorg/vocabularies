@@ -60,14 +60,24 @@ def main():
 
     # do function of original Makefile here
   
-    for inputf in inputttl:
-        result=load_cachedb(sourcevocabdir + "/" + inputf + ".ttl", VOCABULARY_CACHE_PATH)
-        if (result == 0):
-            print(f"load_cachedb call successful for: {inputf}")
-        else:
-            print(f"load_cachedb had problem processing: {inputf}.  Exiting.")
-            sys.exit(-1)
+#    for inputf in inputttl:
+#        result=load_cachedb(sourcevocabdir + "/" + inputf + ".ttl", VOCABULARY_CACHE_PATH)
+#        if (result == 0):
+#            print(f"load_cachedb call successful for: {inputf}")
+#        else:
+#            print(f"load_cachedb had problem processing: {inputf}.  Exiting.")
+#            sys.exit(-1)
 
+    index = 0
+    while index < len(inputttl):
+        # for inputf in inputttl:
+        result = load_cachedb(sourcevocabdir + "/" + inputttl[index] + ".ttl", inputvocaburi[index], VOCABULARY_CACHE_PATH)
+        if (result == 0):
+            print(f"load_cachedb call successful for: {inputttl[index]}")
+        else:
+            print(f"load_cachedb had problem processing: {inputttl[index]}")
+        index += 1
+        # ***********************
 
     if command == "uijson":
         print("uijson action has been removed.  json is now fetched dynamically at page load.")
@@ -87,17 +97,17 @@ def main():
         print(f"Unknown command {command}.  Exiting.")
         sys.exit(-1)
 
-def load_cachedb(inputf, cachepath):
+# update to add inputuri argument so works with vocab.py SMR 2024-08-14
+def load_cachedb(inputf, inputuri, cachepath):
     # tools/vocab.py --verbosity ERROR -s $(CACHE) load $(SRC)/$@
-
     print(f"cachdb file to load: {inputf}")
-    load_args = ["--verbosity","DEBUG", "-s", cachepath, "load", inputf]
+    load_args = ["--verbosity", "ERROR", "-s", cachepath, "load", inputf, inputuri]
     result = _run_python_in_container(VOCAB_PY, load_args, f="")
     if (result == 0):
-        print(f"vocab.py.load call successful for {inputf}")
+        print(f"vocab.py call successful for {inputf}")
         return 0
     else:
-        print(f"vocab.py.load had problem processing {inputf}")
+        print(f"vocab.py had problem processing {inputf}")
         return 1
     
 
