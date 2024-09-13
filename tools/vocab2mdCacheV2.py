@@ -275,7 +275,7 @@ def describeTerm(g, t, depth=0, level=1):
             res.append(f"{source}{delimiter}")
         res.append("")
 
-    res.append(f"- Concept URI token: {t.split('/')[-1]}")
+    res.append(f"- Concept URI: {t}")
     res.append("")
 
     return res

@@ -23,7 +23,7 @@ subtitle:
   Categories to specify the broad context that a sample is intended to represent.
 
 Namespace: 
-[`https://w3id.org/isample/vocabulary/sampledfeature/1.0/sampledfeaturevocabulary`](https://w3id.org/isample/vocabulary/sampledfeature/1.0/sampledfeaturevocabulary)
+[`https://w3id.org/isample/vocabulary/sampledfeature/sampledfeaturevocabulary`](https://w3id.org/isample/vocabulary/sampledfeature/sampledfeaturevocabulary)
 
 **History**
 
@@ -66,7 +66,7 @@ Namespace:
 
 - Any thing that can be sampled. Top concept in sampled feature type
 vocabulary.
-- Concept URI token: anysampledfeature
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/anysampledfeature
 
 
 []{#anthropogenicenvironment}
@@ -79,7 +79,7 @@ vocabulary.
 
 - Sampled feature is produced by or related to human activity past or
 present.
-- Concept URI token: anthropogenicenvironment
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/anthropogenicenvironment
 
 
 []{#activehumanoccupationsite}
@@ -92,7 +92,7 @@ present.
 
 - sampled feature is a site at which there are ongoing human
 activities
-- Concept URI token: activehumanoccupationsite
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/activehumanoccupationsite
 
 
 []{#experimentsetting}
@@ -105,7 +105,7 @@ activities
 
 - Sampled feature is an experimental set up that produced the sample;
 the sample is the product of the experiment.
-- Concept URI token: experimentsetting
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/experimentsetting
 
 
 []{#laboratorycuratorialenvironment}
@@ -120,7 +120,7 @@ the sample is the product of the experiment.
 with intention of characterizing the environment in which data are
 collected or other research conducted, that might affect results or
 safety; e.g. lab blank measurements.
-- Concept URI token: laboratorycuratorialenvironment
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/laboratorycuratorialenvironment
 
 
 []{#pasthumanoccupationsite}
@@ -133,7 +133,7 @@ safety; e.g. lab blank measurements.
 
 - sampled feature is a place where humans have been and left evidence
 of their activity. Includes prehistoric and paleo hominid sites
-- Concept URI token: pasthumanoccupationsite
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/pasthumanoccupationsite
 
 
 []{#biologicalentity}
@@ -147,7 +147,7 @@ of their activity. Includes prehistoric and paleo hominid sites
 - Sampled feature is an organism. Use for samples that represent some
 species of organism as the proximate sampled feature, not the
 environment that the organism inhabits.
-- Concept URI token: biologicalentity
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/biologicalentity
 
 
 []{#earthenvironment}
@@ -163,7 +163,7 @@ environment that the organism inhabits.
 - See Also:
 * [<http://purl.bioontology.org/ontology/MESH/D004777>](http://purl.bioontology.org/ontology/MESH/D004777)
 * [<http://semanticscience.org/resource/SIO_000955>](http://semanticscience.org/resource/SIO_000955)
-- Concept URI token: earthenvironment
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/earthenvironment
 
 
 []{#atmosphere}
@@ -179,7 +179,7 @@ environment that the organism inhabits.
 - See Also:
 * [<http://purl.obolibrary.org/obo/ENVO_01000267>](http://purl.obolibrary.org/obo/ENVO_01000267)
 * [<http://purl.obolibrary.org/obo/RBO_00000018>](http://purl.obolibrary.org/obo/RBO_00000018)
-- Concept URI token: atmosphere
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/atmosphere
 
 
 []{#earthinterior}
@@ -191,7 +191,7 @@ environment that the organism inhabits.
  [`earthenvironment`](#earthenvironment)
 
 - Sampled feature is solid material from within the Earth
-- Concept URI token: earthinterior
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/earthinterior
 
 
 []{#earthsurface}
@@ -206,7 +206,7 @@ environment that the organism inhabits.
 or atmosphere. Includes samples representing things collected on the
 surface, in the uppermost part of the material below the surface, or
 air or water directly at the contact with the Earth surface.
-- Concept URI token: earthsurface
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/earthsurface
 
 
 []{#lakeriverstreambottom}
@@ -219,7 +219,7 @@ air or water directly at the contact with the Earth surface.
 
 - Sampled feature is the interface between the solid Earth interface
 and a lake or flowing water body.
-- Concept URI token: lakeriverstreambottom
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/lakeriverstreambottom
 
 
 []{#marinewaterbodybottom}
@@ -238,7 +238,7 @@ influenced by the overlying water.
 - **Alternate labels:**
 Sea floor
 
-- Concept URI token: marinewaterbodybottom
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/marinewaterbodybottom
 
 
 []{#subaerialsurfaceenvironment}
@@ -253,7 +253,7 @@ Sea floor
 Sample is collected on the surface, or immediately below surface (zone
 of bioturbation). Include soil and recently deposited subaerial
 sediment at the surface.
-- Concept URI token: subaerialsurfaceenvironment
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/subaerialsurfaceenvironment
 
 
 []{#glacierenvironment}
@@ -266,7 +266,7 @@ sediment at the surface.
 
 - Sampled feature is a glacier, ice sheet, ice shelf, iceberg, or rock
 or water directly under or on top of such ice.
-- Concept URI token: glacierenvironment
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/glacierenvironment
 
 
 []{#subsurfacefluidreservoir}
@@ -279,7 +279,7 @@ or water directly under or on top of such ice.
 
 - Sampled feature is fluid that resides in fractures, intergranular
 porosity or other open space in the solid earth.
-- Concept URI token: subsurfacefluidreservoir
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/subsurfacefluidreservoir
 
 
 []{#waterbody}
@@ -291,7 +291,7 @@ porosity or other open space in the solid earth.
  [`earthenvironment`](#earthenvironment)
 
 - Sampled feature is the Earth's hydrosphere.
-- Concept URI token: waterbody
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/waterbody
 
 
 []{#marinewaterbody}
@@ -306,7 +306,7 @@ porosity or other open space in the solid earth.
 
 - See Also:
 * [<http://purl.obolibrary.org/obo/ENVO_01000686>](http://purl.obolibrary.org/obo/ENVO_01000686)
-- Concept URI token: marinewaterbody
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/marinewaterbody
 
 
 []{#terrestrialwaterbody}
@@ -320,7 +320,7 @@ porosity or other open space in the solid earth.
 - Sampled feature is terrestrial hydrosphere-- lake, other standing
 water, or a flowing water body (river, stream..). Include saline water
 in terrestrial evaporite environments.
-- Concept URI token: terrestrialwaterbody
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/terrestrialwaterbody
 
 
 []{#extraterrestrialenvironment}
@@ -333,7 +333,7 @@ in terrestrial evaporite environments.
 
 - Sampled feature is the environment outside of solid earth,
 hydrosphere, or atmosphere.
-- Concept URI token: extraterrestrialenvironment
+- Concept URI: https://w3id.org/isample/vocabulary/sampledfeature/extraterrestrialenvironment
 
 
 
