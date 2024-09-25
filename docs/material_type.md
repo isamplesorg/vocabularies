@@ -23,7 +23,7 @@ subtitle:
   High level vocabulary to specify the kind of material that constitutes a physical sample
 
 Namespace: 
-[`https://w3id.org/isample/vocabulary/material/1.0/materialsvocabulary`](https://w3id.org/isample/vocabulary/material/1.0/materialsvocabulary)
+[`https://w3id.org/isample/vocabulary/material/materialsvocabulary`](https://w3id.org/isample/vocabulary/material/materialsvocabulary)
 
 **History**
 
@@ -61,7 +61,7 @@ Namespace:
 
 
 - Top Concept in iSamples Material Category scheme
-- Concept URI token: material
+- Concept URI: https://w3id.org/isample/vocabulary/material/material
 
 
 []{#anyanthropogenicmaterial}
@@ -73,7 +73,7 @@ Namespace:
  [`material`](#material)
 
 - Material produced by human activity.
-- Concept URI token: anyanthropogenicmaterial
+- Concept URI: https://w3id.org/isample/vocabulary/material/anyanthropogenicmaterial
 
 
 []{#anthropogenicmetal}
@@ -94,7 +94,7 @@ wires). The boundaries between metals, nonmetals, and metalloids
 fluctuate slightly due to a lack of universally accepted definitions
 of the categories involved. (https://en.wikipedia.org/wiki/Metal, c.f.
 http://purl.obolibrary.org/obo/ENVO_01001069)
-- Concept URI token: anthropogenicmetal
+- Concept URI: https://w3id.org/isample/vocabulary/material/anthropogenicmetal
 
 
 []{#otheranthropogenicmaterial}
@@ -109,7 +109,7 @@ http://purl.obolibrary.org/obo/ENVO_01001069)
 of agricultural activity are both anthropogenic and organic. Include
 lab preparations like XRF pellet and rock powders. Examples: ceramics,
 concrete, slag, (anthropogenic) glass, mine tailing, plaster, waste.
-- Concept URI token: otheranthropogenicmaterial
+- Concept URI: https://w3id.org/isample/vocabulary/material/otheranthropogenicmaterial
 
 
 []{#anyice}
@@ -123,7 +123,7 @@ concrete, slag, (anthropogenic) glass, mine tailing, plaster, waste.
 - a material that is in a solid state under the temperature and
 pressure conditions of the preserved sample, but is a liquid or gas at
 Standard Temperature and Pressure (STP).
-- Concept URI token: anyice
+- Concept URI: https://w3id.org/isample/vocabulary/material/anyice
 
 
 []{#waterice}
@@ -139,7 +139,7 @@ Standard Temperature and Pressure (STP).
 - **Alternate labels:**
 Water ice
 
-- Concept URI token: waterice
+- Concept URI: https://w3id.org/isample/vocabulary/material/waterice
 
 
 []{#biogenicnonorganicmaterial}
@@ -153,7 +153,7 @@ Water ice
 - Material produced by an organism but not composed of 'very large
 molecules of biological origin.' E.g. bone, tooth, shell, coral
 skeleton,
-- Concept URI token: biogenicnonorganicmaterial
+- Concept URI: https://w3id.org/isample/vocabulary/material/biogenicnonorganicmaterial
 
 
 []{#dispersedmedia}
@@ -170,7 +170,7 @@ liquid or a solid (based on
 https://en.wikipedia.org/wiki/Dispersed_media). Does not include
 mixtures of granular material like soil, sediment, particulate, or
 solids that would be considered  rock material.
-- Concept URI token: dispersedmedia
+- Concept URI: https://w3id.org/isample/vocabulary/material/dispersedmedia
 
 
 []{#earthmaterial}
@@ -183,7 +183,7 @@ solids that would be considered  rock material.
 
 - A naturally occurring solid material that is not anthropogenic,
 biogenic, or ice.
-- Concept URI token: earthmaterial
+- Concept URI: https://w3id.org/isample/vocabulary/material/earthmaterial
 
 
 []{#mineral}
@@ -210,7 +210,7 @@ mineral-like substance that does not demonstrate crystallinity.
 Mineraloids possess chemical compositions that vary beyond the
 generally accepted ranges for specific minerals. Examples: obsidian,
 Opal. (https://en.wikipedia.org/wiki/Mineraloid)
-- Concept URI token: mineral
+- Concept URI: https://w3id.org/isample/vocabulary/material/mineral
 
 
 []{#mixedsoilsedimentrock}
@@ -224,7 +224,7 @@ Opal. (https://en.wikipedia.org/wiki/Mineraloid)
 - Material is mixed aggregation of fragments of undifferentiated soil,
 sediment or rock origin. e.g. cuttings from some boreholes (rock
 fragments and caved soil or sediment).
-- Concept URI token: mixedsoilsedimentrock
+- Concept URI: https://w3id.org/isample/vocabulary/material/mixedsoilsedimentrock
 
 
 []{#particulate}
@@ -247,7 +247,7 @@ or liquid particles suspended in another material would be a
 dispersed_media in this scheme, not defined in ENVO. Human
 manufactured particulates (e.g. rock powder) should be categorized as
 'Anthropogenic material' as well as 'Particulate'
-- Concept URI token: particulate
+- Concept URI: https://w3id.org/isample/vocabulary/material/particulate
 
 
 []{#rockorsediment}
@@ -262,7 +262,7 @@ manufactured particulates (e.g. rock powder) should be categorized as
 likely penetrate sediment near the surface and rock at greater depth,
 with descriptions that do not clearly distinguish non-consolidated
 sediment from rock.
-- Concept URI token: rockorsediment
+- Concept URI: https://w3id.org/isample/vocabulary/material/rockorsediment
 
 
 []{#rock}
@@ -281,7 +281,7 @@ such a coal;  extraterrestrial material in meteorites; and  crushed
 rock fragments like drill cuttings from rock.  (based on
 http://resource.geosciml.org/classifier/cgi/lithology/rock, same as
 http://purl.obolibrary.org/obo/ENVO_00001995)
-- Concept URI token: rock
+- Concept URI: https://w3id.org/isample/vocabulary/material/rock
 
 
 []{#sediment}
@@ -303,7 +303,7 @@ Sediment is not consolidated, i.e. the particulate constituents do not
 adhere to each other strongly enough that the aggregate can be
 considered a solid material in its own right. Similar to
 http://purl.obolibrary.org/obo/ENVO_00002007
-- Concept URI token: sediment
+- Concept URI: https://w3id.org/isample/vocabulary/material/sediment
 
 
 []{#soil}
@@ -327,7 +327,7 @@ portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280)
 
 - See Also:
 * [<http://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280>](http://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/edu/?cid=nrcs142p2_054280)
-- Concept URI token: soil
+- Concept URI: https://w3id.org/isample/vocabulary/material/soil
 
 
 []{#fluid}
@@ -343,7 +343,7 @@ stress, or external force. Fluids are a phase of matter and include
 liquids, gases and plasmas. They are substances with zero or small
 shear modulus, and flow at a perceptible rate under any shear force
 applied to them. (https://en.wikipedia.org/wiki/Fluid)
-- Concept URI token: fluid
+- Concept URI: https://w3id.org/isample/vocabulary/material/fluid
 
 
 []{#gas}
@@ -358,7 +358,7 @@ applied to them. (https://en.wikipedia.org/wiki/Fluid)
 independent shape nor volume but tends to expand indefinitely
 (http://purl.obolibrary.org/obo/ENVO_01000797). Infer that the sample
 is curated in some kind of container.
-- Concept URI token: gas
+- Concept URI: https://w3id.org/isample/vocabulary/material/gas
 
 
 []{#liquidwater}
@@ -371,7 +371,7 @@ is curated in some kind of container.
 
 - A material primarily composed of dihydrogen oxide in its liquid
 form; infer that the sample is curated in some kind of container.
-- Concept URI token: liquidwater
+- Concept URI: https://w3id.org/isample/vocabulary/material/liquidwater
 
 
 []{#nonaqueousliquid}
@@ -385,7 +385,7 @@ form; infer that the sample is curated in some kind of container.
 - Liquid composed dominantly of material other than water. Includes
 liquids that do not fit in any other category. E.g. alcohol,
 petroleum.
-- Concept URI token: nonaqueousliquid
+- Concept URI: https://w3id.org/isample/vocabulary/material/nonaqueousliquid
 
 
 []{#organicmaterial}
@@ -402,7 +402,7 @@ or more very large molecules of biological origin. Examples: body
 biological fluids, biological waste, algal material, biofilm,
 necromass, plankton. source:
 http://purl.obolibrary.org/obo/ENVO_01000155
-- Concept URI token: organicmaterial
+- Concept URI: https://w3id.org/isample/vocabulary/material/organicmaterial
 
 
 
