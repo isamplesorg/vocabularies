@@ -161,6 +161,7 @@ mat:materialsvocabulary
   skos:historyNote "2022-01-05 SMR version 0.9, change base uri to https://w3id.org/isample/vocabulary/material/0.9/ for testing with ESIP COR and w3id uri resolution"@en ;
   skos:historyNote "2022-03-11 SMR change definitions from rdfs:comment to skos:definition. Minor fixes to some definitions.  Add skos matches to URIs from other vocabularies; 2023-11-05 version 1.0, in preparation for release. "@en ;
   skos:historyNote "2024-08-14 SMR, various updates since 2023-12:  change seeAlso to closeMatch for Rock mapping to http://resource.geosciml.org/classifier/cgi/lithology/rock; minor edits to align with manuscript about the metadata schema; update vocabularies to use 'material sample' instead of 'specimen'; update schema.org namespace to http://; add provider and codeRepository in conceptScheme metadata; minor typo fixes and definition edits."@en ;
+  skos:historyNote "2024-09-13 remove version numbers from URI"@en ;
   skos:prefLabel "iSamples Materials Vocabulary "@en ;
 .
 mat:mineral
