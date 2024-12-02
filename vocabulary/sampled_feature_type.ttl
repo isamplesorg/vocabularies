@@ -239,6 +239,7 @@ sf:sampledfeaturevocabulary
   skos:historyNote "2022-09-30 add biological entity as sampled feature, per issue https://github.com/isamplesorg/metadata/issues/107. This update was lost at some point and added back in 2022-12-09."@en ;
   skos:historyNote "2023-11-05 SMR update version to 1.0, prep for release"@en ;
   skos:historyNote "2024-04-19 SMR update definitions to remove use of 'specimen'. Edit some definitions for better clarity"@en ;
+  skos:historyNote "2024-09-13 remove version numbers from URI"@en ;
   skos:prefLabel "Sampled Feature Type vocabulary"@en ;
 .
 sf:subaerialsurfaceenvironment
