@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM python:3.12-slim
 WORKDIR /app
 COPY ./.github/actions/github_action_main.py .
 COPY ./tools ./tools
@@ -20,7 +20,7 @@ RUN pip install -r /app/tools/requirements.txt
 RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
 RUN gdebi --non-interactive quarto-linux-amd64.deb
 
-ENV PYTHONPATH /app
+ENV PYTHONPATH=/app
 ENTRYPOINT ["/app/github_action_main.py"]
 
 # This is for debugging the Docker image build process, ensures the container stays up
