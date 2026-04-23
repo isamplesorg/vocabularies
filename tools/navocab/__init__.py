@@ -21,9 +21,10 @@ NS = {
     "obo": "http://purl.obolibrary.org/obo/",
     "geosciml": "http://resource.geosciml.org/classifier/cgi/lithology",
 }
+def getLogger():
+    return logging.getLogger("navocab")
 
-
-L = logging.getLogger("navocab")
+L = getLogger()
 
 def skosT(term):
     return rdflib.URIRef(f"{NS['skos']}{term}")
@@ -70,9 +71,9 @@ PREFIX rdfs: <{NS['rdfs']}>
         self,
         storage_uri=DEFAULT_STORE,
         store_identifier=STORE_IDENTIFIER,
-#        purge_existing=False,
-        purge_existing=True  # change to true to get rid of previous loads
-    ):
+        purge_existing=False,
+#        purge_existing=True  # change to true to get rid of previous loads
+        ):
         self.origin = None
         self.storage_uri = storage_uri
         self.store_identifier = store_identifier
@@ -86,21 +87,27 @@ PREFIX rdfs: <{NS['rdfs']}>
         return len(self._g)
 
     def purge_store(self):
-        """Clears out the Sqlite cache."""
-        # added by SMR to enable purge
-        L.debug("purge_store: purging %s", self.store_identifier)
-        graph.destroy(self.storage_uri)
+        """No-op: delete the Sqlite cache file externally instead.
+
+        The previous implementation referenced an undefined ``graph`` local
+        and crashed on invocation. In-place destruction via rdflib-sqlalchemy
+        has been unreliable, so the driver (see github_action_main.py) removes
+        the DB file between vocabularies rather than relying on this method.
+        """
+        L.warning(
+            "purge_store is disabled; delete the sqlite file at %s externally",
+            self.storage_uri,
+        )
 
     def _initialize_store(self, purge=False):
         """Sets up the rdf store using an Sqlite cache."""
-        L.info("initialize SQLAlchemy datastore. purge:%s", purge)
+#        L = getLogger()
+        L.debug("initialize SQLAlchemy datastore. purge:%s",purge)
         graph = rdflib.ConjunctiveGraph("SQLAlchemy", identifier=self.store_identifier)
-        
-        
-        if purge:
-            L.info("navocab init: purging %s doesn't work", self.storage_uri)
 
-#            graph.destroy(self.storage_uri)
+        if purge:
+            L.debug("navocab init: purging %s", self.store_identifier)
+            graph.destroy(self.storage_uri)
         
         graph.open(self.storage_uri, create=True)
         ident = graph.store._interned_id
@@ -141,6 +148,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         bindings: typing.Optional[dict] = None,
     ):
         g_loaded = self._g.parse(source, format=format)
+#        L = getLogger()
         L.info("Navocab.load.source: %s", source)
 
         test = self._g.namespace_manager.namespaces()
@@ -157,16 +165,16 @@ PREFIX rdfs: <{NS['rdfs']}>
         # First check for extension_vocab rdfs:subPropertyOf extended_vocab
         # if not present, then compute and add it for later use.
         # What vocabulary did we just load?
-        #        q = (
-        #           VocabularyStore._PFX
-        #            + """SELECT ?s
-        #        WHERE {
-        #            ?s rdf:type skos:ConceptScheme .
-        #        }"""
-        #       )
+        
+#        q = (
+ #           VocabularyStore._PFX
+#            + """SELECT ?s
+#        WHERE {
+#            ?s rdf:type skos:ConceptScheme .
+#        }"""
+ #       )
         # this query will return multiple values if more than one vocab has been loaded
-        #        qres = g_loaded.query(q)
-#        loaded_vocabulary = self._result_single_value(qres, abbreviate=False)
+#        qres = g_loaded.query(q)
         loaded_vocabulary = voc_uri
         if loaded_vocabulary is not None:
             L.info("Loaded vocabulary %s", loaded_vocabulary)
@@ -194,8 +202,7 @@ PREFIX rdfs: <{NS['rdfs']}>
                 ?child skos:inScheme ?voc .
             }"""
             )
-#            qres = g_loaded.query(q)
-            qres = g_loaded.query(q, initBindings={"voc": loaded_vocabulary})
+            qres = g_loaded.query(q,initBindings={"voc": loaded_vocabulary} )
             broader_concepts = self._one_res(qres)
             vocabs = set()
             for c in broader_concepts:
@@ -239,6 +246,7 @@ PREFIX rdfs: <{NS['rdfs']}>
         return res
 
     def _result_single_value(self, rows, abbreviate=False) -> typing.Any:
+#        L = getLogger()
         L.debug(f"result_single_value-count rows in query result: {len(rows)}")
         for r in rows:
             L.debug(f"VocabularyStore-result single value row: {self.compact_name(r[0])}")
